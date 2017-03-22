@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\State;
+use App\Town;
 
-class AdministradorController extends Controller
+class StateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +18,16 @@ class AdministradorController extends Controller
      */
     public function index()
     {
-        return view('administrador.index');
+        $states = State::lists('name','id');
+        return view('state.index',compact('states'));
+    }
+
+    public function getTowns(Request $request,$id)
+    {
+        if($request->ajax()){
+            $towns = Town::towns($id);
+            return response()->json($towns);
+        }
     }
 
     /**
@@ -26,7 +37,7 @@ class AdministradorController extends Controller
      */
     public function create()
     {
-        return "Esto es el formulario para crear";
+        return view('state.create');
     }
 
     /**
@@ -37,7 +48,11 @@ class AdministradorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       \App\State::create([
+           'nombre' => $request['nombre'],
+       ]);
+
+        return "State registrado";
     }
 
     /**

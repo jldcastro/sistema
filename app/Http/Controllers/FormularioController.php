@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class PruebaController extends Controller
+class FormularioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,8 @@ class PruebaController extends Controller
      */
     public function index()
     {
-        return "Hola desde controller";
-    }
-
-    public function nombre($nombre)
-    {
-        return "Hola mi nombre es:".$nombre;
+        $statesList = \App\State::lists('nombre', 'id')->all();
+        return view('formulario.index')->with("statesList",$statesList);
     }
 
     /**

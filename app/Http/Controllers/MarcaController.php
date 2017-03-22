@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+use App\Marca;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class AdministradorController extends Controller
+class MarcaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +18,8 @@ class AdministradorController extends Controller
      */
     public function index()
     {
-        return view('administrador.index');
+        $marcas = Marca::all();
+        return view('marcas.index',compact('marcas'));
     }
 
     /**
@@ -26,7 +29,7 @@ class AdministradorController extends Controller
      */
     public function create()
     {
-        return "Esto es el formulario para crear";
+        return view('marcas.create');
     }
 
     /**
@@ -37,7 +40,11 @@ class AdministradorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Marca::create([
+            'nombre' => $request['nombre'],
+        ]);
+
+        return redirect('/marca')->with('mensaje','"Marca equipo registrada exitósamente"');
     }
 
     /**
@@ -59,7 +66,8 @@ class AdministradorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $marca = Marca::find($id);
+        return view('marcas.edit',['marca' => $marca]);
     }
 
     /**
@@ -71,7 +79,12 @@ class AdministradorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $marca = Marca::find($id);
+        $marca->fill($request->all());
+        $marca->save();
+
+        Session::flash('mensaje','Marca equipo actualizada exitósamente');
+        return Redirect::to('/marca');
     }
 
     /**
@@ -82,6 +95,9 @@ class AdministradorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Marca::destroy($id);
+
+        Session::flash('mensaje2','Marca equipo eliminada exitósamente');
+        return Redirect::to('/marca');
     }
 }
