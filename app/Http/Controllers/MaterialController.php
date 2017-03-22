@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
-use App\Marca;
+use App\Material;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class MarcaController extends Controller
+class MaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +18,8 @@ class MarcaController extends Controller
      */
     public function index()
     {
-        $marcas = Marca::all();
-        return view('marcas.index',compact('marcas'));
+        $materiales = Material::all();
+        return view('materiales.index',compact('materiales'));
     }
 
     /**
@@ -29,7 +29,7 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        return view('marcas.create');
+        return view('materiales.create');
     }
 
     /**
@@ -40,11 +40,11 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        Marca::create([
+        Material::create([
             'nombre' => $request['nombre'],
         ]);
 
-        return redirect('/marca')->with('mensaje','Marca equipo registrada exitósamente');
+        return redirect('/material')->with('mensaje','Tipo de material registrado exitósamente');
     }
 
     /**
@@ -66,8 +66,8 @@ class MarcaController extends Controller
      */
     public function edit($id)
     {
-        $marca = Marca::find($id);
-        return view('marcas.edit',['marca' => $marca]);
+        $material = Material::find($id);
+        return view('materiales.edit',['material' => $material]);
     }
 
     /**
@@ -79,12 +79,12 @@ class MarcaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $marca = Marca::find($id);
-        $marca->fill($request->all());
-        $marca->save();
+        $material = Material::find($id);
+        $material->fill($request->all());
+        $material->save();
 
-        Session::flash('mensaje','Marca equipo actualizada exitósamente');
-        return Redirect::to('/marca');
+        Session::flash('mensaje','Tipo de material actualizado exitósamente');
+        return Redirect::to('/material');
     }
 
     /**
@@ -95,9 +95,9 @@ class MarcaController extends Controller
      */
     public function destroy($id)
     {
-        Marca::destroy($id);
+        Material::destroy($id);
 
-        Session::flash('mensaje2','Marca equipo eliminada exitósamente');
-        return Redirect::to('/marca');
+        Session::flash('mensaje2','Tipo de material eliminado exitósamente');
+        return Redirect::to('/material');
     }
 }

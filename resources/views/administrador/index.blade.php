@@ -73,7 +73,7 @@
                                             <ul class="dropdown-menu" role="menu">
                                                 <li><a href="#"><i class="fa fa-circle"></i>Condiciones</a></li>
                                                 <li><a href="{!!URL::to('/marca') !!}"><i class="fa fa-barcode"></i>Marcas</a></li>
-                                                <li><a href="#"><i class="fa fa-list"></i>Materiales</a></li>
+                                                <li><a href="{!!URL::to('/material') !!}"><i class="fa fa-list"></i>Materiales</a></li>
                                                 <li><a href="#"><i class="fa fa-barcode"></i>Modelos</a></li>
                                                 <li><a href="#"><i class="fa fa-map-marker"></i>Ubicaciones</a></li>
                                                 <li><a href="#"><i class="fa fa-list"></i>Unidades</a></li>

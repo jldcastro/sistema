@@ -18,3 +18,5 @@ Route::resource('/states', 'StateController');
 
 //Rutas marcas
 Route::resource('/marca', 'MarcaController');
+//Rutas materiales
+Route::resource('/material', 'MaterialController');
