@@ -16,7 +16,12 @@ Route::get('/towns/{id}', 'StateController@getTowns');
 Route::resource('/login', 'LoginController');
 Route::resource('/states', 'StateController');
 
+
+//Rutas tipo equipo
+Route::resource('/tipo_equipo', 'TipoEquipoController');
 //Rutas marcas
 Route::resource('/marca', 'MarcaController');
 //Rutas materiales
 Route::resource('/material', 'MaterialController');
+//Rutas u
+Route::resource('/unidad', 'UnidadController');

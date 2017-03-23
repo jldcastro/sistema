@@ -79,6 +79,7 @@
                                                 <li><a href="#"><i class="fa fa-list"></i>Unidades</a></li>
                                                 <li><a href="#"><i class="fa fa-list"></i>Tipos</a></li>
                                                 <li><a href="#"><i class="fa fa-list"></i>Tipos Clientes</a></li>
+                                                <li><a href="{!!URL::to('/tipo_equipo') !!}"><i class="fa fa-list"></i>Tipos Equipos</a></li>
                                                 <li><a href="#"><i class="fa fa-list"></i>States</a></li>
                                                 <li><a href="#"><i class="fa fa-list"></i>Citys</a></li>
                                             </ul>
