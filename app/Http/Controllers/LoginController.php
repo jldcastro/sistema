@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
+use Redirect;
+use Session;
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -35,9 +38,19 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
-        //
+        if(Auth::attempt(['rut_usuario' => $request['rut_usuario'], 'password' => $request['password']])){
+            return Redirect::to('administrador');
+        }
+        Session::flash('mensaje-error','Los datos son incorrectos');
+        return Redirect::to('/login');
+
+    }
+
+    public function logout(){
+        Auth::logout();
+        return Redirect::to('/login');
     }
 
     /**

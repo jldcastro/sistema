@@ -3,29 +3,37 @@
         @if(Session::has('mensaje'))
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i>Mensaje</h4>
                  {{Session::get('mensaje')}}
             </div>
         @endif
         @if(Session::has('mensaje2'))
             <div class="alert alert-danger alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i>Mensaje</h4>
                  {{Session::get('mensaje2')}}
             </div>
         @endif
+        @if(count($materiales)>0)
         <table class="table table-hover">
             <thead>
-                <th>Nombre</th>
+                <th>Material</th>
+                <th>Tipo equipo</th>
                 <th>Opciones</th>
             </thead>
             @foreach($materiales as $material)
             <tbody>
                 <td>{{$material->nombre}}</td>
-                <td>{!!link_to_route('material.edit',$title ='Editar',$parameters = $material->id,$attributes = ['class' => 'btn  btn-success btn-xs'])!!}</td>
+                <td>{{$material->tipo_equipo->nombre}}</td>
+                <td>{!!link_to_route('material.edit',$title ='Editar',$parameters = $material->id,$attributes = ['class' => 'btn  btn-success btn-xs'])!!}
+                    <a href="" data-target="#modal-delete-{{$material->id}}" data-toggle="modal"><button class="btn btn-danger btn-xs">Eliminar</button></a>
+                </td>
             </tbody>
             @endforeach
+            @include('...materiales.modal')
         </table>
+        {!!$materiales->render()!!}
+        @else
+            <br/><div class='alert alert-warning'><label>No existe ningún material dentro de la lista</label></div>
+        @endif
         <div class="form-group has-feedback">
             <button class=".btn btn-primary col-md-offset-5"><a href="{!!URL::to('/material/create') !!}" style="color: #ffffff">Agregar Material</a></button>
         </div>

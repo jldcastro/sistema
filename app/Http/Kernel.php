@@ -29,5 +29,7 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'roleshinobi' => \Caffeinated\Shinobi\Middleware\UserHasRole::class,
+        'permissionshinobi' => \Caffeinated\Shinobi\Middleware\UserHasPermission::class,
     ];
 }

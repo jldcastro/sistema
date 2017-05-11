@@ -85,6 +85,16 @@ return [
             'prefix'   => '',
         ],
 
+        'calibracion' => array(
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'database'  => 'grupodelsur',
+            'username'  => 'root',
+            'password'  => '',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ),
     ],
 
     /*

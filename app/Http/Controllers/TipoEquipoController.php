@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use App\TipoEquipo;
 use App\Http\Requests;
+use App\Http\Requests\TipoEquipoCreateRequest;
+use App\Http\Requests\TipoEquipoUpdateRequest;
 use App\Http\Controllers\Controller;
 
 class TipoEquipoController extends Controller
@@ -16,10 +19,16 @@ class TipoEquipoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $tipos_equipos = TipoEquipo::all();
+        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->paginate(20);
         return view('tipos_equipos.index',compact('tipos_equipos'));
+
     }
 
     /**
@@ -38,7 +47,7 @@ class TipoEquipoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TipoEquipoCreateRequest $request)
     {
         TipoEquipo::create([
             'nombre' => $request['nombre'],
@@ -77,7 +86,7 @@ class TipoEquipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TipoEquipoUpdateRequest $request, $id)
     {
         $tipo_equipo = TipoEquipo::find($id);
         $tipo_equipo->fill($request->all());

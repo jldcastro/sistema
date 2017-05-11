@@ -6,6 +6,7 @@
         <title>Bienvenido</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Bootstrap 3.3.5 -->
         {!!Html::style('css/bootstrap.min.css')!!}
         <!-- Font Awesome -->
@@ -17,9 +18,19 @@
         <!-- AdminLTE Skins. Choose a skin from the css/skins
         folder instead of downloading all of them to reduce the load. -->
         {!!Html::style('css/skins/_all-skins.min.css')!!}
+        <!-- Input -->
+        {!!Html::style('css/input.css')!!}
+        <!-- Equipos -->
+        {!!Html::style('css/equipos.css')!!}
+        <!-- Select -->
+        {!!Html::style('css/select.css')!!}
+        <!-- Tabla2 -->
+        {!!Html::style('css/tabla2.css')!!}
+        <!-- Textarea -->
+        {!!Html::style('css/parrafo.css')!!}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <!-- Logo Empresa en la pestaña del navegador -->
         <link rel="shortcut icon" href="{{ asset('imagenes/empresa/molinstec.png') }}">
-
     </head>
         <body class="hold-transition skin-purple layout-top-nav">
                 <div class="wrapper">
@@ -33,7 +44,11 @@
                                 <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                                     <ul class="nav navbar-nav">
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ingresar F-37</a>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">F-37</a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="{!!URL::to('/f37') !!}"><i class="fa fa-list"></i>Solicitudes F-37</a></li>
+                                                <li><a href="{!!URL::to('/f37') !!}"><i class="fa fa-list"></i>Valorizado</a></li>
+                                            </ul>
                                         </li>
                                     </ul>
                                     <ul class="nav navbar-nav">
@@ -63,7 +78,9 @@
                                             <ul class="dropdown-menu" role="menu">
                                                 <li><a href="#"><i class="fa fa-caret-square-o-left"></i>Atrasos</a></li>
                                                 <li><a href="#"><i class="fa fa-circle"></i>Estados</a></li>
-                                                <li><a href="#"><i class="fa fa-users"></i>Usuarios</a></li>
+                                                <li><a href="{!!URL::to('/usuario') !!}"><i class="fa fa-users"></i>Usuarios</a>
+                                                <li><a href="{!!URL::to('/rol') !!}"><i class="fa fa-circle"></i>Roles</a></li>
+                                                <li><a href="{!!URL::to('/permiso') !!}"><i class="fa fa-users"></i>Permisos</a>
                                             </ul>
                                         </li>
                                     </ul>
@@ -71,17 +88,13 @@
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bases</a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#"><i class="fa fa-circle"></i>Condiciones</a></li>
+                                                <li><a href="{!!URL::to('/condicion') !!}"><i class="fa fa-circle"></i>Condiciones</a></li>
                                                 <li><a href="{!!URL::to('/marca') !!}"><i class="fa fa-barcode"></i>Marcas</a></li>
                                                 <li><a href="{!!URL::to('/material') !!}"><i class="fa fa-list"></i>Materiales</a></li>
-                                                <li><a href="#"><i class="fa fa-barcode"></i>Modelos</a></li>
-                                                <li><a href="#"><i class="fa fa-map-marker"></i>Ubicaciones</a></li>
-                                                <li><a href="#"><i class="fa fa-list"></i>Unidades</a></li>
-                                                <li><a href="#"><i class="fa fa-list"></i>Tipos</a></li>
-                                                <li><a href="#"><i class="fa fa-list"></i>Tipos Clientes</a></li>
+                                                <li><a href="{!!URL::to('/modelo') !!}"><i class="fa fa-barcode"></i>Modelos</a></li>
+                                                <li><a href="{!!URL::to('/unidad') !!}"><i class="fa fa-list"></i>Unidades</a></li>
+                                                <li><a href="{!!URL::to('/tipo') !!}"><i class="fa fa-list"></i>Tipos</a></li>
                                                 <li><a href="{!!URL::to('/tipo_equipo') !!}"><i class="fa fa-list"></i>Tipos Equipos</a></li>
-                                                <li><a href="#"><i class="fa fa-list"></i>States</a></li>
-                                                <li><a href="#"><i class="fa fa-list"></i>Citys</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -94,7 +107,7 @@
                                     <li class="dropdown user user-menu">
                                         <!-- Menu Toggle Button -->
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <img src="{{URL::asset('imagenes/usuarios/perfil.png')}}" alt="User Image" style="width:20px;height:20px;"/>
+
                                         </a>
                                         <ul class="dropdown-menu">
                                             <!-- The user image in the menu -->
@@ -132,7 +145,6 @@
                         </section><!-- /.content -->
                     </div><!-- /.content-wrapper -->
                 </div><!-- ./wrapper -->
-
         <!-- jQuery 2.1.4 -->
         {!!Html::script('js/jQuery-2.1.4.min.js')!!}
         <!-- Bootstrap 3.3.5 -->
@@ -141,6 +153,7 @@
         {!!Html::script('js/app.min.js')!!}
         <!-- AdminLTE App -->
         {!!Html::script('js/dropdown.js')!!}
+        @yield('scripts')
     </body>
 </html>
 

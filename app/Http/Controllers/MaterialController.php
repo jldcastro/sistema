@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use App\Material;
+use App\TipoEquipo;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MaterialCreateRequest;
+use App\Http\Requests\MaterialUpdateRequest;
 
 class MaterialController extends Controller
 {
@@ -16,10 +19,16 @@ class MaterialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $materiales = Material::all();
-        return view('materiales.index',compact('materiales'));
+        $materiales = Material::orderBy('nombre', 'asc')->paginate(20);
+        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->paginate(20);
+        return view('materiales.index',compact('materiales','tipos_equipos'));
     }
 
     /**
@@ -29,7 +38,8 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        return view('materiales.create');
+        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->lists('nombre','id');
+        return view('materiales.create',compact('tipos_equipos'));
     }
 
     /**
@@ -38,13 +48,14 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MaterialCreateRequest $request)
     {
-        Material::create([
-            'nombre' => $request['nombre'],
-        ]);
+        $tipo= new Material();
+        $tipo->nombre=$request->input("nombre");
+        $tipo->tipoEquipo_id=$request->input("tipoEquipo_id");
+        $tipo->save();
 
-        return redirect('/material')->with('mensaje','Tipo de material registrado exitósamente');
+        return redirect('/material')->with('mensaje','Material equipo registrado exitósamente');
     }
 
     /**
@@ -67,7 +78,8 @@ class MaterialController extends Controller
     public function edit($id)
     {
         $material = Material::find($id);
-        return view('materiales.edit',['material' => $material]);
+        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->lists('nombre','id');
+        return view('materiales.edit',compact('material',$material),compact('tipos_equipos',$tipos_equipos));
     }
 
     /**
@@ -77,13 +89,14 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MaterialUpdateRequest $request, $id)
     {
         $material = Material::find($id);
-        $material->fill($request->all());
+        $material->nombre=$request->input("nombre");
+        $material->tipoEquipo_id=$request->input("tipoEquipo_id");
         $material->save();
 
-        Session::flash('mensaje','Tipo de material actualizado exitósamente');
+        Session::flash('mensaje','Material equipo actualizado exitósamente');
         return Redirect::to('/material');
     }
 

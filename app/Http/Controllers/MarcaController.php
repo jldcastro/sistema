@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use App\Marca;
+use App\TipoEquipo;
 use App\Http\Requests;
+use App\Http\Requests\MarcaCreateRequest;
+use App\Http\Requests\MarcaUpdateRequest;
 use App\Http\Controllers\Controller;
 
 class MarcaController extends Controller
@@ -16,10 +19,16 @@ class MarcaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $marcas = Marca::all();
-        return view('marcas.index',compact('marcas'));
+        $marcas = Marca::orderBy('nombre', 'asc')->paginate(20);
+        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->get();
+        return view('marcas.index',compact('marcas','tipos_equipos'));
     }
 
     /**
@@ -29,7 +38,8 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        return view('marcas.create');
+        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->lists('nombre','id');
+        return view('marcas.create',compact('tipos_equipos'));
     }
 
     /**
@@ -38,11 +48,12 @@ class MarcaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MarcaCreateRequest $request)
     {
-        Marca::create([
-            'nombre' => $request['nombre'],
-        ]);
+        $marca= new Marca;
+        $marca->nombre=$request->input("nombre");
+        $marca->tipoEquipo_id=$request->input("tipoEquipo_id");
+        $marca->save();
 
         return redirect('/marca')->with('mensaje','Marca equipo registrada exitósamente');
     }
@@ -67,7 +78,8 @@ class MarcaController extends Controller
     public function edit($id)
     {
         $marca = Marca::find($id);
-        return view('marcas.edit',['marca' => $marca]);
+        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->lists('nombre','id');
+        return view('marcas.edit',compact('marca',$marca),compact('tipos_equipos',$tipos_equipos));
     }
 
     /**
@@ -77,10 +89,11 @@ class MarcaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MarcaUpdateRequest $request, $id)
     {
         $marca = Marca::find($id);
-        $marca->fill($request->all());
+        $marca->nombre=$request->input("nombre");
+        $marca->tipoEquipo_id=$request->input("tipoEquipo_id");
         $marca->save();
 
         Session::flash('mensaje','Marca equipo actualizada exitósamente');
