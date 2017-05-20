@@ -13,7 +13,7 @@ class CreatePesometrosTable extends Migration
     public function up()
     {
         Schema::create('pesometros', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idPesometro');
             $table->integer('f37_id')->unsigned()->nullable();
             $table->foreign('f37_id')->references('numero')->on('f37s')->onDelete('cascade');
             $table->integer('cantidad4');
@@ -36,7 +36,7 @@ class CreatePesometrosTable extends Migration
             $table->date('fu_mantencion3');
             $table->date('fu_calibracion3');
             $table->integer('v_referencial4');
-            $table->integer('v_unitario4');
+            $table->integer('v_unitario4')->nullable();
             $table->date('f_tentativa4');
             $table->time('h_tentativo4');
             $table->text('observacion4');

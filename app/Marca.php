@@ -20,6 +20,11 @@ class Marca extends Model
         return $this->hasMany('App\Modelo');
     }
 
+    public function bascula()
+    {
+        return $this->hasMany('App\Bascula');
+    }
+
     public static function marca($id)
     {
         return Marca::where('tipoEquipo_id','=',$id)->orderBy('nombre', 'asc')->get();

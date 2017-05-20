@@ -7,11 +7,11 @@
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.5 -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        {!!Html::style('css/bootstrap.min.css')!!}
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        {!!Html::style('css/font-awesome.min.css')!!}
         <!-- Ionicons -->
-        <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
+        {!!Html::style('css/pe-icon-7-stroke.css')!!}
         <!-- Theme style -->
         <link rel="stylesheet" href="css/AdminLTE.min.css">
         <link rel="stylesheet" href="css/skins/_all-skins.min.css">
@@ -23,13 +23,16 @@
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+
         <![endif]-->
     </head>
     @yield('contenido')
-
         <!-- jQuery 2.1.4 -->
-        <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+        {!!Html::script('js/jQuery-2.1.4.min.js')!!}
         <!-- Bootstrap 3.3.5 -->
-        <script src="js/bootstrap.min.js"></script>
+        {!!Html::script('js/bootstrap.min.js')!!}
+
+        @yield('scripts')
     </body>
 </html>

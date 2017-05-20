@@ -43,15 +43,11 @@ Route::resource('/unidad', 'UnidadController');
 Route::resource('/condicion', 'CondicionController');
 //Rutas f37
 Route::resource('/f37', 'F37Controller');
-
-Route::post('/store',array('as' => 'store','uses' => 'F37controller@store'));
-
-
-
 Route::get('/f37/marcas/{id}', 'F37Controller@getMarcas');
 Route::get('/f37/modelos/{id}', 'f37Controller@getModelos');
 Route::get('/f37/tipos/{id}', 'f37Controller@getTipos');
 Route::get('/f37/unidades/{id}', 'f37Controller@getUnidades');
 Route::get('/f37/condiciones/{id}', 'f37Controller@getCondiciones');
 Route::get('/f37/materiales/{id}','f37Controller@getMateriales');
+Route::resource('/valorizado','ValorizadoController');
 

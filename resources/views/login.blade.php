@@ -1,6 +1,6 @@
 @extends('layouts.inicio')
     @section('contenido')
-<body class="hold-transition login-page" xmlns="http://www.w3.org/1999/html">
+        <body class="hold-transition login-page">
             <div class="login-box">
                 <div class="login-logo">
                     <img src="imagenes/empresa/logo.png">
@@ -43,4 +43,3 @@
                 </div><!-- /.login-box-body -->
             </div><!-- /.login-box -->
     @endsection
-

@@ -13,7 +13,7 @@ class CreateMasasTable extends Migration
     public function up()
     {
         Schema::create('masas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idMasa');
             $table->integer('f37_id')->unsigned()->nullable();
             $table->foreign('f37_id')->references('numero')->on('f37s')->onDelete('cascade');
             $table->integer('cantidad3');

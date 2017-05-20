@@ -8,6 +8,8 @@ class Masa extends Model
 {
     protected $table = 'masas';
 
+    protected $primaryKey = 'idMasa';
+
     protected $fillable = ['cantidad'];
 
     public function tipo_equipo()

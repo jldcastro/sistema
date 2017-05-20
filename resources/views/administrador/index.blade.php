@@ -28,6 +28,8 @@
         {!!Html::style('css/tabla2.css')!!}
         <!-- Textarea -->
         {!!Html::style('css/parrafo.css')!!}
+        <!-- Select2 -->
+        {!!Html::style('css/select2.min.css')!!}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <!-- Logo Empresa en la pestaña del navegador -->
         <link rel="shortcut icon" href="{{ asset('imagenes/empresa/molinstec.png') }}">
@@ -47,7 +49,7 @@
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">F-37</a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li><a href="{!!URL::to('/f37') !!}"><i class="fa fa-list"></i>Solicitudes F-37</a></li>
-                                                <li><a href="{!!URL::to('/f37') !!}"><i class="fa fa-list"></i>Valorizado</a></li>
+                                                <li><a href="{!!URL::to('/valorizado') !!}"><i class="fa fa-list"></i>Valorizado</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -151,8 +153,7 @@
         {!!Html::script('js/bootstrap.min.js')!!}
         <!-- AdminLTE App -->
         {!!Html::script('js/app.min.js')!!}
-        <!-- AdminLTE App -->
-        {!!Html::script('js/dropdown.js')!!}
+
         @yield('scripts')
     </body>
 </html>

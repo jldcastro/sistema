@@ -8,16 +8,18 @@ class Bascula extends Model
 {
     protected $table = 'basculas';
 
-    protected $fillable = ['cantidad'];
+    protected $primaryKey = 'idBascula';
 
-    public function tipo_equipo()
-    {
-        return $this->belongsTo('App\TipoEquipo','tipoEquipo_id');
-    }
+    protected $fillable = ['cantidad','tipoEquipo_id'];
 
     public function f37()
     {
         return $this->belongsTo('App\F37','f37_id');
+    }
+
+    public function tipo_equipo()
+    {
+        return $this->belongsTo('App\TipoEquipo');
     }
 
     public function marca()

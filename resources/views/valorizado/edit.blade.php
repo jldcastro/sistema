@@ -5,11 +5,11 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="id" class="col-xs-4 control-label">N°:</label>
-                        <input type="text" class="form-control input" id="numero" name="numero" value="<?= $codigo?>"disabled>
+                        <input type="text" class="form-control input" id="numero" name="numero" value="<?= $f37->numero; ?>" disabled>
                     </div>
                     <div class="form-group">
                         <label for="fecha_solicitud" class="col-xs-4 control-label">Fecha solicitud:</label>
-                        <input type="date" class="form-control input" id="fecha_solicitud" name="fecha_solicitud" value="<?= $fecha_solicitud; ?>"  disabled>
+                        <input type="date" class="form-control input" id="fecha_solicitud" name="fecha_solicitud" value="<?= $f37->numero; ?>"  disabled>
                     </div>
                     <div class="form-group">
                         <label for="id_usuario" class="col-xs-4 control-label">Vendedor:</label>
@@ -83,7 +83,7 @@
                 <div class="form-group col-md-12">
                     <label>Seleccione tipo plan cliente: </label>
                     <input type="checkbox" value="contrato" name="tipo_cliente[]"/>C/Contrato
-                    <input type="checkbox" value="cplan" name="tipo_cliente[]" />C/Plan
+                    <input type="checkbox" value="plan" name="tipo_cliente[]" />C/Plan
                     <input type="checkbox" value="splan" name="tipo_cliente[]" />S/Plan
                 </div>
             </div>

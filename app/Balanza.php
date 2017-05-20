@@ -8,7 +8,9 @@ class Balanza extends Model
 {
     protected $table = 'balanzas';
 
-    protected $fillable = ['cantidad'];
+    protected $primaryKey = 'idBalanza';
+
+    protected $fillable = ['cantidad2'];
 
     public function tipo_equipo()
     {

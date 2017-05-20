@@ -13,7 +13,7 @@ class CreateBasculasTable extends Migration
     public function up()
     {
         Schema::create('basculas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idBascula');
             $table->integer('f37_id')->unsigned()->nullable();
             $table->foreign('f37_id')->references('numero')->on('f37s')->onDelete('cascade');
             $table->integer('cantidad');

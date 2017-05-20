@@ -1,2007 +1,2086 @@
-$("#tipo_equipo").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca").empty();
+$("#tipoEquipo_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo_id){
+        $("#marca_id").empty();
+
+        $("#marca_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo").empty();
+        $("#marca_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca_id){
+                $("#modelo_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo_id){
+        $("#tipo_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo_id){
+        $("#unidadc_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo_id){
+        $("#unidadg_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo_id){
+        $("#condicion_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo1").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca1").empty();
+$("#tipoEquipo1_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo1_id){
+        $("#marca1_id").empty();
+
+        $("#marca1_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca1").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca1_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca1").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo1").empty();
+        $("#marca1_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca1_id){
+                $("#modelo1_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo1").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo1_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo1").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo1_id){
+        $("#tipo1_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo1").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo1_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc1").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo1_id){
+        $("#unidadc1_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc1").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc1_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg1").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo1_id){
+        $("#unidadg1_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg1").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg1_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion1").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo1_id){
+        $("#condicion1_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion1").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion1_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo2").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca2").empty();
+$("#tipoEquipo2_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo2_id){
+        $("#marca2_id").empty();
+
+        $("#marca2_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca2").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca2_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca2").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo2").empty();
+        $("#marca2_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca2_id){
+                $("#modelo2_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo2").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo2_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo2").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo2_id){
+        $("#tipo2_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo2").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo2_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc2").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo2_id){
+        $("#unidadc2_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc2").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc2_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg2").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo2_id){
+        $("#unidadg2_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg2").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg2_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion2").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo2_id){
+        $("#condicion2_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion2").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion2_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo3").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca3").empty();
+$("#tipoEquipo3_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo3_id){
+        $("#marca3_id").empty();
+
+        $("#marca3_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca3").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca3_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca3").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo3").empty();
+        $("#marca3_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca3_id){
+                $("#modelo3_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo3").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo3_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo3").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo3_id){
+        $("#tipo3_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo3").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo3_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc3").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo3_id){
+        $("#unidadc3_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc3").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc3_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg3").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo3_id){
+        $("#unidadg3_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg3").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg3_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion3").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo3_id){
+        $("#condicion3_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion3").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion3_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
+$("#tipoEquipo4_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo4_id){
+        $("#marca4_id").empty();
 
-$("#tipo_equipo4").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca4").empty();
+        $("#marca4_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca4").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca4_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca4").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo4").empty();
+        $("#marca4_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca4_id){
+                $("#modelo4_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo4").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo4_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo4").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo4_id){
+        $("#tipo4_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo4").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo4_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc4").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo4_id){
+        $("#unidadc4_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc4").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc4_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg4").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo4_id){
+        $("#unidadg4_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg4").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg4_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion4").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo4_id){
+        $("#condicion4_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion4").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion4_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo5").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca5").empty();
+$("#tipoEquipo5_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo5_id){
+        $("#marca5_id").empty();
+
+        $("#marca5_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca5").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca5_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca5").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo5").empty();
+        $("#marca5_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca5_id){
+                $("#modelo5_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo5").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo5_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo5").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo5_id){
+        $("#tipo5_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo5").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo5_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc5").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo5_id){
+        $("#unidadc5_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc5").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc5_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg5").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo5_id){
+        $("#unidadg5_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg5").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg5_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion5").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo5_id){
+        $("#condicion5_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion5").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion5_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo6").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca6").empty();
+$("#tipoEquipo6_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo6_id){
+        $("#marca6_id").empty();
+
+        $("#marca6_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca6").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca6_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca6").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo6").empty();
+        $("#marca6_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca6_id){
+                $("#modelo6_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo6").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo6_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo6").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo6_id){
+        $("#tipo6_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo6").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo6_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc6").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo6_id){
+        $("#unidadc6_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc6").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc6_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg6").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo6_id){
+        $("#unidadg6_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg6").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg6_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion6").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo2_id){
+        $("#condicion6_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion6").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion6_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo7").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca7").empty();
+$("#tipoEquipo7_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo7_id){
+        $("#marca7_id").empty();
+
+        $("#marca7_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca7").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca7_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca7").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo7").empty();
+        $("#marca7_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca7_id){
+                $("#modelo7_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo7").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo7_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo7").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo7_id){
+        $("#tipo7_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo7").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo7_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc7").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo7_id){
+        $("#unidadc7_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc7").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc7_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg7").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo7_id){
+        $("#unidadg7_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg7").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg7_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion7").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo7_id){
+        $("#condicion7_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion7").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion7_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo8").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca8").empty();
+$("#tipoEquipo8_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo8_id){
+        $("#marca8_id").empty();
+
+        $("#marca8_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca8").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca8_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca8").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo8").empty();
+        $("#marca8_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca8_id){
+                $("#modelo8_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo8").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo8_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo8").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo8_id){
+        $("#tipo8_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo8").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo8_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc8").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo8_id){
+        $("#unidadc8_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc8").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc8_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg8").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo8_id){
+        $("#unidadg8_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg8").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg8_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion8").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo8_id){
+        $("#condicion8_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion8").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion8_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo9").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca9").empty();
+$("#tipoEquipo9_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo9_id){
+        $("#marca9_id").empty();
+
+        $("#marca9_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca9").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca9_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca9").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo9").empty();
+        $("#marca9_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca9_id){
+                $("#modelo9_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo9").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo9_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo9").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo9_id){
+        $("#tipo9_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo9").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo9_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc9").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo9_id){
+        $("#unidadc9_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc9").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc9_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg9").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo9_id){
+        $("#unidadg9_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg9").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg9_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion9").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo9_id){
+        $("#condicion9_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion9").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion9_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo10").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca10").empty();
+$("#tipoEquipo10_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo10_id){
+        $("#marca10_id").empty();
+
+        $("#marca10_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca10").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca10_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca10").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo10").empty();
+        $("#marca10_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca10_id){
+                $("#modelo10_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo10").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo10_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo10").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo10_id){
+        $("#tipo10_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo10").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo10_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc10").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo10_id){
+        $("#unidadc10_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc10").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc10_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg10").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo10_id){
+        $("#unidadg10_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg10").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg10_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion10").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo10_id){
+        $("#condicion10_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion10").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion10_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo11").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca11").empty();
+
+$("#tipoEquipo11_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo11_id){
+        $("#marca11_id").empty();
+
+        $("#marca11_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca11").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca11_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca11").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo11").empty();
+        $("#marca11_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca11_id){
+                $("#modelo11_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo11").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo11_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo11").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo11_id){
+        $("#tipo11_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo11").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo11_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc11").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo11_id){
+        $("#unidadc11_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc11").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc11_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg11").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo11_id){
+        $("#unidadg11_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg11").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg11_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion11").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo11_id){
+        $("#condicion11_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion11").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion11_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo12").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca12").empty();
+
+$("#tipoEquipo12_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo12_id){
+        $("#marca12_id").empty();
+
+        $("#marca12_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca12").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca12_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca12").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo12").empty();
+        $("#marca12_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca12_id){
+                $("#modelo12_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo12").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo12_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo12").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo12_id){
+        $("#tipo12_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo12").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo12_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc12").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo12_id){
+        $("#unidadc12_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc12").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc12_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg12").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo12_id){
+        $("#unidadg12_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg12").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg12_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion12").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo12_id){
+        $("#condicion12_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion12").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion12_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo13").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca13").empty();
+
+$("#tipoEquipo13_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo13_id){
+        $("#marca13_id").empty();
+
+        $("#marca13_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca13").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca13_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca13").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo13").empty();
+        $("#marca13_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca13_id){
+                $("#modelo13_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo13").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo13_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo13").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo13_id){
+        $("#tipo13_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo13").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo13_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc13").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo13_id){
+        $("#unidadc13_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc13").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc13_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg13").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo13_id){
+        $("#unidadg13_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg13").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg13_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion13").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo13_id){
+        $("#condicion13_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion13").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion13_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo14").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca14").empty();
+
+$("#tipoEquipo14_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo14_id){
+        $("#marca14_id").empty();
+
+        $("#marca14_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca14").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca14_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca14").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo14").empty();
+        $("#marca14_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca14_id){
+                $("#modelo14_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo14").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo14_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo14").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo14_id){
+        $("#tipo14_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo14").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo14_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc14").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo14_id){
+        $("#unidadc14_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc14").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc14_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg14").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo14_id){
+        $("#unidadg14_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg14").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg14_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion14").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo14_id){
+        $("#condicion14_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion14").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion14_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo15").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca15").empty();
+
+$("#tipoEquipo15_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo15_id){
+        $("#marca15_id").empty();
+
+        $("#marca15_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca15").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca15_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca15").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo15").empty();
+        $("#marca15_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca15_id){
+                $("#modelo15_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo15").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo15_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo15").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo15_id){
+        $("#tipo15_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo15").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo15_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc15").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo15_id){
+        $("#unidadc15_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc15").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc15_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg15").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo15_id){
+        $("#unidadg15_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg15").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg15_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion15").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo15_id){
+        $("#condicion15_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion15").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion15_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo16").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca16").empty();
+$("#tipoEquipo16_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo16_id){
+        $("#marca16_id").empty();
+
+        $("#marca16_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca16").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca16_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca16").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo16").empty();
+        $("#marca16_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca16_id){
+                $("#modelo16_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo16").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo16_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo16").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo16_id){
+        $("#tipo16_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo16").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo16_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc16").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo16_id){
+        $("#unidadc16_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc16").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc16_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg16").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo16_id){
+        $("#unidadg16_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg16").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg16_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion16").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo16_id){
+        $("#condicion16_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion16").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion16_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo17").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca17").empty();
+
+$("#tipoEquipo17_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo17_id){
+        $("#marca17_id").empty();
+
+        $("#marca17_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca17").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca17_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca17").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo17").empty();
+        $("#marca17_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca17_id){
+                $("#modelo17_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo17").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo17_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo17").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo17_id){
+        $("#tipo17_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo17").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo17_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc17").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo17_id){
+        $("#unidadc17_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc17").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc17_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg17").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo17_id){
+        $("#unidadg17_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg17").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg17_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion17").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo17_id){
+        $("#condicion17_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion17").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion17_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo18").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca18").empty();
+
+$("#tipoEquipo18_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo18_id){
+        $("#marca18_id").empty();
+
+        $("#marca18_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca18").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca18_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca18").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo18").empty();
+        $("#marca18_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca18_id){
+                $("#modelo18_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo18").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo18_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo18").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo18_id){
+        $("#tipo18_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo18").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo18_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc18").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo18_id){
+        $("#unidadc18_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc18").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc18_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg18").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo18_id){
+        $("#unidadg18_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg18").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg18_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion18").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo18_id){
+        $("#condicion18_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion18").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion18_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo19").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca19").empty();
+$("#tipoEquipo19_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo19_id){
+        $("#marca19_id").empty();
+
+        $("#marca19_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca19").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca19_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca19").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo19").empty();
+        $("#marca19_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca19_id){
+                $("#modelo19_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo19").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo19_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("tipos/"+event.target.value+"",function(response,tipo_equipo){
-        $("#tipo19").empty();
+    $.get("tipos/"+event.target.value+"",function(response,tipoEquipo19_id){
+        $("#tipo19_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#tipo19").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#tipo19_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc19").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo19_id){
+        $("#unidadc19_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc19").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc19_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg19").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo19_id){
+        $("#unidadg19_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg19").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg19_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion19").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo19_id){
+        $("#condicion19_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion19").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion19_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo20").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca20").empty();
+$("#tipoEquipo20_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo20_id){
+        $("#marca20_id").empty();
+
+        $("#marca20_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca20").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca20_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca20").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo20").empty();
+        $("#marca20_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca20_id){
+                $("#modelo20_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo20").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo20_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("materiales/"+event.target.value+"",function(response,tipo_equipo){
-        $("#material").empty();
+    $.get("materiales/"+event.target.value+"",function(response,tipoEquipo20_id){
+        $("#material_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#material").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#material_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc20").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo20_id){
+        $("#unidadc20_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc20").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc20_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg20").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo20_id){
+        $("#unidadg20_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg20").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg20_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion20").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo20_id){
+        $("#condicion20_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion20").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion20_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo21").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca21").empty();
+$("#tipoEquipo21_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo21_id){
+        $("#marca21_id").empty();
+
+        $("#marca21_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca21").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca21_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca21").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo21").empty();
+        $("#marca21_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca21_id){
+                $("#modelo21_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo21").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo21_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("materiales/"+event.target.value+"",function(response,tipo_equipo){
-        $("#material1").empty();
+    $.get("materiales/"+event.target.value+"",function(response,tipoEquipo21_id){
+        $("#material1_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#material1").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#material1_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc21").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo21_id){
+        $("#unidadc21_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc21").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc21_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg21").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo21_id){
+        $("#unidadg21_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg21").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg21_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion21").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo21_id){
+        $("#condicion21_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion21").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion21_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
+$("#tipoEquipo22_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo22_id){
+        $("#marca22_id").empty();
 
-$("#tipo_equipo22").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca22").empty();
+        $("#marca22_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca22").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca22_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca22").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo22").empty();
+        $("#marca22_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca22_id){
+                $("#modelo22_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo22").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo22_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("materiales/"+event.target.value+"",function(response,tipo_equipo){
-        $("#material2").empty();
+    $.get("materiales/"+event.target.value+"",function(response,tipoEquipo22_id){
+        $("#material2_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#material2").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#material2_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc22").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo22_id){
+        $("#unidadc22_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc22").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc22_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg22").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo22_id){
+        $("#unidadg22_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg22").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg22_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion22").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo22_id){
+        $("#condicion22_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion22").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion22_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo23").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca23").empty();
+$("#tipoEquipo23_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo23_id){
+        $("#marca23_id").empty();
+
+        $("#marca23_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca23").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca23_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca23").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo23").empty();
+        $("#marca23_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca23_id){
+                $("#modelo23_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo23").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo23_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("materiales/"+event.target.value+"",function(response,tipo_equipo){
-        $("#material3").empty();
+    $.get("materiales/"+event.target.value+"",function(response,tipoEquipo23_id){
+        $("#material3_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#material3").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#material3_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc23").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo23_id){
+        $("#unidadc23_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc23").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc23_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg23").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo23_id){
+        $("#unidadg23_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg23").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg23_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion23").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo23_id){
+        $("#condicion23_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion23").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion23_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
+$("#tipoEquipo24_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo24_id){
+        $("#marca24_id").empty();
 
-$("#tipo_equipo24").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca24").empty();
+        $("#marca24_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca24").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca24_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca24").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo24").empty();
+        $("#marca24_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca24_id){
+                $("#modelo24_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo24").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo24_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("materiales/"+event.target.value+"",function(response,tipo_equipo){
-        $("#material4").empty();
+    $.get("materiales/"+event.target.value+"",function(response,tipoEquipo24_id){
+        $("#material4_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#material4").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#material4_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc24").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo24_id){
+        $("#unidadc24_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc24").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc24_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg24").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo24_id){
+        $("#unidadg24_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg24").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg24_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion24").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo24_id){
+        $("#condicion24_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion24").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion24_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo25").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca25").empty();
+$("#tipoEquipo25_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo25_id){
+        $("#marca25_id").empty();
+
+        $("#marca25_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca25").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca25_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca25").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo25").empty();
+        $("#marca25_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca25_id){
+                $("#modelo25_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo25").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo25_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("materiales/"+event.target.value+"",function(response,tipo_equipo){
-        $("#material5").empty();
+    $.get("materiales/"+event.target.value+"",function(response,tipoEquipo25_id){
+        $("#material5_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#material5").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#material5_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc25").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo25_id){
+        $("#unidadc25_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc25").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc25_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg25").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo25_id){
+        $("#unidadg25_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg25").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg25_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion25").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo25_id){
+        $("#condicion25_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion25").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion25_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo26").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca26").empty();
+$("#tipoEquipo26_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo26_id){
+        $("#marca26_id").empty();
+
+        $("#marca26_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca26").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca26_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca26").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo26").empty();
+        $("#marca26_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca26_id){
+                $("#modelo26_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo26").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo26_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("materiales/"+event.target.value+"",function(response,tipo_equipo){
-        $("#material6").empty();
+    $.get("materiales/"+event.target.value+"",function(response,tipoEquipo26_id){
+        $("#material6_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#material6").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#material6_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc26").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo26_id){
+        $("#unidadc26_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc26").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc26_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg26").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo26_id){
+        $("#unidadg26_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg26").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg26_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion26").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo26_id){
+        $("#condicion26_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion26").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion26_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo27").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca27").empty();
+$("#tipoEquipo27_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo27_id){
+        $("#marca27_id").empty();
+
+        $("#marca27_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca27").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca27_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca27").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo27").empty();
+        $("#marca27_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca27_id){
+                $("#modelo27_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo27").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo27_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("materiales/"+event.target.value+"",function(response,tipo_equipo){
-        $("#material7").empty();
+    $.get("materiales/"+event.target.value+"",function(response,tipoEquipo27_id){
+        $("#material7_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#material7").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#material7_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc27").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo27_id){
+        $("#unidadc27_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc27").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc27_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg27").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo27_id){
+        $("#unidadg27_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg27").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg27_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion27").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo27_id){
+        $("#condicion27_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion27").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion27_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
+$("#tipoEquipo28_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo28_id){
+        $("#marca28_id").empty();
 
-$("#tipo_equipo28").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca28").empty();
+        $("#marca28_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca28").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca28_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca28").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo28").empty();
+        $("#marca28_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca28_id){
+                $("#modelo28_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo28").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo28_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("materiales/"+event.target.value+"",function(response,tipo_equipo){
-        $("#material8").empty();
+    $.get("materiales/"+event.target.value+"",function(response,tipoEquipo28_id){
+        $("#material8_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#material8").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#material8_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc28").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo28_id){
+        $("#unidadc28_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc28").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc28_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg28").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo28_id){
+        $("#unidadg28_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg28").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg28_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion28").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo28_id){
+        $("#condicion28_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion28").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion28_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo29").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca29").empty();
+$("#tipoEquipo29_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo29_id){
+        $("#marca29_id").empty();
+
+        $("#marca29_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca29").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca29_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca29").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo29").empty();
+        $("#marca29_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca29_id){
+                $("#modelo29_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo29").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo29_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("materiales/"+event.target.value+"",function(response,tipo_equipo){
-        $("#material9").empty();
+    $.get("materiales/"+event.target.value+"",function(response,tipoEquipo29_id){
+        $("#material9_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#material9").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#material9_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc29").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo29_id){
+        $("#unidadc29_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc29").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc29_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg29").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo29_id){
+        $("#unidadg29_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg29").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg29_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion29").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo29_id){
+        $("#condicion29_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion29").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion29_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
 
-$("#tipo_equipo30").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca30").empty();
+$("#tipoEquipo30_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo30_id){
+        $("#marca30_id").empty();
+
+        $("#marca30_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca30").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca30_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca30").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo30").empty();
+        $("#marca30_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca30_id){
+                $("#modelo30_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo30").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo30_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc30").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo30_id){
+        $("#unidadc30_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc30").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc30_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg30").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo30_id){
+        $("#unidadg30_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg30").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg30_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion30").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo30_id){
+        $("#condicion30_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion30").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion30_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo31").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca31").empty();
+$("#tipoEquipo31_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo31_id){
+        $("#marca31_id").empty();
+
+        $("#marca31_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca31").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca31_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca31").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo31").empty();
+        $("#marca31_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca31_id){
+                $("#modelo31_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo31").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo31_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc31").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo31_id){
+        $("#unidadc31_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc31").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc31_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg31").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo31_id){
+        $("#unidadg31_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg31").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg31_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion31").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo31_id){
+        $("#condicion31_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion31").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion31_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
+$("#tipoEquipo32_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo32_id){
+        $("#marca32_id").empty();
 
-$("#tipo_equipo32").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca32").empty();
+        $("#marca32_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca32").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca32_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca32").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo32").empty();
+        $("#marca32_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca32_id){
+                $("#modelo32_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo32").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo32_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc32").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo32_id){
+        $("#unidadc32_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc32").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc32_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg32").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo32_id){
+        $("#unidadg32_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg32").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg32_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion32").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo32_id){
+        $("#condicion32_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion32").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion32_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo33").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca33").empty();
+$("#tipoEquipo33_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo33_id){
+        $("#marca33_id").empty();
+
+        $("#marca33_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca33").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca33_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca33").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo33").empty();
+        $("#marca33_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca33_id){
+                $("#modelo33_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo33").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo33_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc33").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo33_id){
+        $("#unidadc33_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc33").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc33_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg33").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo33_id){
+        $("#unidadg33_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg33").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg33_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion33").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo33_id){
+        $("#condicion33_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion33").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion33_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
+$("#tipoEquipo34_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo34_id){
+        $("#marca34_id").empty();
 
-$("#tipo_equipo34").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca34").empty();
+        $("#marca34_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca34").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca34_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca34").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo34").empty();
+        $("#marca34_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca34_id){
+                $("#modelo34_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo34").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo34_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc34").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo34_id){
+        $("#unidadc34_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc34").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc34_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg34").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo34_id){
+        $("#unidadg34_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg34").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg34_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion34").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo24_id){
+        $("#condicion34_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion34").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion34_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo35").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca35").empty();
+$("#tipoEquipo35_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo35_id){
+        $("#marca35_id").empty();
+
+        $("#marca35_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca35").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca35_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca25").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo35").empty();
+        $("#marca35_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca35_id){
+                $("#modelo35_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo35").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo35_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc35").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo35_id){
+        $("#unidadc35_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc35").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc35_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg35").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo35_id){
+        $("#unidadg35_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg35").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg35_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion35").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo35_id){
+        $("#condicion35_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion35").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion35_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo36").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca36").empty();
+$("#tipoEquipo36_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo36_id){
+        $("#marca36_id").empty();
+
+        $("#marca36_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca36").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca36_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca36").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo36").empty();
+        $("#marca36_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca36_id){
+                $("#modelo36_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo36").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo36_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc36").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo36_id){
+        $("#unidadc36_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc36").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc36_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg36").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo36_id){
+        $("#unidadg36_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg36").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg36_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion36").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo36_id){
+        $("#condicion36_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion36").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion36_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo37").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca37").empty();
+$("#tipoEquipo37_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo37_id){
+        $("#marca37_id").empty();
+
+        $("#marca37_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca37").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca37_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca37").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo37").empty();
+        $("#marca37_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca37_id){
+                $("#modelo37_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo37").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo37_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc37").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo37_id){
+        $("#unidadc37_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc37").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc37_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg37").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo37_id){
+        $("#unidadg37_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg37").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg37_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion37").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo37_id){
+        $("#condicion37_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion37").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion37_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
+$("#tipoEquipo38_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo38_id){
+        $("#marca38_id").empty();
 
-$("#tipo_equipo38").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca38").empty();
+        $("#marca38_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca38").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca38_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca38").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo38").empty();
+        $("#marca38_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca38_id){
+                $("#modelo38_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo38").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo38_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc38").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo38_id){
+        $("#unidadc38_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc38").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc38_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg38").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo38_id){
+        $("#unidadg38_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg38").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg38_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion38").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo38_id){
+        $("#condicion38_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion38").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion38_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
 
-$("#tipo_equipo39").change(function(event){
-    $.get("marcas/"+event.target.value+"",function(response,tipo_equipo){
-        $("#marca39").empty();
+$("#tipoEquipo39_id").change(function(event){
+    $.get("marcas/"+event.target.value+"",function(response,tipoEquipo39_id){
+        $("#marca39_id").empty();
+
+        $("#marca39_id").append("<option>Seleccione</option>");
 
         for(i=0;i<response.length;i++){
-            $("#marca39").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#marca39_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
 
-        $("#marca39").change(function(event){
-            $.get("modelos/"+event.target.value+"",function(response,marca){
-                $("#modelo39").empty();
+        $("#marca39_id").change(function(event){
+            $.get("modelos/"+event.target.value+"",function(response,marca39_id){
+                $("#modelo39_id").empty();
 
                 for(i=0;i<response.length;i++){
-                    $("#modelo39").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+                    $("#modelo39_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
                 }
             });
         })
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadc39").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo39_id){
+        $("#unidadc39_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadc39").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadc39_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("unidades/"+event.target.value+"",function(response,tipo_equipo){
-        $("#unidadg39").empty();
+    $.get("unidades/"+event.target.value+"",function(response,tipoEquipo39_id){
+        $("#unidadg39_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#unidadg39").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#unidadg39_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 
-    $.get("condiciones/"+event.target.value+"",function(response,tipo_equipo){
-        $("#condicion39").empty();
+    $.get("condiciones/"+event.target.value+"",function(response,tipoEquipo39_id){
+        $("#condicion39_id").empty();
 
         for(i=0;i<response.length;i++){
-            $("#condicion39").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
+            $("#condicion39_id").append("<option value='"+response[i].id+"'> "+response[i].nombre+"</option>");
         }
     });
 });
-

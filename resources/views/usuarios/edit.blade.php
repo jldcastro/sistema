@@ -1,6 +1,6 @@
 @extends('...administrador.index')
     @section('contenido')
-    @role('vendedor')
+
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="box-header with-border">
@@ -14,7 +14,5 @@
                 {!!Form::close()!!}
             </div>
         </div>
-    @else
-        No tiene permisos para esta seccíón
-    @endrole
+
     @endsection

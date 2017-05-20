@@ -8,6 +8,8 @@ class Pesometro extends Model
 {
     protected $table = 'pesometros';
 
+    protected $primaryKey = 'idPesometro';
+
     protected $fillable = ['cantidad'];
 
     public function tipo_equipo()
