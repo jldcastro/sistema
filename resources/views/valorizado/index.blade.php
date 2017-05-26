@@ -13,6 +13,14 @@
             </div>
         @endif
         @if(count($f37s)>0)
+        <?php $cont = 0; ?>
+        @foreach($f37s as $f37)
+            <?php   $fecha_solicitud1[] = $f37->created_at;
+                    $fecha_solicitud3[] = $f37->created_at;
+                    $fecha_solicitud5[] = $f37->created_at;
+                    $cont = $cont+1;
+            ?>
+        @endforeach
         <table class="table table-hover">
             <thead>
                 <th>N°</th>
@@ -21,29 +29,48 @@
                 <th>Color estado</th>
                 <th>Opciones</th>
             </thead>
+            <?php $fecha_actual = \Carbon\Carbon::now();
+                $cont2 =0;
+                for($i=0;$i<$cont;$i=$i+1){
+                    $fecha_solicitud2[$i] = $fecha_solicitud1[$i]->addDay();
+                    $fecha_solicitud4[$i] = $fecha_solicitud3[$i]->addDays(3);
+                    $fecha_solicitud6[$i] = $fecha_solicitud5[$i]->addDays(5);
+
+                    if($fecha_actual<=$fecha_solicitud2[$i]){
+                        $fecha_final[]= "<td style='background-color: #008000;'></td>";
+                        $cont2 = $cont2+1;
+                    }
+
+                    elseif($fecha_actual>$fecha_solicitud2[$i] and $fecha_actual<=$fecha_solicitud4[$i]){
+                        $fecha_final[]= "<td style='background-color: #ffff00;'></td>";
+                    }
+
+                    else{
+                        $fecha_final[]= "<td style='background-color: #ff0000;'></td>";
+                    }
+            }?>
+
             @foreach($f37s as $f37)
             <tbody>
                 <td>{{$f37->numero}}</td>
                 <td>{{$f37->cliente}}</td>
                 <td>{{$f37->estado}}</td>
-                <td><?= $fecha_solicitud = $f37->fecha_solicitud?><?php
-                        $fecha_solicitud = $f37->fecha_solicitud;
-                        $fecha_ingreso = Carbon\Carbon::createFromFormat('Y-m-d', $fecha_solicitud);
-                        $fecha_solicitud1 = $fecha_ingreso->addDay(1);
-                        $fecha_solicitud3 = $fecha_ingreso->addDay(3);
-                        $fecha_solicitud5 = $fecha_ingreso->addDay(5);
-                        $hoy = Carbon\Carbon::now();
-
-                    ?>
-
-
-                        </td>
+                <?php for($i=0;$i<$cont2;$i++){
+                    echo $fecha_final[$i];
+                }  ?>
                 <td>{!!link_to_route('valorizado.edit',$title ='Editar',$parameters = $f37->numero,$attributes = ['class' => 'btn  btn-success btn-xs'])!!}</td>
-                         <td>  <a role = "button" class="btn btn-primary btn-circle"
-                           href="javascript::ajaxLoad('valorizado/brian/{{$f37->numero}}')"><i class="fa fa-list"></i></a></td>
-
             </tbody>
             @endforeach
+
+
+
+
+
+
+
+
+
+
 
         </table>
 

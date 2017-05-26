@@ -39,6 +39,7 @@ class CreateMasasTable extends Migration
             $table->string('r_mantencion');
             $table->integer('v_referencial3');
             $table->integer('v_unitario3')->nullable();
+            $table->integer('total3');
             $table->date('f_tentativa3');
             $table->time('h_tentativo3');
             $table->text('observacion3');

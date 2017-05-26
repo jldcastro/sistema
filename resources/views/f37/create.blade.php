@@ -185,8 +185,8 @@
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
                                 </select></th>
                                 <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
+                                 <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
                                 <th><select id="unidadc1_id" name="unidadc_id[]">
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
@@ -226,8 +226,8 @@
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
                                 </select></th>
                                 <th><input type="text" class="form-control input"  id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
+                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
                                 <th><select id="unidadc2_id" name="unidadc_id[]">
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
@@ -267,8 +267,8 @@
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
                                 </select></th>
                                 <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
+                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
                                 <th><select id="unidadc3_id" name="unidadc_id[]">
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
@@ -308,8 +308,8 @@
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
                                 </select></th>
                                 <th><input type="text" class="form-control input"  id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
+                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
                                 <th><select id="unidadc4_id" name="unidadc_id[]">
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
@@ -349,8 +349,8 @@
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
                                 </select></th>
                                 <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
+                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
                                 <th><select id="unidadc5_id" name="unidadc_id[]">
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
@@ -390,8 +390,8 @@
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
                                 </select></th>
                                 <th><input type="text" class="form-control input"  id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
+                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
                                 <th><select id="unidadc6_id" name="unidadc_id[]">
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
@@ -431,8 +431,8 @@
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
                                 </select></th>
                                 <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
+                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
                                 <th><select id="unidadc7_id" name="unidadc_id[]">
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
@@ -472,8 +472,8 @@
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
                                 </select></th>
                                 <th><input type="text" class="form-control input"  id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
+                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
                                 <th><select id="unidadc8_id" name="unidadc_id[]">
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
@@ -513,8 +513,8 @@
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
                                 </select></th>
                                 <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
+                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
                                 <th><select id="unidadc9_id" name="unidadc_id[]">
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>

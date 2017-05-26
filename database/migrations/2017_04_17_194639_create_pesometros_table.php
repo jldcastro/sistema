@@ -37,6 +37,7 @@ class CreatePesometrosTable extends Migration
             $table->date('fu_calibracion3');
             $table->integer('v_referencial4');
             $table->integer('v_unitario4')->nullable();
+            $table->integer('total4');
             $table->date('f_tentativa4');
             $table->time('h_tentativo4');
             $table->text('observacion4');

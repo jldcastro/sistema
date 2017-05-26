@@ -439,9 +439,69 @@ class F37Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $numero)
     {
-        //
+        $f37 = F37::find($numero);
+        $f37->comunicacion = $request->input('comunicacion');
+        $f37->pregunta1 = $request->input('pregunta1');
+        $f37->pregunta2 = $request->input('pregunta2');
+        $f37->pregunta3 = $request->input('pregunta3');
+        $f37->estado = 'cotizado';
+        $f37->save();
+
+        $idBascula = $request->get('idBascula');
+        $idTipoEquipo = $request->get('tipoEquipo_id');
+
+        $cont = 0;
+
+        while($cont<count($idTipoEquipo)){
+            $bascula= Bascula::find($idBascula[$cont]);
+            $bascula->v_unitario = $request->get('v_unitario')[$cont];
+            $bascula->save();
+
+            $cont = $cont +1;
+        }
+
+        $idBalanza = $request->get('idBalanza');
+        $idTipoEquipo2 = $request->get('tipoEquipo2_id');
+
+        $cont2 = 0;
+
+        while($cont2<count($idTipoEquipo2)){
+            $balanza= Balanza::find($idBalanza[$cont]);
+            $balanza->v_unitario2 = $request->get('v_unitario2')[$cont];
+            $balanza->save();
+
+            $cont2 = $cont2 +1;
+        }
+
+        $idMasa = $request->get('idMasa');
+        $idTipoEquipo3 = $request->get('tipoEquipo3_id');
+
+        $cont3 = 0;
+
+        while($cont3<count($idTipoEquipo3)){
+            $masa= Masa::find($idMasa[$cont]);
+            $masa->v_unitario3 = $request->get('v_unitario3')[$cont];
+            $masa->save();
+
+            $cont3 = $cont3 +1;
+        }
+
+        $idPesometro = $request->get('idPesometro');
+        $idTipoEquipo4 = $request->get('tipoEquipo4_id');
+
+        $cont4 = 0;
+
+        while($cont4<count($idTipoEquipo4)){
+            $pesometro= Pesometro::find($idPesometro[$cont]);
+            $pesometro->v_unitario4 = $request->get('v_unitario4')[$cont];
+            $pesometro->save();
+
+            $cont4 = $cont4 +1;
+        }
+
+        return redirect('/cotizado')->with('mensaje','Solicitud de compra cotizada exitósamente');
     }
 
     /**

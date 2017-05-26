@@ -50,6 +50,7 @@
                                             <ul class="dropdown-menu" role="menu">
                                                 <li><a href="{!!URL::to('/f37') !!}"><i class="fa fa-list"></i>Solicitudes F-37</a></li>
                                                 <li><a href="{!!URL::to('/valorizado') !!}"><i class="fa fa-list"></i>Valorizado</a></li>
+                                                <li><a href="{!!URL::to('/cotizado') !!}"><i class="fa fa-list"></i>Cotizado</a></li>
                                             </ul>
                                         </li>
                                     </ul>

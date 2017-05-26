@@ -40,6 +40,7 @@ class CreateBasculasTable extends Migration
             $table->date('fu_calibracion');
             $table->integer('v_referencial');
             $table->integer('v_unitario')->nullable();
+            $table->integer('total');
             $table->date('f_tentativa');
             $table->time('h_tentativo');
             $table->text('observacion');

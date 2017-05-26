@@ -49,5 +49,7 @@ Route::get('/f37/tipos/{id}', 'f37Controller@getTipos');
 Route::get('/f37/unidades/{id}', 'f37Controller@getUnidades');
 Route::get('/f37/condiciones/{id}', 'f37Controller@getCondiciones');
 Route::get('/f37/materiales/{id}','f37Controller@getMateriales');
+
 Route::resource('/valorizado','ValorizadoController');
 
+Route::resource('/cotizado','CotizadoController');
