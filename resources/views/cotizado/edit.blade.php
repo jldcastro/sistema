@@ -39,41 +39,41 @@
                 </div>
                 <div class="form-group">
                     <label for="nombre_contacto" class="col-xs-4 control-label">Nombre Cont:</label>
-                    <input type="text" class="form-control input" id="nombre_contacto" name="nombre_contacto" value="<?= $f37->nombre_contacto; ?>" disabled>
+                    <input type="text" class="form-control input" id="nombre_contacto" name="nombre_contacto" value="<?= $f37->nombre_contacto; ?>">
                 </div>
                 <div class="form-group">
                     <label for="fono_contacto" class="col-xs-4 control-label">Fono Contacto:</label>
-                    <input type="text" class="form-control input" id="fono_contacto" name="fono_contacto" value="<?= $f37->fono_contacto; ?>" disabled>
+                    <input type="text" class="form-control input" id="fono_contacto" name="fono_contacto" value="<?= $f37->fono_contacto; ?>">
                 </div>
                 <div class="form-group">
                     <label for="correo_contacto" class="col-xs-4 control-label">Correo Contacto:</label>
-                    <input type="text" class="form-control input" id="correo_contacto" name="correo_contacto" value="<?= $f37->correo_contacto; ?>" disabled>
+                    <input type="text" class="form-control input" id="correo_contacto" name="correo_contacto" value="<?= $f37->correo_contacto; ?>">
                 </div>
                 <div class="form-group">
                     <label for="direccion_cliente" class="col-xs-4 control-label">Dirección Cli:</label>
-                    <input type="text" class="form-control input" id="direccion_cliente" name="direccion_cliente" value="<?= $f37->direccion_cliente; ?>" disabled>
+                    <input type="text" class="form-control input" id="direccion_cliente" name="direccion_cliente" value="<?= $f37->direccion_cliente; ?>">
                 </div>
                 <div class="form-group">
                     <label for="direccion_envio" class="col-xs-4 control-label">Dirección Envío:</label>
-                    <input type="text" class="form-control input" id="direccion_envio" name="direccion_envio" value="<?= $f37->direccion_envio; ?>" disabled>
+                    <input type="text" class="form-control input" id="direccion_envio" name="direccion_envio" value="<?= $f37->direccion_envio; ?>">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="ciudad_envio" class="col-xs-4 control-label">Ciudad Envío:</label>
-                    <input type="text" class="form-control input" id="ciudad_envio" name="ciudad_envio" value="<?= $f37->ciudad_envio; ?>" disabled>
+                    <input type="text" class="form-control input" id="ciudad_envio" name="ciudad_envio" value="<?= $f37->ciudad_envio; ?>">
                 </div>
                 <div class="form-group">
                     <label for="ciudad_envio" class="col-xs-4 control-label">Dirección des:</label>
-                    <input type="text" class="form-control input" id="direccion_despacho" name="direccion_despacho" value="<?= $f37->direccion_despacho; ?>" disabled>
+                    <input type="text" class="form-control input" id="direccion_despacho" name="direccion_despacho" value="<?= $f37->direccion_despacho; ?>">
                 </div>
                 <div class="form-group">
                     <label for="nota_venta" class="col-xs-4 control-label">Nota Venta:</label>
-                    <input type="text" class="form-control input" id="nota_venta" name="nota_venta" value="<?= $f37->nota_venta; ?>" disabled>
+                    <input type="text" class="form-control input" id="nota_venta" name="nota_venta" value="<?= $f37->nota_venta; ?>">
                 </div>
                 <div class="form-group">
                     <label for="orden_compra" class="col-xs-4 control-label">Orden Compra:</label>
-                    <input type="text" class="form-control input" id="orden_compra" name="orden_compra" value="<?= $f37->orden_compra; ?>" disabled>
+                    <input type="text" class="form-control input" id="orden_compra" name="orden_compra" value="<?= $f37->orden_compra; ?>">
                 </div>
             </div>
         </div>
@@ -440,18 +440,18 @@
                                 </tr>
                                 <tr id="miTablaPersonalizada">
                                     <th style="background-color: #AEDFB4; width:500px;">¿El personal del laboratorio está capacitado para efectuar este trabajo?</th>
-                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta1" value="1.1"></th>
-                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta1" value="1.2"></th>
+                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta1" value="1.1" disabled></th>
+                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta1" value="1.2" disabled></th>
                                 </tr>
                                 <tr id="miTablaPersonalizada">
                                     <th style="background-color: #AEDFB4; width:500px;">¿Se cuenta con equipamiento necesario y adecuado para efectuar este trabajo?</th>
-                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta2" value="2.1"></th>
-                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta2" value="2.2"></th>
+                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta2" value="2.1" disabled></th>
+                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta2" value="2.2" disabled></th>
                                 </tr>
                                 <tr id="miTablaPersonalizada">
                                     <th style="background-color: #AEDFB4; width:500px;">¿Se podrá hacer el trabajo en la fecha solicitada?</th>
-                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta3" value="3.1"></th>
-                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta3" value="3.2"></th>
+                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta3" value="3.1" disabled></th>
+                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta3" value="3.2" disabled></th>
                                 </tr>
                             </thead>
                         </table>

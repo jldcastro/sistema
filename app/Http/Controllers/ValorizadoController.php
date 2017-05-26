@@ -25,16 +25,6 @@ class ValorizadoController extends Controller
         $f37s = F37::all();
         return view('valorizado.index',compact('f37s'));
     }
-
-    public function getF37(Request $request,$id)
-    {
-        if($request->ajax()){
-            $f37s = F37::f37($id);
-            return response()->json($f37s);
-        }
-    }
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -127,7 +117,7 @@ class ValorizadoController extends Controller
             ->select('p.cantidad4 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','p.ubicacion4 as ubicacion','p.rango_uso as rango','p.capacidad4 as capacidad','uni.nombre as uni_nombre','p.graduacion4 as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','p.fu_mantencion3 as mantencion','p.fu_calibracion3 as calibracion','p.v_referencial4 as referencial','p.v_unitario4 as unitario','p.f_tentativa4 as tentativa','p.h_tentativo4 as tentativo','p.observacion4 as observacion','p.periocidad4 as periocidad')
             ->where('p.f37_id','=',$numero)
             ->get();
-        return view('valorizado.edit')->with('f37',$f37)->with('bascula',$bascula)->with('balanza',$balanza)->with('masa',$masa)->with('pesometro',$pesometro);;
+        return view('valorizado.edit')->with('f37',$f37)->with('bascula',$bascula)->with('balanza',$balanza)->with('masa',$masa)->with('pesometro',$pesometro);
     }
 
     /**

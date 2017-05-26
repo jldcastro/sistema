@@ -447,6 +447,7 @@ class F37Controller extends Controller
         $f37->pregunta2 = $request->input('pregunta2');
         $f37->pregunta3 = $request->input('pregunta3');
         $f37->estado = 'cotizado';
+        $f37->created_at = Carbon::now();
         $f37->save();
 
         $idBascula = $request->get('idBascula');
