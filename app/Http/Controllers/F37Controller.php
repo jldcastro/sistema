@@ -125,7 +125,7 @@ class F37Controller extends Controller
     public function store(Request $request)
     {
 
-       /* $f37= new F37();
+       $f37= new F37();
         $f37->fecha_solicitud = Carbon::now();
         $f37->comuna_servicio=$request->input('comuna_servicio');
         $f37->lugar_servicio=$request->input('lugar_servicio');
@@ -151,7 +151,9 @@ class F37Controller extends Controller
         $f37->monto_neto2 = $request->input('monto_neto2');
         $f37->diferencia = $request->input('diferencia');
         $f37->estado = 'valorizado';
-        $f37->save();*/
+        $f37->save();
+                $numero=$f37->numero;
+
 
         $idTipoEquipo = $request->get('tipoEquipo_id');
         $cantidad = $request->get('cantidad');
@@ -182,37 +184,10 @@ class F37Controller extends Controller
 for($i=0;$i<$cantidadbasculas;$i++){
 
 
-   $f37= new F37();
-        $f37->fecha_solicitud = Carbon::now();
-        $f37->comuna_servicio=$request->input('comuna_servicio');
-        $f37->lugar_servicio=$request->input('lugar_servicio');
-        $f37->nombre_contacto = $request->input('nombre_contacto');
-        $f37->fono_contacto = $request->input('fono_contacto');
-        $f37->correo_contacto = $request->input('correo_contacto');
-        $f37->direccion_cliente = $request->input('direccion_cliente');
-        $f37->direccion_envio = $request->input('direccion_envio');
-        $f37->ciudad_envio = $request->input('ciudad_envio');
-        $f37->direccion_despacho = $request->input('direccion_despacho');
-        $f37->nota_venta = $request->input('nota_venta');
-        $f37->orden_compra = $request->input('orden_compra');
-        $f37->tipo_cliente = implode($request->tipo_cliente,',');
-        $f37->observaciones = $request->input('observaciones');
-        $f37->comunicacion = $request->input('comunicacion');
-        $f37->pregunta1 = $request->input('pregunta1');
-        $f37->pregunta2 = $request->input('pregunta2');
-        $f37->pregunta3 = $request->input('pregunta3');
-        $f37->nfactura = $request->input('nfactura');
-        $f37->monto_neto = $request->input('monto_neto');
-        $f37->it = $request->input('it');
-        $f37->vt_cotizado = $request->input('vt_cotizado');
-        $f37->monto_neto2 = $request->input('monto_neto2');
-        $f37->diferencia = $request->input('diferencia');
-        $f37->estado = 'valorizado';
-        $f37->save();
-        $numerobascula=$f37->numero;
+
 
             $bascula = new Bascula();
-            $bascula->f37_id = $numerobascula;
+            $bascula->f37_id = $numero;
             $bascula->cantidad = $cantidad[$cont];
             $bascula->tipoEquipo_id = $idTipoEquipo[$cont];
             $bascula->marca_id = $marca_id[$cont];
@@ -267,37 +242,9 @@ for($i=0;$i<$cantidadbasculas;$i++){
                          $cantidadbalanza = $cantidad2[$cont];
 for($i=0;$i<$cantidadbalanza;$i++){
 
-
-   $f37= new F37();
-        $f37->fecha_solicitud = Carbon::now();
-        $f37->comuna_servicio=$request->input('comuna_servicio');
-        $f37->lugar_servicio=$request->input('lugar_servicio');
-        $f37->nombre_contacto = $request->input('nombre_contacto');
-        $f37->fono_contacto = $request->input('fono_contacto');
-        $f37->correo_contacto = $request->input('correo_contacto');
-        $f37->direccion_cliente = $request->input('direccion_cliente');
-        $f37->direccion_envio = $request->input('direccion_envio');
-        $f37->ciudad_envio = $request->input('ciudad_envio');
-        $f37->direccion_despacho = $request->input('direccion_despacho');
-        $f37->nota_venta = $request->input('nota_venta');
-        $f37->orden_compra = $request->input('orden_compra');
-        $f37->tipo_cliente = implode($request->tipo_cliente,',');
-        $f37->observaciones = $request->input('observaciones');
-        $f37->comunicacion = $request->input('comunicacion');
-        $f37->pregunta1 = $request->input('pregunta1');
-        $f37->pregunta2 = $request->input('pregunta2');
-        $f37->pregunta3 = $request->input('pregunta3');
-        $f37->nfactura = $request->input('nfactura');
-        $f37->monto_neto = $request->input('monto_neto');
-        $f37->it = $request->input('it');
-        $f37->vt_cotizado = $request->input('vt_cotizado');
-        $f37->monto_neto2 = $request->input('monto_neto2');
-        $f37->diferencia = $request->input('diferencia');
-        $f37->estado = 'valorizado';
-        $f37->save();
-        $numerobalanza=$f37->numero;
+ 
             $balanza = new Balanza();
-            $balanza->f37_id = $numerobalanza;
+            $balanza->f37_id = $numero;
             $balanza->cantidad2 = $cantidad2[$cont2];
             $balanza->tipoEquipo2_id = $idTipoEquipo2[$cont2];
             $balanza->marca2_id = $marca2_id[$cont2];
@@ -351,36 +298,9 @@ for($i=0;$i<$cantidadbalanza;$i++){
 for($i=0;$i<$cantidadmasa;$i++){
 
 
-   $f37= new F37();
-        $f37->fecha_solicitud = Carbon::now();
-        $f37->comuna_servicio=$request->input('comuna_servicio');
-        $f37->lugar_servicio=$request->input('lugar_servicio');
-        $f37->nombre_contacto = $request->input('nombre_contacto');
-        $f37->fono_contacto = $request->input('fono_contacto');
-        $f37->correo_contacto = $request->input('correo_contacto');
-        $f37->direccion_cliente = $request->input('direccion_cliente');
-        $f37->direccion_envio = $request->input('direccion_envio');
-        $f37->ciudad_envio = $request->input('ciudad_envio');
-        $f37->direccion_despacho = $request->input('direccion_despacho');
-        $f37->nota_venta = $request->input('nota_venta');
-        $f37->orden_compra = $request->input('orden_compra');
-        $f37->tipo_cliente = implode($request->tipo_cliente,',');
-        $f37->observaciones = $request->input('observaciones');
-        $f37->comunicacion = $request->input('comunicacion');
-        $f37->pregunta1 = $request->input('pregunta1');
-        $f37->pregunta2 = $request->input('pregunta2');
-        $f37->pregunta3 = $request->input('pregunta3');
-        $f37->nfactura = $request->input('nfactura');
-        $f37->monto_neto = $request->input('monto_neto');
-        $f37->it = $request->input('it');
-        $f37->vt_cotizado = $request->input('vt_cotizado');
-        $f37->monto_neto2 = $request->input('monto_neto2');
-        $f37->diferencia = $request->input('diferencia');
-        $f37->estado = 'valorizado';
-        $f37->save();
-        $numeromasa=$f37->numero;
+ 
             $masa = new Masa();
-            $masa->f37_id = $numeromasa;
+            $masa->f37_id = $numero;
             $masa->cantidad3 = $cantidad3[$cont3];
             $masa->tipoEquipo3_id = $idTipoEquipo3[$cont3];
             $masa->marca3_id = $marca3_id[$cont3];
@@ -434,36 +354,9 @@ for($i=0;$i<$cantidadmasa;$i++){
 for($i=0;$i<$cantidadpesometro;$i++){
 
 
-   $f37= new F37();
-        $f37->fecha_solicitud = Carbon::now();
-        $f37->comuna_servicio=$request->input('comuna_servicio');
-        $f37->lugar_servicio=$request->input('lugar_servicio');
-        $f37->nombre_contacto = $request->input('nombre_contacto');
-        $f37->fono_contacto = $request->input('fono_contacto');
-        $f37->correo_contacto = $request->input('correo_contacto');
-        $f37->direccion_cliente = $request->input('direccion_cliente');
-        $f37->direccion_envio = $request->input('direccion_envio');
-        $f37->ciudad_envio = $request->input('ciudad_envio');
-        $f37->direccion_despacho = $request->input('direccion_despacho');
-        $f37->nota_venta = $request->input('nota_venta');
-        $f37->orden_compra = $request->input('orden_compra');
-        $f37->tipo_cliente = implode($request->tipo_cliente,',');
-        $f37->observaciones = $request->input('observaciones');
-        $f37->comunicacion = $request->input('comunicacion');
-        $f37->pregunta1 = $request->input('pregunta1');
-        $f37->pregunta2 = $request->input('pregunta2');
-        $f37->pregunta3 = $request->input('pregunta3');
-        $f37->nfactura = $request->input('nfactura');
-        $f37->monto_neto = $request->input('monto_neto');
-        $f37->it = $request->input('it');
-        $f37->vt_cotizado = $request->input('vt_cotizado');
-        $f37->monto_neto2 = $request->input('monto_neto2');
-        $f37->diferencia = $request->input('diferencia');
-        $f37->estado = 'valorizado';
-        $f37->save();
-        $numeropesometro=$f37->numero;
+
             $pesometro = new Pesometro();
-            $pesometro->f37_id = $numeropesometro;
+            $pesometro->f37_id = $numero;
             $pesometro->cantidad4 = $cantidad4[$cont4];
             $pesometro->tipoEquipo4_id = $idTipoEquipo4[$cont4];
             $pesometro->marca4_id = $marca4_id[$cont4];
