@@ -14,6 +14,8 @@ use App\Tipo;
 use App\Bascula;
 use App\Balanza;
 use App\Unidad;
+use App\Cliente;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -37,12 +39,14 @@ class F37Controller extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $f37s = F37::all();
-        return view('f37.index',compact('f37s'));
-    }
+        $clientes = Cliente::all();
+        $vendedores = User::all();
+        return view('f37.index',["f37s"=>$f37s,"clientes"=>$clientes,"vendedores"=>$vendedores]);
 
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -124,10 +128,10 @@ class F37Controller extends Controller
      */
     public function store(Request $request)
     {
-        $f37= new F37();
+        $f37 = new F37();
         $f37->fecha_solicitud = Carbon::now();
-        $f37->comuna_servicio=$request->input('comuna_servicio');
-        $f37->lugar_servicio=$request->input('lugar_servicio');
+        $f37->comuna_servicio = $request->input('comuna_servicio');
+        $f37->lugar_servicio = $request->input('lugar_servicio');
         $f37->nombre_contacto = $request->input('nombre_contacto');
         $f37->fono_contacto = $request->input('fono_contacto');
         $f37->correo_contacto = $request->input('correo_contacto');
@@ -137,7 +141,7 @@ class F37Controller extends Controller
         $f37->direccion_despacho = $request->input('direccion_despacho');
         $f37->nota_venta = $request->input('nota_venta');
         $f37->orden_compra = $request->input('orden_compra');
-        $f37->tipo_cliente = implode($request->tipo_cliente,',');
+        $f37->tipo_cliente = implode($request->tipo_cliente, ',');
         $f37->observaciones = $request->input('observaciones');
         $f37->comunicacion = $request->input('comunicacion');
         $f37->pregunta1 = $request->input('pregunta1');
@@ -152,6 +156,7 @@ class F37Controller extends Controller
         $f37->estado = 'valorizado';
         $f37->save();
 
+        $numero=$f37->numero;
         $idTipoEquipo = $request->get('tipoEquipo_id');
         $cantidad = $request->get('cantidad');
         $marca_id = $request->get('marca_id');
@@ -177,33 +182,38 @@ class F37Controller extends Controller
         $cont = 0;
 
         while($cont<count($idTipoEquipo)){
-            $bascula = new Bascula();
-            $bascula->f37_id = $f37->numero;
-            $bascula->cantidad = $cantidad[$cont];
-            $bascula->tipoEquipo_id = $idTipoEquipo[$cont];
-            $bascula->marca_id = $marca_id[$cont];
-            $bascula->modelo_id = $modelo_id{$cont};
-            $bascula->tipo_id = $tipo_id[$cont];
-            $bascula->ubicacion = $ubicacion[$cont];
-            $bascula->puntos = $puntos[$cont];
-            $bascula->pesaje_mop = $pesaje_mop[$cont];
-            $bascula->capacidad = $capacidad[$cont];
-            $bascula->unidadc_id = $unidadc_id[$cont];
-            $bascula->graduacion = $graduacion[$cont];
-            $bascula->unidadg_id = $unidadg_id[$cont];
-            $bascula->condicion_id = $condicion_id[$cont];
-            $bascula->fu_mantencion = $fu_mantencion[$cont];
-            $bascula->fu_calibracion = $fu_calibracion[$cont];
-            $bascula->v_referencial = $v_referencial[$cont];
-            $bascula->v_unitario = $v_unitario[$cont];
-            $bascula->f_tentativa = $f_tentativa[$cont];
-            $bascula->h_tentativo = $h_tentativo[$cont];
-            $bascula->observacion = $observacion[$cont];
-            $bascula->periocidad = $periocidad[$cont];
-            $bascula->save();
+            $cantidadbasculas = $cantidad[$cont];
+            for($i=0;$i<$cantidadbasculas;$i++){
+                $bascula = new Bascula();
+                $bascula->f37_id = $numero;
+                $bascula->cantidad = 1;
+                $bascula->tipoEquipo_id = $idTipoEquipo[$cont];
+                $bascula->marca_id = $marca_id[$cont];
+                $bascula->modelo_id = $modelo_id{$cont};
+                $bascula->tipo_id = $tipo_id[$cont];
+                $bascula->ubicacion = $ubicacion[$cont];
+                $bascula->puntos = $puntos[$cont];
+                $bascula->pesaje_mop = $pesaje_mop[$cont];
+                $bascula->capacidad = $capacidad[$cont];
+                $bascula->unidadc_id = $unidadc_id[$cont];
+                $bascula->graduacion = $graduacion[$cont];
+                $bascula->unidadg_id = $unidadg_id[$cont];
+                $bascula->condicion_id = $condicion_id[$cont];
+                $bascula->fu_mantencion = $fu_mantencion[$cont];
+                $bascula->fu_calibracion = $fu_calibracion[$cont];
+                $bascula->v_referencial = $v_referencial[$cont];
+                $bascula->v_unitario = $v_unitario[$cont];
+                $bascula->f_tentativa = $f_tentativa[$cont];
+                $bascula->h_tentativo = $h_tentativo[$cont];
+                $bascula->observacion = $observacion[$cont];
+                $bascula->periocidad = $periocidad[$cont];
+                $bascula->save();
+            }
 
             $cont = $cont +1;
         }
+
+
 
         $idTipoEquipo2 = $request->get('tipoEquipo2_id');
         $cantidad2 = $request->get('cantidad2');
@@ -229,30 +239,32 @@ class F37Controller extends Controller
         $cont2 = 0;
 
         while($cont2<count($idTipoEquipo2)){
-            $balanza = new Balanza();
-            $balanza->f37_id = $f37->numero;
-            $balanza->cantidad2 = $cantidad2[$cont2];
-            $balanza->tipoEquipo2_id = $idTipoEquipo2[$cont2];
-            $balanza->marca2_id = $marca2_id[$cont2];
-            $balanza->modelo2_id = $modelo2_id{$cont2};
-            $balanza->tipo2_id = $tipo2_id[$cont2];
-            $balanza->ubicacion2 = $ubicacion2[$cont2];
-            $balanza->puntos2 = $puntos2[$cont2];
-            $balanza->capacidad2 = $capacidad2[$cont2];
-            $balanza->unidadc2_id = $unidadc2_id[$cont2];
-            $balanza->graduacion2 = $graduacion2[$cont2];
-            $balanza->unidadg2_id = $unidadg2_id[$cont2];
-            $balanza->condicion2_id = $condicion2_id[$cont2];
-            $balanza->fu_mantencion2 = $fu_mantencion2[$cont2];
-            $balanza->fu_calibracion2 = $fu_calibracion2[$cont2];
-            $balanza->v_referencial2 = $v_referencial2[$cont2];
-            $balanza->v_unitario2 = $v_unitario2[$cont2];
-            $balanza->f_tentativa2 = $f_tentativa2[$cont2];
-            $balanza->h_tentativo2 = $h_tentativo2[$cont2];
-            $balanza->observacion2 = $observacion2[$cont2];
-            $balanza->periocidad2 = $periocidad2[$cont2];
-            $balanza->save();
-
+            $cantidadbalanzas = $cantidad2[$cont2];
+            for($i=0;$i<$cantidadbalanzas;$i++) {
+                $balanza = new Balanza();
+                $balanza->f37_id = $f37->numero;
+                $balanza->cantidad2 = 1;
+                $balanza->tipoEquipo2_id = $idTipoEquipo2[$cont2];
+                $balanza->marca2_id = $marca2_id[$cont2];
+                $balanza->modelo2_id = $modelo2_id{$cont2};
+                $balanza->tipo2_id = $tipo2_id[$cont2];
+                $balanza->ubicacion2 = $ubicacion2[$cont2];
+                $balanza->puntos2 = $puntos2[$cont2];
+                $balanza->capacidad2 = $capacidad2[$cont2];
+                $balanza->unidadc2_id = $unidadc2_id[$cont2];
+                $balanza->graduacion2 = $graduacion2[$cont2];
+                $balanza->unidadg2_id = $unidadg2_id[$cont2];
+                $balanza->condicion2_id = $condicion2_id[$cont2];
+                $balanza->fu_mantencion2 = $fu_mantencion2[$cont2];
+                $balanza->fu_calibracion2 = $fu_calibracion2[$cont2];
+                $balanza->v_referencial2 = $v_referencial2[$cont2];
+                $balanza->v_unitario2 = $v_unitario2[$cont2];
+                $balanza->f_tentativa2 = $f_tentativa2[$cont2];
+                $balanza->h_tentativo2 = $h_tentativo2[$cont2];
+                $balanza->observacion2 = $observacion2[$cont2];
+                $balanza->periocidad2 = $periocidad2[$cont2];
+                $balanza->save();
+            }
             $cont2 = $cont2 +1;
         }
 
@@ -280,30 +292,32 @@ class F37Controller extends Controller
         $cont3 = 0;
 
         while($cont3<count($idTipoEquipo3)){
-            $masa = new Masa();
-            $masa->f37_id = $f37->numero;
-            $masa->cantidad3 = $cantidad3[$cont3];
-            $masa->tipoEquipo3_id = $idTipoEquipo3[$cont3];
-            $masa->marca3_id = $marca3_id[$cont3];
-            $masa->modelo3_id = $modelo3_id{$cont3};
-            $masa->material_id = $material_id[$cont3];
-            $masa->clase_oiml = $clase_oiml[$cont3];
-            $masa->ubicacion3 = $ubicacion3[$cont3];
-            $masa->capacidad3 = $capacidad3[$cont3];
-            $masa->unidadc3_id = $unidadc3_id[$cont3];
-            $masa->graduacion3 = $graduacion3[$cont3];
-            $masa->unidadg3_id = $unidadg3_id[$cont3];
-            $masa->condicion3_id = $condicion3_id[$cont3];
-            $masa->r_ajuste = $r_ajuste[$cont3];
-            $masa->r_mantencion = $r_mantencion[$cont3];
-            $masa->v_referencial3 = $v_referencial3[$cont3];
-            $masa->v_unitario3 = $v_unitario3[$cont3];
-            $masa->f_tentativa3 = $f_tentativa3[$cont3];
-            $masa->h_tentativo3 = $h_tentativo3[$cont3];
-            $masa->observacion3 = $observacion3[$cont3];
-            $masa->periocidad3 = $periocidad3[$cont3];
-            $masa->save();
-
+            $cantidadmasas = $cantidad3[$cont3];
+            for($i=0;$i<$cantidadmasas;$i++) {
+                $masa = new Masa();
+                $masa->f37_id = $f37->numero;
+                $masa->cantidad3 = 1;
+                $masa->tipoEquipo3_id = $idTipoEquipo3[$cont3];
+                $masa->marca3_id = $marca3_id[$cont3];
+                $masa->modelo3_id = $modelo3_id{$cont3};
+                $masa->material_id = $material_id[$cont3];
+                $masa->clase_oiml = $clase_oiml[$cont3];
+                $masa->ubicacion3 = $ubicacion3[$cont3];
+                $masa->capacidad3 = $capacidad3[$cont3];
+                $masa->unidadc3_id = $unidadc3_id[$cont3];
+                $masa->graduacion3 = $graduacion3[$cont3];
+                $masa->unidadg3_id = $unidadg3_id[$cont3];
+                $masa->condicion3_id = $condicion3_id[$cont3];
+                $masa->r_ajuste = $r_ajuste[$cont3];
+                $masa->r_mantencion = $r_mantencion[$cont3];
+                $masa->v_referencial3 = $v_referencial3[$cont3];
+                $masa->v_unitario3 = $v_unitario3[$cont3];
+                $masa->f_tentativa3 = $f_tentativa3[$cont3];
+                $masa->h_tentativo3 = $h_tentativo3[$cont3];
+                $masa->observacion3 = $observacion3[$cont3];
+                $masa->periocidad3 = $periocidad3[$cont3];
+                $masa->save();
+            }
             $cont3 = $cont3 +1;
         }
 
@@ -330,29 +344,31 @@ class F37Controller extends Controller
         $cont4 = 0;
 
         while($cont4<count($idTipoEquipo4)){
-            $pesometro = new Pesometro();
-            $pesometro->f37_id = $f37->numero;
-            $pesometro->cantidad4 = $cantidad4[$cont4];
-            $pesometro->tipoEquipo4_id = $idTipoEquipo4[$cont4];
-            $pesometro->marca4_id = $marca4_id[$cont4];
-            $pesometro->modelo4_id = $modelo4_id{$cont4};
-            $pesometro->ubicacion4 = $ubicacion4[$cont4];
-            $pesometro->rango_uso = $rango_uso[$cont4];
-            $pesometro->capacidad4 = $capacidad4[$cont4];
-            $pesometro->unidadc4_id = $unidadc4_id[$cont4];
-            $pesometro->graduacion4 = $graduacion4[$cont4];
-            $pesometro->unidadg4_id = $unidadg4_id[$cont4];
-            $pesometro->condicion4_id = $condicion4_id[$cont4];
-            $pesometro->fu_mantencion3 = $fu_mantencion3[$cont4];
-            $pesometro->fu_calibracion3 = $fu_calibracion3[$cont4];
-            $pesometro->v_referencial4 = $v_referencial4[$cont4];
-            $pesometro->v_unitario4 = $v_unitario4[$cont4];
-            $pesometro->f_tentativa4 = $f_tentativa4[$cont4];
-            $pesometro->h_tentativo4 = $h_tentativo4[$cont4];
-            $pesometro->observacion4 = $observacion4[$cont4];
-            $pesometro->periocidad4 = $periocidad4[$cont4];
-            $pesometro->save();
-
+            $cantidadpesometros = $cantidad4[$cont4];
+            for($i=0;$i<$cantidadpesometros;$i++) {
+                $pesometro = new Pesometro();
+                $pesometro->f37_id = $f37->numero;
+                $pesometro->cantidad4 = 1;
+                $pesometro->tipoEquipo4_id = $idTipoEquipo4[$cont4];
+                $pesometro->marca4_id = $marca4_id[$cont4];
+                $pesometro->modelo4_id = $modelo4_id{$cont4};
+                $pesometro->ubicacion4 = $ubicacion4[$cont4];
+                $pesometro->rango_uso = $rango_uso[$cont4];
+                $pesometro->capacidad4 = $capacidad4[$cont4];
+                $pesometro->unidadc4_id = $unidadc4_id[$cont4];
+                $pesometro->graduacion4 = $graduacion4[$cont4];
+                $pesometro->unidadg4_id = $unidadg4_id[$cont4];
+                $pesometro->condicion4_id = $condicion4_id[$cont4];
+                $pesometro->fu_mantencion3 = $fu_mantencion3[$cont4];
+                $pesometro->fu_calibracion3 = $fu_calibracion3[$cont4];
+                $pesometro->v_referencial4 = $v_referencial4[$cont4];
+                $pesometro->v_unitario4 = $v_unitario4[$cont4];
+                $pesometro->f_tentativa4 = $f_tentativa4[$cont4];
+                $pesometro->h_tentativo4 = $h_tentativo4[$cont4];
+                $pesometro->observacion4 = $observacion4[$cont4];
+                $pesometro->periocidad4 = $periocidad4[$cont4];
+                $pesometro->save();
+            }
             $cont4 = $cont4 +1;
         }
         return redirect('/f37')->with('mensaje','Solicitud de compra registrada exitósamente');
@@ -441,68 +457,7 @@ class F37Controller extends Controller
      */
     public function update(Request $request, $numero)
     {
-        $f37 = F37::find($numero);
-        $f37->comunicacion = $request->input('comunicacion');
-        $f37->pregunta1 = $request->input('pregunta1');
-        $f37->pregunta2 = $request->input('pregunta2');
-        $f37->pregunta3 = $request->input('pregunta3');
-        $f37->estado = 'cotizado';
-        $f37->created_at = Carbon::now();
-        $f37->save();
 
-        $idBascula = $request->get('idBascula');
-        $idTipoEquipo = $request->get('tipoEquipo_id');
-
-        $cont = 0;
-
-        while($cont<count($idTipoEquipo)){
-            $bascula= Bascula::find($idBascula[$cont]);
-            $bascula->v_unitario = $request->get('v_unitario')[$cont];
-            $bascula->save();
-
-            $cont = $cont +1;
-        }
-
-        $idBalanza = $request->get('idBalanza');
-        $idTipoEquipo2 = $request->get('tipoEquipo2_id');
-
-        $cont2 = 0;
-
-        while($cont2<count($idTipoEquipo2)){
-            $balanza= Balanza::find($idBalanza[$cont]);
-            $balanza->v_unitario2 = $request->get('v_unitario2')[$cont];
-            $balanza->save();
-
-            $cont2 = $cont2 +1;
-        }
-
-        $idMasa = $request->get('idMasa');
-        $idTipoEquipo3 = $request->get('tipoEquipo3_id');
-
-        $cont3 = 0;
-
-        while($cont3<count($idTipoEquipo3)){
-            $masa= Masa::find($idMasa[$cont]);
-            $masa->v_unitario3 = $request->get('v_unitario3')[$cont];
-            $masa->save();
-
-            $cont3 = $cont3 +1;
-        }
-
-        $idPesometro = $request->get('idPesometro');
-        $idTipoEquipo4 = $request->get('tipoEquipo4_id');
-
-        $cont4 = 0;
-
-        while($cont4<count($idTipoEquipo4)){
-            $pesometro= Pesometro::find($idPesometro[$cont]);
-            $pesometro->v_unitario4 = $request->get('v_unitario4')[$cont];
-            $pesometro->save();
-
-            $cont4 = $cont4 +1;
-        }
-
-        return redirect('/cotizado')->with('mensaje','Solicitud de compra cotizada exitósamente');
     }
 
     /**

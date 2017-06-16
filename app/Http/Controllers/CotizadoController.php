@@ -20,10 +20,17 @@ class CotizadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $f37s = F37::all();
-        return view('cotizado.index', compact('f37s'));
+        if($request) {
+            $query = trim($request->get('searchText'));
+            $f37s = F37::select('numero', 'cliente', 'fecha_solicitud', 'estado', 'created_at')
+                ->where('cliente', 'LIKE', '%' . $query . '%')
+                ->orwhere('created_at', 'LIKE', '%' . $query . '%')
+                ->orderBy('numero', 'asc')
+                ->paginate(25);
+            return view('cotizado.index',["f37s"=>$f37s,"searchText"=>$query]);
+        }
     }
 
     /**

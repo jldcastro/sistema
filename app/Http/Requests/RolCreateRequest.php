@@ -24,7 +24,18 @@ class RolCreateRequest extends Request
     public function rules()
     {
         return [
-            //
+            'name' => 'required|unique:roles',
+            'slug' => 'required|unique:roles',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Debe ingresar algún rol de usuario',
+            'name.unique' => 'El nombre del rol ya fue registrado',
+            'slug.required' => 'Debe ingresar algún slug',
+            'slug.unique' => 'El nombre del slug ya fue registrado',
         ];
     }
 }

@@ -12,7 +12,7 @@ use Caffeinated\Shinobi\Models\Permission;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\UsuarioCreateRequest;
-use App\Http\Requests\TipoEquipoUpdateRequest;
+use App\Http\Requests\UsuarioUpdateRequest;
 
 class UsuarioController extends Controller
 {
@@ -82,43 +82,6 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function asignar_rol($idusu,$idrol){
-        $usuario=User::find($idusu);
-        $usuario->assignRole($idrol);
-
-        $usuario=User::find($idusu);
-        $rolesasignados=$usuario->getRoles();
-
-        return json_encode ($rolesasignados);
-    }
-
-    public function quitar_rol($idusu,$idrol){
-
-        $usuario=User::find($idusu);
-        $usuario->revokeRole($idrol);
-        $rolesasignados=$usuario->getRoles();
-        return json_encode ($rolesasignados);
-
-
-    }
-
-    public function asignar_permiso(Request $request){
-        $roleid=$request->input("rol_sel");
-        $idper=$request->input("permiso_rol");
-        $rol=Role::find($roleid);
-        $rol->assignPermission($idper);
-        $rol->save();
-    }
-
-    public function quitar_permiso($idrole,$idper){
-
-        $role = Role::find($idrole);
-        $role->revokePermission($idper);
-        $role->save();
-
-        return "ok";
-    }
-
     public function edit($id)
     {
         $usuario=User::find($id);
@@ -147,7 +110,7 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsuarioUpdateRequest $request, $id)
     {
         $usuario = User::find($id);
         $usuario->name = $request->input('name');
@@ -179,5 +142,44 @@ class UsuarioController extends Controller
 
         Session::flash('mensaje2','Usuario eliminado exitósamente');
         return Redirect::to('/usuario');
+    }
+
+    public function asignar_permiso(Request $request){
+
+        $roleid=$request->input("rol_sel");
+        $idper=$request->input("permiso_rol");
+        $rol=Role::find($roleid);
+        $rol->assignPermission($idper);
+
+        $rol->save();
+    }
+
+    public function asignar_rol($idusu,$idrol){
+        $usuario=User::find($idusu);
+        $usuario->assignRole($idrol);
+
+        $usuario=User::find($idusu);
+        $rolesasignados=$usuario->getRoles();
+
+        return json_encode ($rolesasignados);
+    }
+
+    public function quitar_permiso($idrole,$idper){
+
+        $role = Role::find($idrole);
+        $role->revokePermission($idper);
+        $role->save();
+    }
+
+
+
+    public function quitar_rol($idusu,$idrol){
+
+        $usuario=User::find($idusu);
+        $usuario->revokeRole($idrol);
+        $rolesasignados=$usuario->getRoles();
+        return json_encode ($rolesasignados);
+
+
     }
 }

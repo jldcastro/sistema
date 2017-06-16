@@ -19,6 +19,10 @@ class F37 extends Model
         return $this->hasMany('App\Bascula');
     }
 
+    public function cliente() {
+        return $this->hasOne('App\Cliente','cliente_id');
+    }
+
     public function getFechaSolicitudAttribute($date){
         //$this->attributes['fecha_solicitud'] = Carbon::parse($date);
         return Carbon::parse($date)->format('d M Y');

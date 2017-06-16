@@ -30,11 +30,14 @@
         {!!Html::style('css/parrafo.css')!!}
         <!-- Select2 -->
         {!!Html::style('css/select2.min.css')!!}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <!-- dataTable -->
+        {!!Html::style('plugins/DataTables/media/css/jquery.dataTables.min.css')!!}
+        <!-- dataTable UI-->
+        {!!Html::style('plugins/jquery-ui/themes/base/minified/jquery-ui.min.css')!!}
         <!-- Logo Empresa en la pestaña del navegador -->
         <link rel="shortcut icon" href="{{ asset('imagenes/empresa/molinstec.png') }}">
     </head>
-        <body class="hold-transition skin-purple layout-top-nav">
+        <body class="hold-transition skin-blue layout-top-nav">
                 <div class="wrapper">
                     <header class="main-header">
                         <nav class="navbar navbar-static-top">
@@ -49,8 +52,8 @@
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">F-37</a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li><a href="{!!URL::to('/f37') !!}"><i class="fa fa-list"></i>Solicitudes F-37</a></li>
-                                                <li><a href="{!!URL::to('/valorizado') !!}"><i class="fa fa-list"></i>Valorizado</a></li>
-                                                <li><a href="{!!URL::to('/cotizado') !!}"><i class="fa fa-list"></i>Cotizado</a></li>
+                                                <li><a href="{!!URL::to('/valorizado') !!}"><i class="fa fa-list"></i>Valorizado F-37</a></li>
+                                                <li><a href="{!!URL::to('/cotizado') !!}"><i class="fa fa-list"></i>Cotizado F-37</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -101,6 +104,23 @@
                                             </ul>
                                         </li>
                                     </ul>
+                                    <ul class="nav navbar-nav">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Equipos</a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="{!!URL::to('/f4') !!}"><i class="fa fa-list"></i>Formulario F-4</a></li>
+                                                <li><a href="{!!URL::to('/f5') !!}"><i class="fa fa-list"></i>Formulario F-5</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav navbar-nav">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clientes</a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="{!!URL::to('/cliente') !!}"><i class="fa fa-list"></i>Lista Clientes</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </div>
                             <!-- /.navbar-collapse -->
                             <!-- Navbar Right Menu -->
@@ -140,7 +160,6 @@
                                 Bienvenido al sistema de calibración de masas y balanzas de la empresa MOLINSTEC
                             </h1>
                         </section>
-
                         <!-- Main content -->
                         <section class="content" id="contenido_principal">
                             <!-- Small boxes (Stat box) -->
@@ -154,7 +173,10 @@
         {!!Html::script('js/bootstrap.min.js')!!}
         <!-- AdminLTE App -->
         {!!Html::script('js/app.min.js')!!}
-
+        <!-- DdataTable -->
+        {!!Html::script('plugins/DataTables/media/js/jquery.dataTables.min.js')!!}
+        <!-- ui  -->
+        {!!Html::script('plugins/jquery-ui/ui/minified/jquery-ui.min.js')!!}
         @yield('scripts')
     </body>
 </html>

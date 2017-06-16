@@ -24,11 +24,17 @@ class TipoEquipoController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->paginate(20);
-        return view('tipos_equipos.index',compact('tipos_equipos'));
-
+        if($request)
+        {
+            $query = trim($request->get('searchText'));
+            $tipos_equipos=DB::table('tipos_equipos')
+                ->where('nombre','LIKE','%'.$query.'%')
+                ->orderBy('nombre','asc')
+                ->paginate(25);
+            return view('tipos_equipos.index',["tipos_equipos"=>$tipos_equipos,"searchText"=>$query]);
+        }
     }
 
     /**

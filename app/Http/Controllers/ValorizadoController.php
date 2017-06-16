@@ -20,10 +20,23 @@ class ValorizadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $f37s = F37::all();
-        return view('valorizado.index',compact('f37s'));
+        if($request) {
+            $query = trim($request->get('searchText'));
+            $f37s = F37::select('numero', 'vendedor', 'fecha_solicitud', 'estado', 'created_at')
+                ->where('vendedor', 'LIKE', '%' . $query . '%')
+                ->orwhere('created_at', 'LIKE', '%' . $query . '%')
+                ->orderBy('numero', 'asc')
+                ->paginate(25);
+            return view('valorizado.index',["f37s"=>$f37s,"searchText"=>$query]);
+        }
+    }
+
+    public function getValorizadoReport()
+    {
+        $f37s = F37::orderBy('numero','DESC');
+        return view('f37.index',compact('f37s'));
     }
     /**
      * Show the form for creating a new resource.
@@ -129,7 +142,29 @@ class ValorizadoController extends Controller
      */
     public function update(Request $request, $numero)
     {
+        $f37 = F37::find($numero);
+        $f37->comunicacion = $request->input('comunicacion');
+        $f37->pregunta1 = $request->input('pregunta1');
+        $f37->pregunta2 = $request->input('pregunta2');
+        $f37->pregunta3 = $request->input('pregunta3');
+        $f37->estado = 'cotizado';
+        $f37->created_at = Carbon::now();
+        $f37->save();
 
+        $idBascula = $request->get('idBascula');
+        $idTipoEquipo = $request->get('tipoEquipo_id');
+        $cont = 0;
+
+        while($cont<count($idTipoEquipo)){
+            $bascula= Bascula::find($idBascula[$cont]);
+            $bascula->v_unitario = $request->get('v_unitario')[$cont];
+            $bascula->save();
+
+            $cont = $cont +1;
+        }
+
+
+        return redirect('/cotizado')->with('mensaje','Solicitud de compra actualizada exitósamente');
     }
 
     /**

@@ -13,28 +13,38 @@
             </div>
         @endif
         @if(count($materiales)>0)
-        <table class="table table-hover">
-            <thead>
-                <th>Material</th>
-                <th>Tipo equipo</th>
-                <th>Opciones</th>
-            </thead>
-            @foreach($materiales as $material)
-            <tbody>
-                <td>{{$material->nombre}}</td>
-                <td>{{$material->tipo_equipo->nombre}}</td>
-                <td>{!!link_to_route('material.edit',$title ='Editar',$parameters = $material->id,$attributes = ['class' => 'btn  btn-success btn-xs'])!!}
-                    <a href="" data-target="#modal-delete-{{$material->id}}" data-toggle="modal"><button class="btn btn-danger btn-xs">Eliminar</button></a>
-                </td>
-            </tbody>
-            @endforeach
-            @include('...materiales.modal')
-        </table>
-        {!!$materiales->render()!!}
+            <table id="material" class="cell-border">
+                <thead>
+                    <th>Material</th>
+                    <th>Tipo equipo</th>
+                    <th>Opciones</th>
+                </thead>
+                <tbody>
+                    @foreach($materiales as $material)
+                        <tr>
+                            <td>{{$material->nombre}}</td>
+                            <td>{{$material->tipo_equipo->nombre}}</td>
+                            <td>{!!link_to_route('material.edit',$title ='Editar',$parameters = $material->id,$attributes = ['class' => 'btn  btn-success btn-xs'])!!}
+                                <a href="" data-target="#modal-delete-{{$material->id}}" data-toggle="modal"><button class="btn btn-danger btn-xs">Eliminar</button></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+                @include('...materiales.modal')
+            </table>
+            {!!$materiales->render()!!}
         @else
             <br/><div class='alert alert-warning'><label>No existe ningún material dentro de la lista</label></div>
         @endif
         <div class="form-group has-feedback">
             <button class=".btn btn-primary col-md-offset-5"><a href="{!!URL::to('/material/create') !!}" style="color: #ffffff">Agregar Material</a></button>
         </div>
+    @endsection
+    @section('scripts')
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#material").DataTable({
+                });
+            });
+        </script>
     @endsection

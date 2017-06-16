@@ -24,12 +24,11 @@ class UsuarioUpdateRequest extends Request
     public function rules()
     {
         return [
-            'codigo_usuario' => 'required',
             'name' => 'required',
             'email' => 'required',
             'apellido_paterno' => 'required',
             'apellido_materno' => 'required',
-            'rut_usuario' => 'required|cl_rut',
+
         ];
     }
 }

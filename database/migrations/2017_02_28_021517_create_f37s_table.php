@@ -15,8 +15,10 @@ class CreateF37sTable extends Migration
         Schema::create('f37s', function (Blueprint $table) {
             $table->increments('numero');
             $table->date('fecha_solicitud');
-            $table->string('vendedor');
-            $table->string('cliente');
+            $table->integer('vendedor_id')->unsigned()->nullable();
+            $table->foreign('vendedor_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('cliente_id')->unsigned()->nullable();
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
             $table->string('comuna_servicio');
             $table->string('lugar_servicio');
             $table->string('nombre_contacto')->nullable();

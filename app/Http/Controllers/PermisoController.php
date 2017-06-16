@@ -9,6 +9,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\PermisoCreateRequest;
+use App\Http\Requests\PermisoUpdateRequest;
 
 class PermisoController extends Controller
 {
@@ -46,7 +48,7 @@ class PermisoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PermisoCreateRequest $request)
     {
         $rol=new Permission();
         $rol->name=$request->input("name") ;
@@ -87,7 +89,7 @@ class PermisoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PermisoUpdateRequest $request, $id)
     {
         $permiso = Permission::find($id);
         $permiso->name=$request->input("name");
@@ -113,13 +115,5 @@ class PermisoController extends Controller
         return Redirect::to('/permiso');
     }
 
-    public function asignar_permiso($idusu,$idrol){
-        $usuario=User::find($idusu);
-        $usuario->assignRole($idrol);
 
-        $usuario=User::find($idusu);
-        $rolesasignados=$usuario->getRoles();
-
-        return json_encode ($rolesasignados);
-    }
 }

@@ -10,7 +10,7 @@ class Bascula extends Model
 
     protected $primaryKey = 'idBascula';
 
-    protected $fillable = ['cantidad','tipoEquipo_id'];
+    protected $fillable = ['tipoEquipo_id'];
 
     public function f37()
     {

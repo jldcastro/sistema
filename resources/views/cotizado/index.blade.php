@@ -1,5 +1,9 @@
 @extends('...administrador.index')
     @section('contenido')
+        <div class="box-header">
+            <h3 class="box-title">Lista de solicitudes cotizadas F-37</h3>
+            <br><br>
+        </div>
         @if(Session::has('mensaje'))
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -12,7 +16,7 @@
                 {{Session::get('mensaje2')}}
             </div>
         @endif
-        <table class="table table-hover" cellspacing="0" width="100%">
+        <table id="cotizado" class="cell-border">
             <thead>
                 <th style="width: 10px;">N°</th>
                 <th style="width: 200px;">Cliente</th>
@@ -24,10 +28,10 @@
 
             @if(count($f37s)>0)
                 <?php $cont = 0; ?>
-
+                <tbody>
                 @foreach($f37s as $f37)
                 @if($f37->estado == 'cotizado')
-            <tbody>
+                <tr>
                 <td>{{$f37->numero}}</td>
                 <td>{{$f37->cliente}}</td>
                 <td>{{date('d-m-Y', strtotime($f37->fecha_solicitud))}}</td>
@@ -53,11 +57,12 @@
 
                   }
                              ?>
-                <td>{!!link_to_route('cotizado.edit',$title ='Editar',$parameters = $f37->numero,$attributes = ['class' => 'btn  btn-success btn-xs'])!!}</td>
-            </tbody>
+                <td>{!!link_to_route('cotizado.edit',$title ='Editar',$parameters = $f37->numero,$attributes = ['class' => 'btn  btn-default btn-xs'])!!}</td>
+            </tr>
+
             @endif
             @endforeach
-
+</tbody>
         </table>
         <h5>Color Verde:Ha transcurrido hasta un día desde que se enviaron los datos</h5>
         <h5>Color Amarillo:Han transcurrido desde un día hasta tres días desde que se enviaron los datos</h5>
@@ -65,7 +70,12 @@
         @else
             <br/><div class='alert alert-warning'><label>No existe ninguna solicitud F-37 cotizada de la lista</label></div>
         @endif
-
-
-
+    @endsection
+    @section('scripts')
+    <script type="text/javascript">
+            $(document).ready(function(){
+                $("#cotizado").DataTable({
+                });
+            });
+    </script>
     @endsection

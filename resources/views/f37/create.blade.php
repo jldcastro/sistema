@@ -5,7 +5,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="id" class="col-xs-4 control-label">N°:</label>
-                        <input type="text" class="form-control input" id="numero" name="numero" value="<?= $codigo?>"disabled>
+                        <input type="text" class="form-control input" id="numero" name="numero" value="<?= $codigo?>"disabled style="width: 200px;">
                     </div>
                     <div class="form-group">
                         <label for="fecha_solicitud" class="col-xs-4 control-label">Fecha solicitud:</label>
@@ -17,9 +17,12 @@
                     </div>
                     <div class="form-group">
                         <label for="cliente_id" class="col-xs-4 control-label">Cliente:</label>
-                        <select name="cliente_id" class="select" disabled>
-
-                        </select>
+                        <th><select name="tipoEquipo_id[]" id="tipoEquipo_id" class="tipoEquipo_id" >
+                            <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
+                                @foreach($clientes as $key =>$cliente)
+                                    <option value="{!!$key!!}">{!!$cliente!!}</option>
+                                @endforeach
+                        </select></th>
                     </div>
                     <div class="form-group">
                         <label for="comuna_servicio" class="col-xs-4 control-label">Comuna servicio</label>
@@ -122,7 +125,6 @@
                                 <th>Horario Tentativo</th>
                                 <th>Observación</th>
                                 <th>Periodicidad</th>
-                                <th><a href="#" id="addBascula"><i class="glyphicon glyphicon-plus"></i></a></th>
                             </tr>
                         </thead>
                         <tbody id="tbody">
@@ -165,7 +167,6 @@
                                 <th><input type="time" class="form-control input h_tentativo" id="h_tentativo" name="h_tentativo[]"></th>
                                 <th><input type="text" class="form-control input observacion" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input periocidad" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
@@ -206,7 +207,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
@@ -247,7 +247,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
@@ -288,7 +287,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
@@ -329,7 +327,6 @@
                                 <th><input type="time" class="form-control input h_tentativo" id="h_tentativo" name="h_tentativo[]"></th>
                                 <th><input type="text" class="form-control input observacion" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input periocidad" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
@@ -370,7 +367,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
@@ -411,7 +407,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
@@ -452,7 +447,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
@@ -493,7 +487,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
@@ -534,7 +527,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                         </tbody>
                         <tfoot>
@@ -586,7 +578,6 @@
                                 <th>Horario Tentativo</th>
                                 <th>Observación</th>
                                 <th>Periodicidad</th>
-                                <th><a href="#" id="addBalanza"><i class="glyphicon glyphicon-plus"></i></a></th>
                             </tr>
                         </thead>
                         <tbody id="tbody2">
@@ -628,7 +619,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove2" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
@@ -668,7 +658,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove2" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
@@ -708,7 +697,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove2" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
@@ -748,7 +736,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove2" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
@@ -788,7 +775,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove2" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
@@ -828,7 +814,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove2" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
@@ -868,7 +853,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove2" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
@@ -908,7 +892,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove2" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
@@ -948,7 +931,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove2" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
@@ -988,7 +970,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove2" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                         </tbody>
                         <tfoot>
@@ -1039,7 +1020,6 @@
                                 <th>Horario Tentativo</th>
                                 <th>Observación</th>
                                 <th>Periodicidad</th>
-                                <th><a href="#" id="addMasa"><i class="glyphicon glyphicon-plus"></i></a></th>
                             </tr>
                         </thead>
                         <tbody id="tbody3">
@@ -1081,7 +1061,6 @@
                                 <th><input type="time" class="form-control input h_tentativo3" id="h_tentativo3" name="h_tentativo3[]"></th>
                                 <th><input type="text" class="form-control input observacion3" id="observacion3" name="observacion3[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input periocidad3" id="periocidad3" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
@@ -1121,7 +1100,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo3" name="h_tentativo3[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion3" name="observacion3[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad3" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                                 <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
@@ -1161,7 +1139,6 @@
                                 <th><input type="time" class="form-control input h_tentativo3" id="h_tentativo3" name="h_tentativo3[]"></th>
                                 <th><input type="text" class="form-control input observacion3" id="observacion3" name="observacion3[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input periocidad3" id="periocidad3" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
@@ -1201,7 +1178,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo3[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion3[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
@@ -1241,7 +1217,6 @@
                                 <th><input type="time" class="form-control input h_tentativo3" id="h_tentativo3" name="h_tentativo3[]"></th>
                                 <th><input type="text" class="form-control input observacion3" id="observacion3" name="observacion3[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input periocidad3" id="periocidad3" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
@@ -1281,9 +1256,8 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo3[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion3[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
-                                <tr>
+                            <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
                                 <th><select name="tipoEquipo3_id[]" id="tipoEquipo26_id">
                                     <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
@@ -1321,7 +1295,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo3" name="h_tentativo3[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion3" name="observacion3[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad3" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
@@ -1361,7 +1334,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo3[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion3[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             </tr>
                                 <tr>
@@ -1402,7 +1374,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo3" name="h_tentativo3[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion3" name="observacion3[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad3" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
@@ -1442,7 +1413,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo3[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion3[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                         </tbody>
                         <tfoot>
@@ -1492,7 +1462,6 @@
                                 <th>Horario Tentativo</th>
                                 <th>Observación</th>
                                 <th>Periodicidad</th>
-                                <th><a href="#" id="addPesometro"><i class="glyphicon glyphicon-plus"></i></a></th>
                             </tr>
                         </thead>
                         <tbody id="tbody4">
@@ -1531,7 +1500,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
@@ -1568,7 +1536,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
@@ -1605,7 +1572,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
@@ -1642,7 +1608,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
@@ -1679,7 +1644,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
@@ -1716,7 +1680,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
@@ -1753,7 +1716,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
@@ -1790,7 +1752,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
@@ -1827,7 +1788,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                             <tr>
                                 <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
@@ -1864,7 +1824,6 @@
                                 <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
                                 <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
                                 <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                                <th><a href="#" class="btn btn-danger form-control input remove" id="remove" style="width: 30px;"><i class="glyphicon glyphicon-remove"></i></a></th>
                             </tr>
                         </tbody>
                         <tfoot>

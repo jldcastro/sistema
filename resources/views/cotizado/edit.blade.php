@@ -1,9 +1,9 @@
 @extends('...administrador.index')
     @section('contenido')
     <div class="box-header with-border">
-        <h3 class="box-title">Actualizar valorización solicitud de compra</h3>
-    </div><!-- /.box-header -->
-    {!!Form::model($f37,['route' => ['f37.update',$f37 -> numero],'method' => 'PUT'])!!}
+            <h3 class="box-title">Actualizar solicitud de compra</h3>
+        </div><!-- /.box-header -->
+        {!!Form::model($f37,['route' => ['valorizado.update',$f37 -> numero],'method' => 'PUT'])!!}
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
@@ -12,7 +12,7 @@
                 </div>
                 <div class="form-group">
                     <label for="fecha_solicitud" class="col-xs-4 control-label">Fecha solicitud:</label>
-                    <input type="text" class="form-control input" id="fecha_solicitud" name="fecha_solicitud" value="<?php echo date('d-m-Y', strtotime($f37->fecha_solicitud)); ?>"  disabled>
+                    <input type="date" class="form-control input" id="fecha_solicitud" name="fecha_solicitud" value="<?php echo date('Y-m-d', strtotime($f37->fecha_solicitud)); ?>"  disabled>
                 </div>
                 <div class="form-group">
                     <label for="id_usuario" class="col-xs-4 control-label">Vendedor:</label>
@@ -104,59 +104,60 @@
         <div class="row">
             <div class="form-group col-md-12" id="content" style="display: none; overflow: auto">
                 @if(count($bascula)>0)
-                    <table>
-                        <thead>
-                            <tr id="miTablaPersonalizada">
-                                <th>Cantidad</th>
-                                <th>Tipo equipo</th>
-                                <th>Marca</th>
-                                <th>Modelo</th>
-                                <th>Tipo</th>
-                                <th>Ubicación</th>
-                                <th>Puntos</th>
-                                <th>Pesaje MOP</th>
-                                <th>Capacidad</th>
-                                <th>Unidad Cap.</th>
-                                <th>Graduación</th>
-                                <th>Unidad Grad.</th>
-                                <th>Condición</th>
-                                <th>Fecha Última Mantención</th>
-                                <th>Fecha Última Cal.</th>
-                                <th>Valor Referencial</th>
-                                <th>Valor Unitario</th>
-                                <th>Fecha Tentativa</th>
-                                <th>Horario Tentativo</th>
-                                <th>Observación</th>
-                                <th>Periodicidad</th>
+                <table>
+                    <thead>
+                        <tr id="miTablaPersonalizada">
+                            <th>Cantidad</th>
+                            <th>Tipo equipo</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Tipo</th>
+                            <th>Ubicación</th>
+                            <th>Puntos</th>
+                            <th>Pesaje MOP</th>
+                            <th>Capacidad</th>
+                            <th>Unidad Cap.</th>
+                            <th>Graduación</th>
+                            <th>Unidad Grad.</th>
+                            <th>Condición</th>
+                            <th>Fecha Última Mantención</th>
+                            <th>Fecha Última Cal.</th>
+                            <th>Valor Referencial</th>
+                            <th>Valor Unitario</th>
+                            <th>Fecha Tentativa</th>
+                            <th>Horario Tentativo</th>
+                            <th>Observación</th>
+                            <th>Periodicidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        @foreach($bascula as $bas)
+                            <tr>
+                                <th><input type="text" class="form-control input" style="width: 75px; text-align: center;" disabled value="<?php if ($bas->cantidad != 0){echo $bas->cantidad;} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $bas->ti_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $bas->ma_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $bas->mo_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $bas->t_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 170px; text-align: center;" disabled value="{{ $bas->ubicacion }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 150px; text-align: center;" disabled value="<?php if ($bas->puntos != 0){echo $bas->puntos;} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 120px; text-align: center;" disabled value="{{ $bas->pesaje_mop }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 80px; text-align: center;" disabled value="<?php if ($bas->capacidad != 0){echo $bas->capacidad;} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $bas->uni_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 85px; text-align: center;" disabled value="<?php if ($bas->graduacion != 0){echo $bas->graduacion;} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $bas->unig_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $bas->co_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 160px; text-align: center;" disabled value="<?php if ($bas->mantencion != "0000-00-00"){echo date('d-m-Y',strtotime($bas->mantencion));} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 120px; text-align: center;" disabled value="<?php if ($bas->calibracion != "0000-00-00"){echo date('d-m-Y',strtotime($bas->calibracion));} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($bas->referencial != 0){echo $bas->referencial;} ?>"></th>
+                                <th><input type="number" class="form-control input v_unitario" name="v_unitario[]" id="v_unitario" name="v_unitario[]" style="width: 100px; text-align: center;" value="{{ $bas->unitario }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($bas->tentativa != "0000-00-00"){echo date('d-m-Y',strtotime($bas->tentativa));} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($bas->tentativo != "00:00:00"){echo $bas->tentativo;} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 300px; text-align: center;" disabled value="{{ $bas->observacion }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($bas->periocidad != 0){echo $bas->periocidad;} ?>"></th>
                             </tr>
-                        </thead>
-                        <tbody id="tbody">
-                            @foreach($bascula as $bas)
-                                <tr>
-                                    <th><input type="number" class="form-control input cantidad" name="cantidad[]" style="width: 75px; text-align: center;"  value="{{ $bas->cantidad }}" ></th>
-                                    <th><input type="text" class="form-control input" name="tipoEquipo_id[]" style="width: 100px; text-align: center;" disabled value="{{ $bas->ti_nombre }}"></th>
-                                    <th><input type="text" class="form-control input" name="marca_id[]" style="width: 100px; text-align: center;" disabled value="{{ $bas->ma_nombre }}"></th>
-                                    <th><input type="text" class="form-control input" name="modelo_id[]" style="width: 100px; text-align: center;" disabled value="{{ $bas->mo_nombre }}"></th>
-                                    <th><input type="text" class="form-control input" name="tipo_id[]" style="width: 100px; text-align: center;" disabled value="{{ $bas->t_nombre }}"></th>
-                                    <th><input type="text" class="form-control input" name="ubicacion[]" style="width: 170px; text-align: center;" disabled value="{{ $bas->ubicacion }}"></th>
-                                    <th><input type="text" class="form-control input" name="puntos[]" style="width: 150px; text-align: center;" disabled value="{{ $bas->puntos }}"></th>
-                                    <th><input type="text" class="form-control input" name="pesaje_mop[]" style="width: 120px; text-align: center;" disabled value="{{ $bas->pesaje_mop }}"></th>
-                                    <th><input type="text" class="form-control input" name="capacidad[]" style="width: 80px; text-align: center;" disabled value="{{ $bas->capacidad }}"></th>
-                                    <th><input type="text" class="form-control input" name="unidadc[]" style="width: 100px; text-align: center;" disabled value="{{ $bas->uni_nombre }}"></th>
-                                    <th><input type="text" class="form-control input" name="graduacion[]" style="width: 85px; text-align: center;" disabled value="{{ $bas->graduacion }}"></th>
-                                    <th><input type="text" class="form-control input" name="unidadg[]" style="width: 100px; text-align: center;" disabled value="{{ $bas->unig_nombre }}"></th>
-                                    <th><input type="text" class="form-control input" name="condicion_id[]" style="width: 100px; text-align: center;" disabled value="{{ $bas->co_nombre }}"></th>
-                                    <th><input type="text" class="form-control input" name="fu_mantencion[]" style="width: 160px; text-align: center;" disabled value="{{ $bas->mantencion }}"></th>
-                                    <th><input type="text" class="form-control input" name="fu_calibracion[]" style="width: 120px; text-align: center;" disabled value="{{ $bas->calibracion }}"></th>
-                                    <th><input type="text" class="form-control input" name="v_referencial[]"style="width: 110px; text-align: center;" disabled value="{{ $bas->referencial }}"></th>
-                                    <th><input type="number" class="form-control input v_unitario" name="v_unitario[]" id="v_unitario" name="v_unitario[]" style="width: 100px; text-align: center;" value="{{ $bas->unitario }}"></th>
-                                    <th><input type="text" class="form-control input" name="f_tentativa[]" style="width: 110px; text-align: center;" disabled value="{{ $bas->tentativa }}"></th>
-                                    <th><input type="text" class="form-control input" name="h_tentativo[]" style="width: 110px; text-align: center;" disabled value="{{ $bas->tentativo }}"></th>
-                                    <th><input type="text" class="form-control input" name="observacion[]" style="width: 300px; text-align: center;" disabled value="{{ $bas->observacion }}"></th>
-                                    <th><input type="text" class="form-control input" name="periocidad[]" style="width: 110px; text-align: center;" disabled value="{{ $bas->periocidad }}"></th>
-                                </tr>
-                            @endforeach
-                        </tbody>
+                        @endforeach
+
+                    </tbody>
                         <tfoot>
                             <tr>
                                 <th></th>
@@ -179,9 +180,9 @@
                             </tr>
                         </tfoot>
                     </table>
-                @endif
+                    @endif
+                </div>
             </div>
-        </div>
         <div class="row">
             <div class="form-group col-md-12" id="content2" style="display: none; overflow: auto">
                 @if(count($balanza)>0)
@@ -210,32 +211,31 @@
                             <th>Periodicidad</th>
                         </tr>
                     </thead>
-                    <tbody id="tbody2">
+                    <tbody id="tbody">
                         @foreach($balanza as $ba)
                             <tr>
-                                <th><input type="text" class="form-control input cantidad2" name="cantidad2[]" style="width: 75px; text-align: center;"  value="{{ $ba->cantidad }}"></th>
-                                <th><input type="text" class="form-control input" name="tipoEquipo_id2[]" style="width: 100px; text-align: center;" disabled value="{{ $ba->ti_nombre }}"></th>
-                                <th><input type="text" class="form-control input" name="marca2_id[]" style="width: 100px; text-align: center;" disabled value="{{ $ba->ma_nombre }}"></th>
-                                <th><input type="text" class="form-control input" name="modelo2_id[]" style="width: 100px; text-align: center;" disabled value="{{ $ba->mo_nombre }}"></th>
-                                <th><input type="text" class="form-control input" name="tipo2_id[]" style="width: 100px; text-align: center;" disabled value="{{ $ba->t_nombre }}"></th>
-                                <th><input type="text" class="form-control input" name="ubicacion2[]" style="width: 170px; text-align: center;" disabled value="{{ $ba->ubicacion }}"></th>
-                                <th><input type="text" class="form-control input" name="puntos2[]" style="width: 150px; text-align: center;" disabled value="{{ $ba->puntos }}"></th>
-                                <th><input type="text" class="form-control input" name="capacidad2[]" style="width: 80px; text-align: center;" disabled value="{{ $ba->capacidad }}"></th>
-                                <th><input type="text" class="form-control input" name="unidadc2_id[]" style="width: 100px; text-align: center;" disabled value="{{ $ba->uni_nombre }}"></th>
-                                <th><input type="text" class="form-control input" name="graduacion2[]" style="width: 85px; text-align: center;" disabled value="{{ $ba->graduacion }}"></th>
-                                <th><input type="text" class="form-control input" name="unidadg2_id[}" style="width: 100px; text-align: center;" disabled value="{{ $ba->unig_nombre }}"></th>
-                                <th><input type="text" class="form-control input" name="condicion2_id[]" style="width: 100px; text-align: center;" disabled value="{{ $ba->co_nombre }}"></th>
-                                <th><input type="text" class="form-control input" name="fu_mantencion2[]" style="width: 160px; text-align: center;" disabled value="{{ $ba->mantencion }}"></th>
-                                <th><input type="text" class="form-control input" name="fu_calibracion2[]" style="width: 120px; text-align: center;" disabled value="{{ $ba->calibracion }}"></th>
-                                <th><input type="text" class="form-control input" name="v_referencial2[]" style="width: 110px; text-align: center;" disabled value="{{ $ba->referencial }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 75px; text-align: center;" disabled value="<?php if ($ba->cantidad != 0){echo $bas->cantidad;} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $ba->ti_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $ba->ma_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $ba->mo_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $ba->t_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 170px; text-align: center;" disabled value="{{ $ba->ubicacion }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 150px; text-align: center;" disabled value="<?php if ($ba->puntos != 0){echo $bas->puntos;} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 80px; text-align: center;" disabled value="<?php if ($ba->capacidad != 0){echo $bas->capacidad;} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $ba->uni_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 85px; text-align: center;" disabled value="<?php if ($ba->graduacion != 0){echo $bas->graduacion;} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $ba->unig_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{ $ba->co_nombre }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 160px; text-align: center;" disabled value="<?php if ($ba->mantencion != "0000-00-00"){echo date('d-m-Y',strtotime($bas->mantencion));} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 120px; text-align: center;" disabled value="<?php if ($ba->calibracion != "0000-00-00"){echo date('d-m-Y',strtotime($bas->calibracion));} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($ba->referencial != 0){echo $bas->referencial;} ?>"></th>
                                 <th><input type="number" class="form-control input v_unitario2"  name="v_unitario2[]" style="width: 100px; text-align: center;" value="{{ $ba->unitario }}"></th>
-                                <th><input type="text" class="form-control input" name="f_tentativa2[]" style="width: 110px; text-align: center;" disabled value="{{ $ba->tentativa }}"></th>
-                                <th><input type="text" class="form-control input" name="h_tentativo2[]" style="width: 110px; text-align: center;" disabled value="{{ $ba->tentativo }}"></th>
-                                <th><input type="text" class="form-control input" name="observacion2[]" style="width: 300px; text-align: center;" disabled value="{{ $ba->observacion }}"></th>
-                                <th><input type="text" class="form-control input" name="periocidad2[]" style="width: 110px; text-align: center;" disabled value="{{ $ba->periocidad }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($ba->tentativa != "0000-00-00"){echo date('d-m-Y',strtotime($bas->tentativa));} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($ba->tentativo != "00:00:00"){echo $bas->tentativo;} ?>"></th>
+                                <th><input type="text" class="form-control input" style="width: 300px; text-align: center;" disabled value="{{ $ba->observacion }}"></th>
+                                <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($ba->periocidad != 0){echo $bas->periocidad;} ?>"></th>
                             </tr>
                         @endforeach
-
                     </tbody>
                     <tfoot>
                         <tr>
@@ -292,26 +292,26 @@
                     <tbody id="tbody3">
                         @foreach($masa as $mas)
                         <tr>
-                            <th><input type="text" class="form-control input cantidad3" name="cantidad3[]" style="width: 75px; text-align: center;" disabled value="{{$mas->cantidad}}"></th>
-                            <th><input type="text" class="form-control input" name="tipoEquipo3_id[]" style="width: 100px; text-align: center;" disabled value="{{$mas->ti_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="marca3_id[]" style="width: 100px; text-align: center;" disabled value="{{$mas->ma_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="modelo3_id[]" style="width: 100px; text-align: center;" disabled value="{{$mas->mo_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="material_id[]" style="width: 100px; text-align: center;" disabled value="{{$mas->mat_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="clase_oiml[]" style="width: 100px; text-align: center;" disabled value="{{$mas->clase}}"></th>
-                            <th><input type="text" class="form-control input" name="ubicacion3[]" style="width: 170px; text-align: center;" disabled value="{{$mas->ubicacion}}"></th>
-                            <th><input type="text" class="form-control input" name="capacidad3[]" style="width: 80px; text-align: center;" disabled value="{{$mas->capacidad}}"></th>
-                            <th><input type="text" class="form-control input" name="unidadc3_id[]" style="width: 100px; text-align: center;" disabled value="{{$mas->uni_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="graduacion3[]" style="width: 80px; text-align: center;" disabled value="{{$mas->graduacion}}"></th>
-                            <th><input type="text" class="form-control input" name="unidadg3_id[]" style="width: 100px; text-align: center;" disabled value="{{$mas->unig_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="condicion3_id[]" style="width: 100px; text-align: center;" disabled value="{{$mas->co_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="r_ajuste[]" style="width: 110px; text-align: center;" disabled value="{{$mas->ajuste}}"></th>
-                            <th><input type="text" class="form-control input" name="r_mantencion[]" style="width: 110px; text-align: center;" disabled value="{{$mas->mantencion}}"></th>
-                            <th><input type="text" class="form-control input" name="v_referencial3[]" style="width: 110px; text-align: center;" disabled value="{{$mas->referencial}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 75px; text-align: center;" disabled value="<?php if ($mas->cantidad != 0){echo $mas->cantidad;} ?>"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$mas->ti_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$mas->ma_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$mas->mo_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$mas->mat_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$mas->clase}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 170px; text-align: center;" disabled value="{{$mas->ubicacion}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 80px; text-align: center;" disabled value="<?php if ($mas->capacidad != 0){echo $mas->capacidad;} ?>"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$mas->uni_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 85px; text-align: center;" disabled value="<?php if ($mas->graduacion != 0){echo $mas->graduacion;} ?>"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$mas->unig_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$mas->co_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="{{$mas->ajuste}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="{{$mas->mantencion}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($mas->referencial != 0){echo $mas->referencial;} ?>"></th>
                             <th><input type="number" class="form-control input v_unitario3" name="v_unitario3[]" style="width: 100px; text-align: center;" value="{{$mas->unitario}}"></th>
-                            <th><input type="text" class="form-control input" name="f_tentativa3[]" style="width: 110px; text-align: center;" disabled value="{{$mas->tentativa}}"></th>
-                            <th><input type="text" class="form-control input" name="h_tentativo3[]" style="width: 110px; text-align: center;" disabled value="{{$mas->tentativo}}"></th>
-                            <th><input type="text" class="form-control input" name="observacion3[]" style="width: 300px; text-align: center;" disabled value="{{$mas->observacion}}"></th>
-                            <th><input type="text" class="form-control input" name="periocidad3[]" style="width: 100px; text-align: center;" disabled value="{{$mas->periocidad}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($mas->tentativa != "0000-00-00"){echo date('d-m-Y',strtotime($mas->tentativa));} ?>"></th>
+                            <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($mas->tentativo != "00:00:00"){echo $mas->tentativo;} ?>"></th>
+                            <th><input type="text" class="form-control input" style="width: 300px; text-align: center;" disabled value="{{$mas->observacion}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$mas->periocidad}}"></th>
                         </tr>
                         @endforeach
                     </tbody>
@@ -366,28 +366,28 @@
                             <th>Periodicidad</th>
                         </tr>
                     </thead>
-                    <tbody id="tbody4">
+                    <tbody id="tbody3">
                         @foreach($pesometro as $pes)
                         <tr>
-                            <th><input type="text" class="form-control input cantidad4" name="cantidad4[]" style="width: 75px; text-align: center;" disabled value="{{$pes->cantidad}}"></th>
-                            <th><input type="text" class="form-control input" name="tipoEquipo4_id[]" style="width: 100px; text-align: center;" disabled value="{{$pes->ti_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="marca4_id[]" style="width: 100px; text-align: center;" disabled value="{{$pes->ma_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="modelo4_id[]" style="width: 100px; text-align: center;" disabled value="{{$pes->mo_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="ubicacion4[]" style="width: 170px; text-align: center;" disabled value="{{$pes->ubicacion}}"></th>
-                            <th><input type="text" class="form-control input" name="rango_uso[]" style="width: 100px; text-align: center;" disabled value="{{$pes->rango}}"></th>
-                            <th><input type="text" class="form-control input" name="capacidad4[]" style="width: 80px; text-align: center;" disabled value="{{$pes->capacidad}}"></th>
-                            <th><input type="text" class="form-control input" name="unidad4g_id[]" style="width: 100px; text-align: center;" disabled value="{{$pes->uni_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="graduacion4[]" style="width: 80px; text-align: center;" disabled value="{{$pes->graduacion}}"></th>
-                            <th><input type="text" class="form-control input" name="unidadg4_id[]" style="width: 100px; text-align: center;" disabled value="{{$pes->unig_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="condicion4_id[]" style="width: 100px; text-align: center;" disabled value="{{$pes->co_nombre}}"></th>
-                            <th><input type="text" class="form-control input" name="fu_mantencion3[]" style="width: 160px; text-align: center;" disabled value="{{$pes->mantencion}}"></th>
-                            <th><input type="text" class="form-control input" name="fu_calibracion3[]" style="width: 120px; text-align: center;" disabled value="{{$pes->calibracion}}"></th>
-                            <th><input type="text" class="form-control input" name="v_referencial4[]" style="width: 110px; text-align: center;" disabled value="{{$pes->referencial}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 75px; text-align: center;" disabled value="<?php if ($pes->cantidad != 0){echo $pes->cantidad;} ?>"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$pes->ti_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$pes->ma_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$pes->mo_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 170px; text-align: center;" disabled value="{{$pes->ubicacion}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$pes->rango}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 80px; text-align: center;" disabled value="<?php if ($pes->capacidad != 0){echo $pes->capacidad;} ?>"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$pes->uni_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 85px; text-align: center;" disabled value="<?php if ($pes->graduacion != 0){echo $pes->graduacion;} ?>"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$pes->unig_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$pes->co_nombre}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 160px; text-align: center;" disabled value="<?php if ($pes->mantencion != "0000-00-00"){echo date('d-m-Y',strtotime($pes->mantencion));} ?>"></th>
+                            <th><input type="text" class="form-control input" style="width: 120px; text-align: center;" disabled value="<?php if ($pes->calibracion != "0000-00-00"){echo date('d-m-Y',strtotime($pes->calibracion));} ?>"></th>
+                            <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="{{$pes->referencial}}"></th>
                             <th><input type="number" class="form-control input v_unitario4" name="v_unitario4[]" style="width: 100px; text-align: center;" value="{{$pes->unitario}}"></th>
-                            <th><input type="text" class="form-control input" name="f_tentativa4[]" style="width: 110px; text-align: center;" disabled value="{{$pes->tentativa}}"></th>
-                            <th><input type="text" class="form-control input" name="h_tentativo4[]" style="width: 110px; text-align: center;" disabled value="{{$pes->tentativo}}"></th>
-                            <th><input type="text" class="form-control input" name="observacion4[]" style="width: 300px; text-align: center;" disabled value="{{$pes->observacion}}"></th>
-                            <th><input type="text" class="form-control input" name="pderiocidad4[]" style="width: 100px; text-align: center;" disabled value="{{$pes->periocidad}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($pes->tentativa != "0000-00-00"){echo date('d-m-Y',strtotime($pes->tentativa));} ?>"></th>
+                            <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($pes->tentativo != "00:00:00"){echo $pes->tentativo;} ?>"></th>
+                            <th><input type="text" class="form-control input" style="width: 300px; text-align: center;" disabled value="{{$pes->observacion}}"></th>
+                            <th><input type="text" class="form-control input" style="width: 100px; text-align: center;" disabled value="{{$pes->periocidad}}"></th>
                         </tr>
                         @endforeach
                     </tbody>
@@ -424,38 +424,7 @@
             <div class="row">
                 <div class="form-group col-md-12">
                     <label for="comunicacion">COMUNICACIÓN CON EL CLIENTE</label>
-                    <textarea class="form-control" rows="3" cols="40" name="comunicacion"><?= $f37->comunicacion; ?></textarea>
-                </div>
-            </div>
-            <h4>Uso interno del laboratorio</h4>
-            <div class="row">
-                <div class="col-md-12">
-                     <div class="form-group">
-                        <table>
-                            <thead>
-                                <tr id="miTablaPersonalizada">
-                                    <th style="width:500px; background-color: transparent;"></th>
-                                    <th style="width: 100px; background-color: transparent;"><p>Si</th>
-                                    <th style="width: 100px; background-color: transparent;"><p>No</th>
-                                </tr>
-                                <tr id="miTablaPersonalizada">
-                                    <th style="background-color: #AEDFB4; width:500px;">¿El personal del laboratorio está capacitado para efectuar este trabajo?</th>
-                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta1" value="1.1" disabled></th>
-                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta1" value="1.2" disabled></th>
-                                </tr>
-                                <tr id="miTablaPersonalizada">
-                                    <th style="background-color: #AEDFB4; width:500px;">¿Se cuenta con equipamiento necesario y adecuado para efectuar este trabajo?</th>
-                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta2" value="2.1" disabled></th>
-                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta2" value="2.2" disabled></th>
-                                </tr>
-                                <tr id="miTablaPersonalizada">
-                                    <th style="background-color: #AEDFB4; width:500px;">¿Se podrá hacer el trabajo en la fecha solicitada?</th>
-                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta3" value="3.1" disabled></th>
-                                    <th style="background-color: transparent; width: 100px;"><input type="radio" name="pregunta3" value="3.2" disabled></th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
+                    <textarea class="form-control" rows="3" cols="40" disabled><?= $f37->comunicacion; ?></textarea>
                 </div>
             </div>
             <div class="row">
@@ -492,14 +461,13 @@
     {!!Form::submit('Actualizar',array('class' => '.btn btn-primary col-md-offset-5'))!!}
         {!!Form::hidden('_token',csrf_token())!!}
     {!!Form::close() !!}
-
 @endsection
 @section('scripts')
     <!-- abrir y cerrar checkbox -->
     {!!Html::script('js/open-close.js')!!}
     <!-- select dinámico -->
     {!!Html::script('js/dropdown.js')!!}
-    <!-- select sumar -->
+    <!-- suma -->
     {!!Html::script('js/suma.js')!!}
 @endsection
 
