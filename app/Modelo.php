@@ -19,4 +19,9 @@ class Modelo extends Model
     {
         return Modelo::where('marca_id','=',$id)->orderBy('nombre', 'asc')->get();
     }
+
+    public function f4()
+    {
+        return $this->hasMany('App\F4');
+    }
 }

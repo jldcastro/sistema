@@ -89,6 +89,7 @@ class ClienteController extends Controller
         $cliente->nombre = $request->input('nombre');
         $cliente->ubicacion = $request->input('ubicacion');
         $cliente->planta = $request->input('planta');
+        $cliente->save();
 
         Session::flash('mensaje','Datos cliente actualizados exitósamente');
         return Redirect::to('/cliente');

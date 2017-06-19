@@ -34,4 +34,9 @@ class TipoEquipo extends Model
     {
         return $this->hasMany('App\Condicion');
     }
+
+    public function f4()
+    {
+        return $this->hasMany('App\F4');
+    }
 }

@@ -8,7 +8,7 @@
                 </div>
                 <div class="form-group">
                     <label for="fecha_solicitud" class="col-xs-4 control-label">Fecha solicitud:</label>
-                    <input type="date" class="form-control input" id="fecha_solicitud" name="fecha_solicitud" value="<?php echo date('Y-m-d', strtotime($f37->fecha_solicitud)); ?>"  disabled>
+                    <input type="date" class="form-control input" id="fecha_solicitud" name="fecha_solicitud" value="<?php if ($f37->fecha_solicitud != "0000-00-00"){echo date('d-m-Y',strtotime($f37->fecha_solicitud));} ?>"> disabled>
                 </div>
                 <div class="form-group">
                     <label for="id_usuario" class="col-xs-4 control-label">Vendedor:</label>

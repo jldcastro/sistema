@@ -13,19 +13,28 @@
             </div>
         @endif
         @if(count($f4s)>0)
-        <table class="table table-hover">
+        <table id="equipo" class="cell-border">
             <thead>
                 <th>Equipo</th>
-                <th>CMarca/Modelo</th>
+                <th>Marca</th>
+                <th>Modelo</th>
                 <th>Opciones</th>
             </thead>
-            @foreach($f4s as $f4)
             <tbody>
-                <td>{{$f4->numero}}</td>
-                <td>{{$f4->cliente}}</td>
-                <td>{!!link_to_route('f4.show',$title ='Ver',$parameters = $f4->id,$attributes = ['class' => 'btn  btn-success btn-xs'])!!}</td>
-            </tbody>
+            @foreach($f4s as $f4)
+                <tr>
+                    <td>{{$f4->tipo_equipo->nombre}}</td>
+                    <td>{{$f4->marca->nombre}}</td>
+                    <td>{{$f4->modelo->nombre}}</td>
+                    <td>{!!link_to_route('f4.show',$title ='Ver',$parameters = $f4->id,$attributes = ['class' => 'btn  btn-warning btn-xs'])!!}
+                        {!!link_to_route('f4.edit',$title ='Editar',$parameters = $f4->id,$attributes = ['class' => 'btn  btn-success btn-xs'])!!}
+                        <a href="descargar_f4/<?= $f4->id  ?>"><button class=".btn  bg-navy btn-xs">Descargar</button></a>
+                        <a href="" data-target="#modal-delete-{{$f4->id}}" data-toggle="modal"><button class="btn btn-danger btn-xs">Eliminar</button></a>
+                    </td>
+                </tr>
             @endforeach
+            </tbody>
+            @include('...f4.modal')
         </table>
         @else
             <br/><div class='alert alert-warning'><label>No existe ningún equipo dentro de la lista</label></div>
@@ -33,4 +42,12 @@
         <div class="form-group has-feedback">
             <button class=".btn btn-primary col-md-offset-5"><a href="{!!URL::to('/f4/create') !!}" style="color: #ffffff">Agregar Equipo</a></button>
         </div>
+    @endsection
+    @section('scripts')
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#equipo").DataTable({
+                });
+            });
+        </script>
     @endsection

@@ -58,3 +58,7 @@ Route::resource('/cotizado','CotizadoController');
 Route::resource('/coordinado','CoordinadoController');
 
 Route::resource('/f4','F4Controller');
+Route::get('descargar_f4/{id}','F4Controller@descargar_f4');
+
+Route::resource('/f5','F5Controller');
+Route::get('descargar_f5','F5Controller@descargar_f5');

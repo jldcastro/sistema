@@ -108,8 +108,8 @@
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Equipos</a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="{!!URL::to('/f4') !!}"><i class="fa fa-list"></i>Formulario F-4</a></li>
-                                                <li><a href="{!!URL::to('/f5') !!}"><i class="fa fa-list"></i>Formulario F-5</a></li>
+                                                <li><a href="{!!URL::to('/f4') !!}"><i class="fa fa-list"></i>Lista de equipos</a></li>
+                                                <li><a href="{!!URL::to('/f5') !!}"><i class="fa fa-list"></i>Listado de equipos</a></li>
                                             </ul>
                                         </li>
                                     </ul>

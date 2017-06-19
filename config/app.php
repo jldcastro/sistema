@@ -149,6 +149,7 @@ return [
         Caffeinated\Shinobi\ShinobiServiceProvider::class,
         Freshwork\ChileanBundle\Laravel\ChileanBundleServiceProvider::class,
         Felixkiss\UniqueWithValidator\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -200,6 +201,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Shinobi' => Caffeinated\Shinobi\Facades\Shinobi::class,
         'Rut'  => Freshwork\ChileanBundle\Laravel\Facades\Rut::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];
