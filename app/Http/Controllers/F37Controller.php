@@ -23,6 +23,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Session;
+use App\Http\Requests\F37CreateRequest;
 
 
 
@@ -41,6 +42,7 @@ class F37Controller extends Controller
 
     public function index(Request $request)
     {
+
         $f37s = F37::all();
         $clientes = Cliente::all();
         $vendedores = User::all();
@@ -54,14 +56,119 @@ class F37Controller extends Controller
      */
     public function create()
     {
-        $tipos_equipos = TipoEquipo::lists('nombre','id');
-        $marcas = Marca::lists('nombre','id');
-        $modelos = Modelo::lists('nombre','id');
-        $tipos = Tipo::lists('nombre','id');
-        $unidadesc = Unidad::lists('nombre','id');
-        $unidadesg = Unidad::lists('nombre','id');
-        $condiciones = Condicion::lists('nombre','id');
-        $materiales = Material::lists('nombre','id');
+        $clientes = Cliente::lists('nombre','id');
+        $tipos_equipos = DB::table('tipos_equipos as te')
+            ->select('te.id','te.nombre')
+            ->where('te.id','=',1)
+            ->get();
+        $marcas = DB::table('marcas as ma')
+            ->join('tipos_equipos as te','ma.tipoEquipo_id','=','te.id')
+            ->select('ma.id','ma.nombre')
+            ->where('ma.tipoEquipo_id','=',1)
+            ->get();
+        $modelos = DB::table('modelos as mo')
+            ->join('marcas as ma','mo.marca_id','=','ma.id')
+            ->select('mo.id','mo.nombre')
+            ->get();
+        $tipos = DB::table('tipos as t')
+            ->join('tipos_equipos as te','t.tipoEquipo_id','=','te.id')
+            ->select('t.id','t.nombre')
+            ->where('t.tipoEquipo_id','=',1)
+            ->get();
+        $unidadesc = DB::table('unidades as u')
+            ->join('tipos_equipos as te','u.tipoEquipo_id','=','te.id')
+            ->select('u.id','u.nombre')
+            ->where('u.tipoEquipo_id','=',1)
+            ->get();
+        $unidadesg = DB::table('unidades as u2')
+            ->join('tipos_equipos as te','u2.tipoEquipo_id','=','te.id')
+            ->select('u2.id','u2.nombre')
+            ->where('u2.tipoEquipo_id','=',1)
+            ->get();
+        $condiciones = DB::table('condiciones as c')
+            ->join('tipos_equipos as te','c.tipoEquipo_id','=','te.id')
+            ->select('c.id','c.nombre')
+            ->where('c.tipoEquipo_id','=',1)
+            ->get();
+        $tipos_equipos2 = DB::table('tipos_equipos as te')
+            ->select('te.id','te.nombre')
+            ->where('te.id','=',2)
+            ->get();
+        $marcas2 = DB::table('marcas as ma')
+            ->join('tipos_equipos as te','ma.tipoEquipo_id','=','te.id')
+            ->select('ma.id','ma.nombre')
+            ->where('ma.tipoEquipo_id','=',2)
+            ->get();
+        $modelos2 = DB::table('modelos as mo')
+            ->join('marcas as ma','mo.marca_id','=','ma.id')
+            ->select('mo.id','mo.nombre')
+            ->get();
+        $tipos2 = DB::table('tipos as t')
+            ->join('tipos_equipos as te','t.tipoEquipo_id','=','te.id')
+            ->select('t.id','t.nombre')
+            ->where('t.tipoEquipo_id','=',2)
+            ->get();
+        $unidadesc2 = DB::table('unidades as u')
+            ->join('tipos_equipos as te','u.tipoEquipo_id','=','te.id')
+            ->select('u.id','u.nombre')
+            ->where('u.tipoEquipo_id','=',2)
+            ->get();
+        $unidadesg2 = DB::table('unidades as u2')
+            ->join('tipos_equipos as te','u2.tipoEquipo_id','=','te.id')
+            ->select('u2.id','u2.nombre')
+            ->where('u2.tipoEquipo_id','=',2)
+            ->get();
+        $condiciones2 = DB::table('condiciones as c')
+            ->join('tipos_equipos as te','c.tipoEquipo_id','=','te.id')
+            ->select('c.id','c.nombre')
+            ->where('c.tipoEquipo_id','=',2)
+            ->get();
+        $tipos_equipos3 = DB::table('tipos_equipos as te')
+            ->select('te.id','te.nombre')
+            ->where('te.id','=',3)
+            ->get();
+        $marcas3 = DB::table('marcas as ma')
+            ->join('tipos_equipos as te','ma.tipoEquipo_id','=','te.id')
+            ->select('ma.id','ma.nombre')
+            ->where('ma.tipoEquipo_id','=',3)
+            ->get();
+        $modelos3 = DB::table('modelos as mo')
+            ->join('marcas as ma','mo.marca_id','=','ma.id')
+            ->select('mo.id','mo.nombre')
+            ->get();
+        $materiales = DB::table('materiales as m')
+            ->join('tipos_equipos as te','m.tipoEquipo_id','=','te.id')
+            ->select('m.id','m.nombre')
+            ->where('m.tipoEquipo_id','=',3)
+            ->get();
+        $condiciones3 = DB::table('condiciones as c')
+            ->join('tipos_equipos as te','c.tipoEquipo_id','=','te.id')
+            ->select('c.id','c.nombre')
+            ->where('c.tipoEquipo_id','=',3)
+            ->get();
+        $tipos_equipos4 = DB::table('tipos_equipos as te')
+            ->select('te.id','te.nombre')
+            ->where('te.id','=',4)
+            ->get();
+        $marcas4 = DB::table('marcas as ma')
+            ->join('tipos_equipos as te','ma.tipoEquipo_id','=','te.id')
+            ->select('ma.id','ma.nombre')
+            ->where('ma.tipoEquipo_id','=',4)
+            ->get();
+        $modelos4 = DB::table('modelos as mo')
+            ->join('marcas as ma','mo.marca_id','=','ma.id')
+            ->select('mo.id','mo.nombre')
+            ->get();
+        $unidadesc3 = DB::table('unidades as u')
+            ->join('tipos_equipos as te','u.tipoEquipo_id','=','te.id')
+            ->select('u.id','u.nombre')
+            ->where('u.tipoEquipo_id','=',4)
+            ->get();
+        $condiciones4 = DB::table('condiciones as c')
+            ->join('tipos_equipos as te','c.tipoEquipo_id','=','te.id')
+            ->select('c.id','c.nombre')
+            ->where('c.tipoEquipo_id','=',4)
+            ->get();
         $sql = mysqli_connect('localhost','root','','sistema');
         $consulta = mysqli_query($sql,'SELECT MAX(numero)as numero FROM f37s LIMIT 1');
         $consulta = mysqli_fetch_array($consulta,MYSQLI_ASSOC);
@@ -69,7 +176,7 @@ class F37Controller extends Controller
         $fecha_solicitud = Carbon::now();
         $fecha_solicitud = $fecha_solicitud->format('Y-m-d');
 
-        return view('f37.create',compact('codigo','fecha_solicitud','tipos_equipos','marcas','modelos','tipos','unidadesc','unidadesg','condiciones','materiales'));
+        return view('f37.create',["codigo" => $codigo, "fecha_solicitud" => $fecha_solicitud, "clientes" => $clientes, "tipos_equipos" => $tipos_equipos, "marcas" => $marcas, "modelos" => $modelos, "tipos" => $tipos, "unidadesc" => $unidadesc, "unidadesg" => $unidadesg, "condiciones" => $condiciones, "tipos_equipos2" => $tipos_equipos2, "marcas2" =>$marcas2, "modelos2" => $modelos2, "tipos2" => $tipos2, "unidadesc2" => $unidadesc2, "unidadesg2" => $unidadesg2, "condiciones2" => $condiciones2, "tipos_equipos3" => $tipos_equipos3, "marcas3" =>$marcas3, "modelos3" => $modelos3, "materiales" => $materiales, "condiciones3" => $condiciones3, "tipos_equipos4" => $tipos_equipos4, "marcas4" => $marcas4, "modelos4" => $modelos4, "unidadesc3" => $unidadesc3, "condiciones4" => $condiciones4]);
     }
 
     public function getMarcas(Request $request, $id)
@@ -126,10 +233,11 @@ class F37Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(F37CreateRequest $request)
     {
         $f37 = new F37();
         $f37->fecha_solicitud = Carbon::now();
+        $f37->cliente_id = $request->input('cliente_id');
         $f37->comuna_servicio = $request->input('comuna_servicio');
         $f37->lugar_servicio = $request->input('lugar_servicio');
         $f37->nombre_contacto = $request->input('nombre_contacto');
@@ -162,7 +270,6 @@ class F37Controller extends Controller
         $marca_id = $request->get('marca_id');
         $modelo_id = $request->get('modelo_id');
         $tipo_id = $request->get('tipo_id');
-        $ubicacion = $request->get('ubicacion');
         $puntos = $request->get('puntos');
         $pesaje_mop = $request->get('pesaje_mop');
         $capacidad = $request->get('capacidad');
@@ -172,26 +279,20 @@ class F37Controller extends Controller
         $condicion_id = $request->get('condicion_id');
         $fu_mantencion = $request->get('fu_mantencion');
         $fu_calibracion = $request->get('fu_calibracion');
-        $v_referencial = $request->get('v_referencial');
         $v_unitario = $request->get('v_unitario');
         $f_tentativa = $request->get('f_tentativa');
-        $h_tentativo = $request->get('h_tentativo');
-        $observacion = $request->get('observacion');
-        $periocidad = $request->get('periocidad');
 
         $cont = 0;
 
         while($cont<count($idTipoEquipo)){
-            $cantidadbasculas = $cantidad[$cont];
-            for($i=0;$i<$cantidadbasculas;$i++){
+
                 $bascula = new Bascula();
                 $bascula->f37_id = $numero;
-                $bascula->cantidad = 1;
+                $bascula->cantidad = $cantidad[$cont];
                 $bascula->tipoEquipo_id = $idTipoEquipo[$cont];
                 $bascula->marca_id = $marca_id[$cont];
                 $bascula->modelo_id = $modelo_id{$cont};
                 $bascula->tipo_id = $tipo_id[$cont];
-                $bascula->ubicacion = $ubicacion[$cont];
                 $bascula->puntos = $puntos[$cont];
                 $bascula->pesaje_mop = $pesaje_mop[$cont];
                 $bascula->capacidad = $capacidad[$cont];
@@ -201,26 +302,19 @@ class F37Controller extends Controller
                 $bascula->condicion_id = $condicion_id[$cont];
                 $bascula->fu_mantencion = $fu_mantencion[$cont];
                 $bascula->fu_calibracion = $fu_calibracion[$cont];
-                $bascula->v_referencial = $v_referencial[$cont];
                 $bascula->v_unitario = $v_unitario[$cont];
                 $bascula->f_tentativa = $f_tentativa[$cont];
-                $bascula->h_tentativo = $h_tentativo[$cont];
-                $bascula->observacion = $observacion[$cont];
-                $bascula->periocidad = $periocidad[$cont];
                 $bascula->save();
-            }
+
 
             $cont = $cont +1;
         }
-
-
 
         $idTipoEquipo2 = $request->get('tipoEquipo2_id');
         $cantidad2 = $request->get('cantidad2');
         $marca2_id = $request->get('marca2_id');
         $modelo2_id = $request->get('modelo2_id');
         $tipo2_id = $request->get('tipo2_id');
-        $ubicacion2 = $request->get('ubicacion2');
         $puntos2 = $request->get('puntos2');
         $capacidad2 = $request->get('capacidad2');
         $unidadc2_id = $request->get('unidadc2_id');
@@ -229,26 +323,20 @@ class F37Controller extends Controller
         $condicion2_id = $request->get('condicion2_id');
         $fu_mantencion2 = $request->get('fu_mantencion2');
         $fu_calibracion2 = $request->get('fu_calibracion2');
-        $v_referencial2 = $request->get('v_referencial2');
         $v_unitario2 = $request->get('v_unitario2');
         $f_tentativa2 = $request->get('f_tentativa2');
-        $h_tentativo2 = $request->get('h_tentativo2');
-        $observacion2 = $request->get('observacion2');
-        $periocidad2 = $request->get('periocidad2');
 
         $cont2 = 0;
 
         while($cont2<count($idTipoEquipo2)){
-            $cantidadbalanzas = $cantidad2[$cont2];
-            for($i=0;$i<$cantidadbalanzas;$i++) {
+
                 $balanza = new Balanza();
                 $balanza->f37_id = $f37->numero;
-                $balanza->cantidad2 = 1;
+                $balanza->cantidad2 = $cantidad2[$cont2];
                 $balanza->tipoEquipo2_id = $idTipoEquipo2[$cont2];
                 $balanza->marca2_id = $marca2_id[$cont2];
                 $balanza->modelo2_id = $modelo2_id{$cont2};
                 $balanza->tipo2_id = $tipo2_id[$cont2];
-                $balanza->ubicacion2 = $ubicacion2[$cont2];
                 $balanza->puntos2 = $puntos2[$cont2];
                 $balanza->capacidad2 = $capacidad2[$cont2];
                 $balanza->unidadc2_id = $unidadc2_id[$cont2];
@@ -257,14 +345,10 @@ class F37Controller extends Controller
                 $balanza->condicion2_id = $condicion2_id[$cont2];
                 $balanza->fu_mantencion2 = $fu_mantencion2[$cont2];
                 $balanza->fu_calibracion2 = $fu_calibracion2[$cont2];
-                $balanza->v_referencial2 = $v_referencial2[$cont2];
                 $balanza->v_unitario2 = $v_unitario2[$cont2];
                 $balanza->f_tentativa2 = $f_tentativa2[$cont2];
-                $balanza->h_tentativo2 = $h_tentativo2[$cont2];
-                $balanza->observacion2 = $observacion2[$cont2];
-                $balanza->periocidad2 = $periocidad2[$cont2];
                 $balanza->save();
-            }
+
             $cont2 = $cont2 +1;
         }
 
@@ -274,50 +358,32 @@ class F37Controller extends Controller
         $modelo3_id = $request->get('modelo3_id');
         $material_id = $request->get('material_id');
         $clase_oiml = $request->get('clase_oiml');
-        $ubicacion3 = $request->get('ubicacion3');
-        $capacidad3 = $request->get('capacidad3');
-        $unidadc3_id = $request->get('unidadc3_id');
-        $graduacion3 = $request->get('graduacion3');
-        $unidadg3_id = $request->get('unidadg3_id');
         $condicion3_id = $request->get('condicion3_id');
         $r_ajuste = $request->get('r_ajuste');
         $r_mantencion = $request->get('r_mantencion');
         $v_referencial3 = $request->get('v_referencial3');
         $v_unitario3 = $request->get('v_unitario3');
         $f_tentativa3 = $request->get('f_tentativa3');
-        $h_tentativo3 = $request->get('h_tentativo3');
-        $observacion3 = $request->get('observacion3');
-        $periocidad3 = $request->get('periocidad3');
 
         $cont3 = 0;
 
         while($cont3<count($idTipoEquipo3)){
-            $cantidadmasas = $cantidad3[$cont3];
-            for($i=0;$i<$cantidadmasas;$i++) {
+
                 $masa = new Masa();
                 $masa->f37_id = $f37->numero;
-                $masa->cantidad3 = 1;
+                $masa->cantidad3 = $cantidad3[$cont3];
                 $masa->tipoEquipo3_id = $idTipoEquipo3[$cont3];
                 $masa->marca3_id = $marca3_id[$cont3];
                 $masa->modelo3_id = $modelo3_id{$cont3};
                 $masa->material_id = $material_id[$cont3];
                 $masa->clase_oiml = $clase_oiml[$cont3];
-                $masa->ubicacion3 = $ubicacion3[$cont3];
-                $masa->capacidad3 = $capacidad3[$cont3];
-                $masa->unidadc3_id = $unidadc3_id[$cont3];
-                $masa->graduacion3 = $graduacion3[$cont3];
-                $masa->unidadg3_id = $unidadg3_id[$cont3];
                 $masa->condicion3_id = $condicion3_id[$cont3];
                 $masa->r_ajuste = $r_ajuste[$cont3];
                 $masa->r_mantencion = $r_mantencion[$cont3];
-                $masa->v_referencial3 = $v_referencial3[$cont3];
                 $masa->v_unitario3 = $v_unitario3[$cont3];
                 $masa->f_tentativa3 = $f_tentativa3[$cont3];
-                $masa->h_tentativo3 = $h_tentativo3[$cont3];
-                $masa->observacion3 = $observacion3[$cont3];
-                $masa->periocidad3 = $periocidad3[$cont3];
                 $masa->save();
-            }
+
             $cont3 = $cont3 +1;
         }
 
@@ -325,50 +391,37 @@ class F37Controller extends Controller
         $cantidad4 = $request->get('cantidad4');
         $marca4_id = $request->get('marca4_id');
         $modelo4_id = $request->get('modelo4_id');
-        $ubicacion4 = $request->get('ubicacion4');
         $rango_uso = $request->get('rango_uso');
-        $capacidad4 = $request->get('capacidad4');
-        $unidadc4_id = $request->get('unidadc4_id');
-        $graduacion4 = $request->get('graduacion4');
-        $unidadg4_id = $request->get('unidadg4_id');
+        $capacidad3 = $request->get('capacidad3');
+        $unidadc3_id = $request->get('unidadc3_id');
         $condicion4_id = $request->get('condicion4_id');
         $fu_mantencion3 = $request->get('fu_mantencion3');
         $fu_calibracion3 = $request->get('fu_calibracion3');
-        $v_referencial4 = $request->get('v_referencial4');
         $v_unitario4 = $request->get('v_unitario4');
+        $subtotal4 = $request->get('subtotal4');
         $f_tentativa4 = $request->get('f_tentativa4');
-        $h_tentativo4 = $request->get('h_tentativo4');
-        $observacion4 = $request->get('observacion4');
-        $periocidad4 = $request->get('periocidad4');
 
         $cont4 = 0;
 
         while($cont4<count($idTipoEquipo4)){
-            $cantidadpesometros = $cantidad4[$cont4];
-            for($i=0;$i<$cantidadpesometros;$i++) {
+
                 $pesometro = new Pesometro();
                 $pesometro->f37_id = $f37->numero;
-                $pesometro->cantidad4 = 1;
+                $pesometro->cantidad4 = $cantidad4[$cont4];
                 $pesometro->tipoEquipo4_id = $idTipoEquipo4[$cont4];
                 $pesometro->marca4_id = $marca4_id[$cont4];
                 $pesometro->modelo4_id = $modelo4_id{$cont4};
-                $pesometro->ubicacion4 = $ubicacion4[$cont4];
                 $pesometro->rango_uso = $rango_uso[$cont4];
-                $pesometro->capacidad4 = $capacidad4[$cont4];
-                $pesometro->unidadc4_id = $unidadc4_id[$cont4];
-                $pesometro->graduacion4 = $graduacion4[$cont4];
-                $pesometro->unidadg4_id = $unidadg4_id[$cont4];
+                $pesometro->capacidad3 = $capacidad3[$cont4];
+                $pesometro->unidadc3_id = $unidadc3_id[$cont4];
                 $pesometro->condicion4_id = $condicion4_id[$cont4];
                 $pesometro->fu_mantencion3 = $fu_mantencion3[$cont4];
                 $pesometro->fu_calibracion3 = $fu_calibracion3[$cont4];
-                $pesometro->v_referencial4 = $v_referencial4[$cont4];
                 $pesometro->v_unitario4 = $v_unitario4[$cont4];
+                $pesometro->subtotal4=$subtotal4[$cont4];
                 $pesometro->f_tentativa4 = $f_tentativa4[$cont4];
-                $pesometro->h_tentativo4 = $h_tentativo4[$cont4];
-                $pesometro->observacion4 = $observacion4[$cont4];
-                $pesometro->periocidad4 = $periocidad4[$cont4];
                 $pesometro->save();
-            }
+
             $cont4 = $cont4 +1;
         }
         return redirect('/f37')->with('mensaje','Solicitud de compra registrada exitósamente');
@@ -392,7 +445,7 @@ class F37Controller extends Controller
             ->join('unidades as uni','bas.unidadc_id','=','uni.id')
             ->join('unidades as unig','bas.unidadg_id','=','unig.id')
             ->join('condiciones as co','bas.condicion_id','=','co.id')
-            ->select('bas.cantidad as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','t.nombre as t_nombre','bas.ubicacion as ubicacion','bas.puntos as puntos','bas.pesaje_mop as pesaje_mop','bas.capacidad as capacidad','uni.nombre as uni_nombre','bas.graduacion as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','bas.fu_mantencion as mantencion','bas.fu_calibracion as calibracion','bas.v_referencial as referencial','bas.v_unitario as unitario','bas.f_tentativa as tentativa','bas.h_tentativo as tentativo','bas.observacion as observacion','bas.periocidad as periocidad')
+            ->select('bas.cantidad as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','t.nombre as t_nombre','bas.puntos as puntos','bas.pesaje_mop as pesaje_mop','bas.capacidad as capacidad','uni.nombre as uni_nombre','bas.graduacion as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','bas.fu_mantencion as mantencion','bas.fu_calibracion as calibracion','bas.v_unitario as unitario','bas.f_tentativa as tentativa')
             ->where('bas.f37_id','=',$numero)
             ->get();
 
@@ -405,7 +458,7 @@ class F37Controller extends Controller
             ->join('unidades as uni','ba.unidadc2_id','=','uni.id')
             ->join('unidades as unig','ba.unidadg2_id','=','unig.id')
             ->join('condiciones as co','ba.condicion2_id','=','co.id')
-            ->select('ba.cantidad2 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','t.nombre as t_nombre','ba.ubicacion2 as ubicacion','ba.puntos2 as puntos','ba.capacidad2 as capacidad','uni.nombre as uni_nombre','ba.graduacion2 as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','ba.fu_mantencion2 as mantencion','ba.fu_calibracion2 as calibracion','ba.v_referencial2 as referencial','ba.v_unitario2 as unitario','ba.f_tentativa2 as tentativa','ba.h_tentativo2 as tentativo','ba.observacion2 as observacion','ba.periocidad2 as periocidad')
+            ->select('ba.cantidad2 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','t.nombre as t_nombre','ba.puntos2 as puntos','ba.capacidad2 as capacidad','uni.nombre as uni_nombre','ba.graduacion2 as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','ba.fu_mantencion2 as mantencion','ba.fu_calibracion2 as calibracion','ba.v_unitario2 as unitario','ba.f_tentativa2 as tentativa')
             ->where('ba.f37_id','=',$numero)
             ->get();
 
@@ -415,10 +468,8 @@ class F37Controller extends Controller
             ->join('marcas as ma','m.marca3_id','=','ma.id')
             ->join('modelos as mo','m.modelo3_id','=','mo.id')
             ->join('materiales as mat','m.material_id','=','mat.id')
-            ->join('unidades as uni','m.unidadc3_id','=','uni.id')
-            ->join('unidades as unig','m.unidadg3_id','=','unig.id')
             ->join('condiciones as co','m.condicion3_id','=','co.id')
-            ->select('m.cantidad3 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','mat.nombre as mat_nombre','m.clase_oiml as clase','m.ubicacion3 as ubicacion','m.capacidad3 as capacidad','uni.nombre as uni_nombre','m.graduacion3 as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','m.r_ajuste as ajuste','m.r_mantencion as mantencion','m.v_referencial3 as referencial','m.v_unitario3 as unitario','m.f_tentativa3 as tentativa','m.h_tentativo3 as tentativo','m.observacion3 as observacion','m.periocidad3 as periocidad')
+            ->select('m.cantidad3 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','mat.nombre as mat_nombre','m.clase_oiml as clase','co.nombre as co_nombre','m.r_ajuste as ajuste','m.r_mantencion as mantencion','m.v_unitario3 as unitario','m.f_tentativa3 as tentativa')
             ->where('m.f37_id','=',$numero)
             ->get();
 
@@ -427,10 +478,9 @@ class F37Controller extends Controller
             ->join('tipos_equipos as ti','p.tipoEquipo4_id','=','ti.id')
             ->join('marcas as ma','p.marca4_id','=','ma.id')
             ->join('modelos as mo','p.modelo4_id','=','mo.id')
-            ->join('unidades as uni','p.unidadc4_id','=','uni.id')
-            ->join('unidades as unig','p.unidadg4_id','=','unig.id')
+            ->join('unidades as uni','p.unidadc3_id','=','uni.id')
             ->join('condiciones as co','p.condicion4_id','=','co.id')
-            ->select('p.cantidad4 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','p.ubicacion4 as ubicacion','p.rango_uso as rango','p.capacidad4 as capacidad','uni.nombre as uni_nombre','p.graduacion4 as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','p.fu_mantencion3 as mantencion','p.fu_calibracion3 as calibracion','p.v_referencial4 as referencial','p.v_unitario4 as unitario','p.f_tentativa4 as tentativa','p.h_tentativo4 as tentativo','p.observacion4 as observacion','p.periocidad4 as periocidad')
+            ->select('p.cantidad4 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','p.rango_uso as rango','p.capacidad3 as capacidad','uni.nombre as uni_nombre','co.nombre as co_nombre','p.fu_mantencion3 as mantencion','p.fu_calibracion3 as calibracion','p.v_unitario4 as unitario','p.f_tentativa4 as tentativa')
             ->where('p.f37_id','=',$numero)
             ->get();
 

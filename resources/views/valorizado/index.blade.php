@@ -59,16 +59,17 @@
                              ?>
                 <td>{!!link_to_route('valorizado.edit',$title ='Editar',$parameters = $f37->numero,$attributes = ['class' => 'btn  btn-default btn-xs'])!!}</td>
                 </tr>
-            @endif
+                @endif
             @endforeach
             </tbody>
         </table>
-        <h5>Color Verde:Ha transcurrido hasta un día desde que se enviaron los datos</h5>
-        <h5>Color Amarillo:Han transcurrido desde un día hasta tres días desde que se enviaron los datos</h5>
-        <h5>Color Rojo:Han transcurrido más de tres días desde que se enviaron los datos</h5>
         @else
             <br/><div class='alert alert-warning'><label>No existe ninguna solicitud F-37 valorizada dentro de la lista</label></div>
         @endif
+        <h5>Color Verde:Ha transcurrido hasta un día desde que se enviaron los datos</h5>
+        <h5>Color Amarillo:Han transcurrido desde un día hasta tres días desde que se enviaron los datos</h5>
+        <h5>Color Rojo:Han transcurrido más de tres días desde que se enviaron los datos</h5>
+
     @endsection
     @section('scripts')
 

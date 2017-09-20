@@ -24,7 +24,7 @@ class ClienteUpdateRequest extends Request
     public function rules()
     {
         return [
-            'nombre' => 'required',
+            'nombre' => 'required|unique:clientes',
             'ubicacion' => 'required',
             'planta' => 'required',
         ];

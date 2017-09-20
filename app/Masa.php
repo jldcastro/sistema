@@ -14,7 +14,7 @@ class Masa extends Model
 
     public function tipo_equipo()
     {
-        return $this->hasOne('App\TipoEquipo','tipoEquipo3_id');
+        return $this->belongsTo('App\TipoEquipo');
     }
 
     public function f37()
@@ -30,16 +30,6 @@ class Masa extends Model
     public function material()
     {
         return $this->belongsTo('App\Material','material_id');
-    }
-
-    public function unidadc()
-    {
-        return $this->belongsTo('App\Unidad','unidadc_id');
-    }
-
-    public function unidadg()
-    {
-        return $this->belongsTo('App\Unidad','unidadg_id');
     }
 
     public function condicion()

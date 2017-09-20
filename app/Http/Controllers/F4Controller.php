@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Input;
 use PhpOffice\PhpWord\TemplateProcessor;
-
+use Image;
+use App\Http\Requests\F4CreateRequest;
 
 class F4Controller extends Controller
 {
@@ -54,7 +55,7 @@ class F4Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(F4CreateRequest $request)
     {
         if(Input::hasFile('foto'))
         {

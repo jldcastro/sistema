@@ -25,7 +25,6 @@ class CreateBalanzasTable extends Migration
             $table->foreign('modelo2_id')->references('id')->on('modelos')->onDelete('cascade');
             $table->integer('tipo2_id')->unsigned()->nullable();
             $table->foreign('tipo2_id')->references('id')->on('tipos')->onDelete('cascade');
-            $table->string('ubicacion2');
             $table->integer('puntos2');
             $table->integer('capacidad2');
             $table->integer('unidadc2_id')->unsigned()->nullable();
@@ -37,13 +36,9 @@ class CreateBalanzasTable extends Migration
             $table->foreign('condicion2_id')->references('id')->on('condiciones')->onDelete('cascade');
             $table->date('fu_mantencion2');
             $table->date('fu_calibracion2');
-            $table->integer('v_referencial2');
             $table->integer('v_unitario2')->nullable();
-            $table->integer('total');
+            $table->integer('totalba');
             $table->date('f_tentativa2');
-            $table->time('h_tentativo2');
-            $table->text('observacion2');
-            $table->integer('periocidad2');
             $table->timestamps();
         });
     }

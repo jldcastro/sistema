@@ -18,6 +18,11 @@ class RolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $roles = Role::orderBy('name','asc')->paginate(25);
@@ -40,11 +45,6 @@ class RolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function store(RolCreateRequest $request)
     {
         $rol=new Role;

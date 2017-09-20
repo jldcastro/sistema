@@ -37,6 +37,7 @@ class CreateF37sTable extends Migration
             $table->integer('pregunta2')->nullable();
             $table->integer('pregunta3')->nullable();
             $table->integer('nfactura')->nullable();
+            $table->string('compra')->nullable();
             $table->integer('monto_neto')->nullable();
             $table->integer('it')->nullable();
             $table->integer('vt_cotizado')->nullable();

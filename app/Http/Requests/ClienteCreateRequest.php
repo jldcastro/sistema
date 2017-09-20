@@ -24,8 +24,8 @@ class ClienteCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre' => 'required',
-            'rut_cliente' => 'required',
+            'nombre' => 'required|unique:clientes',
+            'rut_cliente' => 'required|unique:clientes',
             'ubicacion' => 'required',
             'planta' => 'required',
         ];

@@ -9,28 +9,28 @@
                     </div>
                     <div class="form-group">
                         <label for="fecha_solicitud" class="col-xs-4 control-label">Fecha solicitud:</label>
-                        <input type="date" class="form-control input" id="fecha_solicitud" name="fecha_solicitud" value="<?= $fecha_solicitud; ?>"  disabled>
+                        <input type="date" class="form-control input" id="fecha_solicitud" name="fecha_solicitud" value="<?= $fecha_solicitud; ?>"  disabled style="width: 200px;">
                     </div>
                     <div class="form-group">
                         <label for="id_usuario" class="col-xs-4 control-label">Vendedor:</label>
-                        <input type="text" class="form-control input" id="id_usuario" name="id_usuario" disabled>
+                        <input type="text" class="form-control input" disabled style="width: 200px;" value="<?= Auth::user()->name ?> <?= Auth::user()->apellido_paterno?>" >
                     </div>
                     <div class="form-group">
-                        <label for="cliente_id" class="col-xs-4 control-label">Cliente:</label>
-                        <th><select name="tipoEquipo_id[]" id="tipoEquipo_id" class="tipoEquipo_id" >
-                            <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                @foreach($clientes as $key =>$cliente)
-                                    <option value="{!!$key!!}">{!!$cliente!!}</option>
-                                @endforeach
-                        </select></th>
+                        <label for="cliente_id" class="col-xs-4 control-label">Cliente</label>
+                        <select name="cliente_id" id="cliente_id" class="cliente_id" style="width: 200px;">
+                            <option value="0" selected="true" disabled="true" class="form-control" style="height: 26px; text-align: center; margin:0px;">Seleccione</option>
+                            @foreach($clientes as $key =>$cliente)
+                                <option value="{!!$key!!}">{!!$cliente!!}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="comuna_servicio" class="col-xs-4 control-label">Comuna servicio</label>
-                        <input type="text" class="form-control input" id="comuna_servicio" name="comuna_servicio">
+                        <input type="text" class="form-control input" id="comuna_servicio" name="comuna_servicio" style="width: 200px;">
                     </div>
                     <div class="form-group">
                         <label for="lugar_servicio" class="col-xs-4 control-label">Lugar del servicio</label>
-                        <input type="text" class="form-control input" id="lugar_servicio" name="lugar_servicio">
+                        <input type="text" class="form-control input" id="lugar_servicio" name="lugar_servicio" style="width: 200px;">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -39,41 +39,41 @@
                     </div>
                     <div class="form-group">
                         <label for="nombre_contacto" class="col-xs-4 control-label">Nombre Cont:</label>
-                        <input type="text" class="form-control input" id="nombre_contacto" name="nombre_contacto" disabled>
+                        <input type="text" class="form-control input" id="nombre_contacto" name="nombre_contacto" disabled style="width: 200px;">
                     </div>
                     <div class="form-group">
                         <label for="fono_contacto" class="col-xs-4 control-label">Fono Contacto:</label>
-                        <input type="text" class="form-control input" id="fono_contacto" name="fono_contacto" disabled>
+                        <input type="text" class="form-control input" id="fono_contacto" name="fono_contacto" disabled style="width: 200px;">
                     </div>
                     <div class="form-group">
                         <label for="correo_contacto" class="col-xs-4 control-label">Correo Contacto:</label>
-                        <input type="text" class="form-control input" id="correo_contacto" name="correo_contacto" disabled>
+                        <input type="text" class="form-control input" id="correo_contacto" name="correo_contacto" disabled style="width: 200px;">
                     </div>
                     <div class="form-group">
                         <label for="direccion_cliente" class="col-xs-4 control-label">Dirección Cli:</label>
-                        <input type="text" class="form-control input" id="direccion_cliente" name="direccion_cliente" disabled>
+                        <input type="text" class="form-control input" id="direccion_cliente" name="direccion_cliente" disabled style="width: 200px;">
                     </div>
                     <div class="form-group">
                         <label for="direccion_envio" class="col-xs-4 control-label">Dirección Envío:</label>
-                        <input type="text" class="form-control input" id="direccion_envio" name="direccion_envio" disabled>
+                        <input type="text" class="form-control input" id="direccion_envio" name="direccion_envio" disabled style="width: 200px;">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="ciudad_envio" class="col-xs-4 control-label">Ciudad Envío:</label>
-                        <input type="text" class="form-control input" id="ciudad_envio" name="ciudad_envio" disabled>
+                        <input type="text" class="form-control input" id="ciudad_envio" name="ciudad_envio" disabled style="width: 200px;">
                     </div>
                     <div class="form-group">
                         <label for="ciudad_envio" class="col-xs-4 control-label">Dirección des:</label>
-                        <input type="text" class="form-control input" id="direccion_despacho" name="direccion_despacho" disabled>
+                        <input type="text" class="form-control input" id="direccion_despacho" name="direccion_despacho" disabled style="width: 200px;">
                     </div>
                     <div class="form-group">
                         <label for="nota_venta" class="col-xs-4 control-label">Nota Venta:</label>
-                        <input type="text" class="form-control input" id="nota_venta" name="nota_venta" disabled>
+                        <input type="text" class="form-control input" id="nota_venta" name="nota_venta" disabled style="width: 200px;">
                     </div>
                     <div class="form-group">
                         <label for="orden_compra" class="col-xs-4 control-label">Orden Compra:</label>
-                        <input type="text" class="form-control input" id="orden_compra" name="orden_compra" disabled>
+                        <input type="text" class="form-control input" id="orden_compra" name="orden_compra" disabled style="width: 200px;">
                     </div>
                 </div>
             </div>
@@ -100,1754 +100,306 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-12" id="content" style="display: none; overflow: auto">
-                    <table>
-                        <thead>
-                            <tr id="miTablaPersonalizada">
-                                <th>Cantidad</th>
-                                <th>Tipo equipo</th>
-                                <th>Marca</th>
-                                <th>Modelo</th>
-                                <th>Tipo</th>
-                                <th>Ubicación</th>
-                                <th>Puntos</th>
-                                <th>Pesaje MOP</th>
-                                <th>Capacidad</th>
-                                <th>Unidad Cap.</th>
-                                <th>Graduación</th>
-                                <th>Unidad Grad.</th>
-                                <th>Condición</th>
-                                <th>Fecha Última Mantención</th>
-                                <th>Fecha Última Cal.</th>
-                                <th>Valor Referencial</th>
-                                <th>Valor Unitario</th>
-                                <th>Fecha Tentativa</th>
-                                <th>Horario Tentativo</th>
-                                <th>Observación</th>
-                                <th>Periodicidad</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody">
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo_id[]" id="tipoEquipo_id" class="tipoEquipo_id" >
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca_id[]" id="marca_id" class="marca_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo_id" name="modelo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo_id" name="tipo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input"  id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc_id" name="unidadc_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion" id="graduacion" name="graduacion[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg_id" name="unidadg_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion_id" name="condicion_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input fu_mantencion" id="fu_mantencion" name="fu_mantencion[]"></th>
-                                <th><input type="date" class="form-control input fu_calibracion" id="fu_calibracion" name="fu_calibracion[]"></th>
-                                <th><input type="number" class="form-control input v_referencial" id="v_referencial" name="v_referencial[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input v_unitario" id="v_unitario" name="v_unitario[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input f_tentativa" id="f_tentativa" name="f_tentativa[]"></th>
-                                <th><input type="time" class="form-control input h_tentativo" id="h_tentativo" name="h_tentativo[]"></th>
-                                <th><input type="text" class="form-control input observacion" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input periocidad" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo_id[]" id="tipoEquipo1_id" class="tipoEquipo_id" >
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca_id[]" id="marca1_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo1_id" name="modelo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo1_id" name="tipo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
-                                 <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc1_id" name="unidadc_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg1_id" name="unidadg_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion1_id" name="condicion_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo_id[]" id="tipoEquipo2_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca_id[]" id="marca2_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo2_id" name="modelo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo2_id" name="tipo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input"  id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc2_id" name="unidadc_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg2_id" name="unidadg_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion2_id" name="condicion_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo_id[]" id="tipoEquipo3_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca_id[]" id="marca3_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo3_id" name="modelo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo3_id" name="tipo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc3_id" name="unidadc_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg3_id" name="unidadg_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion3_id" name="condicion_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo_id[]" id="tipoEquipo4_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca_id[]" id="marca4_id" class="marca_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo4_id" name="modelo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo4_id" name="tipo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input"  id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc4_id" name="unidadc_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion" id="graduacion" name="graduacion[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg4_id" name="unidadg_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion4_id" name="condicion_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input fu_mantencion" id="fu_mantencion" name="fu_mantencion[]"></th>
-                                <th><input type="date" class="form-control input fu_calibracion" id="fu_calibracion" name="fu_calibracion[]"></th>
-                                <th><input type="number" class="form-control input v_referencial" id="v_referencial" name="v_referencial[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input v_unitario" id="v_unitario" name="v_unitario[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input f_tentativa" id="f_tentativa" name="f_tentativa[]"></th>
-                                <th><input type="time" class="form-control input h_tentativo" id="h_tentativo" name="h_tentativo[]"></th>
-                                <th><input type="text" class="form-control input observacion" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input periocidad" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo_id[]" id="tipoEquipo5_id" class="tipoEquipo_id" >
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca_id[]" id="marca5_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo5_id" name="modelo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo5_id" name="tipo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc5_id" name="unidadc_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg5_id" name="unidadg_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion5_id" name="condicion_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo_id[]" id="tipoEquipo6_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca_id[]" id="marca6_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo6_id" name="modelo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo6_id" name="tipo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input"  id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc6_id" name="unidadc_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg6_id" name="unidadg_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion6_id" name="condicion_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo_id[]" id="tipoEquipo7_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca_id[]" id="marca7_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo7_id" name="modelo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo7_id" name="tipo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc7_id" name="unidadc_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg7_id" name="unidadg_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion7_id" name="condicion_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo_id[]" id="tipoEquipo8_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca_id[]" id="marca8_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo8_id" name="modelo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo8_id" name="tipo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input"  id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc8_id" name="unidadc_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg8_id" name="unidadg_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion8_id" name="condicion_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo_id[]" id="tipoEquipo9_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca_id[]" id="marca9_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo9_id" name="modelo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo9_id" name="tipo_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc9_id" name="unidadc_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg9_id" name="unidadg_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion9_id" name="condicion_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th><b>TOTAL</b></th>
-                                <th><b class="total"></b></th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                <div class="panel panel-default" id="content" style="display: none; overflow: auto;">
+                    <div class="panel-body">
+                        <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;"><label>Tipo Equipo</label></th>
+                                        <th style="text-align: center;"><label>Cantidad</label></th>
+                                        <th style="text-align: center;">Marca</th>
+                                        <th style="text-align: center;">Modelo</th>
+                                        <th style="text-align: center;">Tipo</th>
+                                        <th style="text-align: center;">Puntos</th>
+                                        <th style="text-align: center;">Pesaje Mop</th>
+                                        <th style="text-align: center;">Cap.</th>
+                                        <th style="text-align: center;">Unidad Cap.</th>
+                                        <th style="text-align: center;">Grad.</th>
+                                        <th style="text-align: center;">Unidad Grad.</th>
+                                        <th style="text-align: center;">Condición</th>
+                                        <th style="text-align: center;">Fecha Última Mantención</th>
+                                        <th style="text-align: center;">Fecha Última Cal.</th>
+                                        <th style="text-align: center;">Valor Unitario</th>
+                                        <th style="text-align: center;">Fecha Tentativa</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bascula">
+                                    <tr>
+                                        <td><select name="tipoEquipo_id[]" id="tipoEquipo_id" class="tipoEquipo_id">
+                                            <option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>
+                                            @foreach($tipos_equipos as $tipo_equipo)
+                                                <option value="{{$tipo_equipo->id}}">{{$tipo_equipo->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></td>
+                                        <td><select name="marca_id[]" id="marca_id" class="marca_id">
+                                            <option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>
+                                            @foreach($marcas as $marca)
+                                                <option value="{{$marca->id}}">{{$marca->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><select id="modelo_id" name="modelo_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($modelos as $modelo)
+                                                <option value="{{$modelo->id}}">{{$modelo->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><select id="tipo_id" name="tipo_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($tipos as $tipo)
+                                                <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></td>
+                                        <td><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 75px; text-align: center;"></td>
+                                        <td><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></td>
+                                        <td><select id="unidadc_id" name="unidadc_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($unidadesc as $unidad)
+                                                <option value="{{$unidad->id}}">{{$unidad->nombre}}</option>
+                                            @endforeach
+                                            </select></td>
+                                        <td><input type="number" class="form-control input graduacion" id="graduacion" name="graduacion[]" style="width: 85px; text-align:center;"></td>
+                                        <td><select id="unidadg_id" name="unidadg_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($unidadesg as $unidad2)
+                                                <option value="{{$unidad2->id}}">{{$unidad2->nombre}}</option>
+                                            @endforeach
+                                            </select></td>
+                                        <td><select id="condicion_id" name="condicion_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($condiciones as $condicion)
+                                                <option value="{{$condicion->id}}">{{$condicion->nombre}}</option>
+                                            @endforeach
+                                            </select></td>
+                                        <td><input type="date" class="form-control input fu_mantencion" id="fu_mantencion" name="fu_mantencion[]"></td>
+                                        <td><input type="date" class="form-control input fu_calibracion" id="fu_calibracion" name="fu_calibracion[]"></td>
+                                        <td><input type="number" class="form-control input v_unitario" id="v_unitario" name="v_unitario[]" style="width: 80px; text-align:center;" disabled></td>
+                                        <td><input type="date" class="form-control input f_tentativa" id="f_tentativa" name="f_tentativa[]"></td>
+                                        <td><button type="button" class="form-control input .btn btn-success btn-flat" id="agregar" style="margin-left:20px; width: 75px;">Agregar</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br><br>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-12" id="content2" style="display: none; overflow: auto">
-                    <table>
-                        <thead>
-                            <tr id="miTablaPersonalizada">
-                                <th>Cantidad</th>
-                                <th>Tipo equipo</th>
-                                <th>Marca</th>
-                                <th>Modelo</th>
-                                <th>Tipo</th>
-                                <th>Ubicación</th>
-                                <th>Puntos</th>
-                                <th>Capacidad</th>
-                                <th>Unidad Cap.</th>
-                                <th>Graduación</th>
-                                <th>Unidad Grad.</th>
-                                <th>Condición</th>
-                                <th>Fecha Última Mantención</th>
-                                <th>Fecha Última Cal.</th>
-                                <th>Valor Referencial</th>
-                                <th>Valor Unitario</th>
-                                <th>Fecha Tentativa</th>
-                                <th>Horario Tentativo</th>
-                                <th>Observación</th>
-                                <th>Periodicidad</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody2">
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo2_id[]" id="tipoEquipo10_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca2_id[]" id="marca10_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input"  style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo10_id" name="modelo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo10_id" name="tipo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="puntos" name="puntos2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad2[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc10_id" name="unidadc2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion2" id="graduacion2" name="graduacion2[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg10_id" name="unidadg2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion10_id" name="condicion2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion2[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion2[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial2[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario2[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa2[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo2_id[]" id="tipoEquipo11_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca2_id[]" id="marca11_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input"  style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo11_id" name="modelo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo11_id" name="tipo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="puntos" name="puntos2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad2[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc11_id" name="unidadc2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion2" id="graduacion2" name="graduacion2[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg11_id" name="unidadg2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion11_id" name="condicion2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion2[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion2[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial2[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario2[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa2[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo2_id[]" id="tipoEquipo12_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca2_id[]" id="marca12_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input"  style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo12_id" name="modelo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo12_id" name="tipo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="puntos" name="puntos2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad2[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc12_id" name="unidadc2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion2" id="graduacion2" name="graduacion2[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg12_id" name="unidadg2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion12_id" name="condicion2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion2[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion2[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial2[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario2[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa2[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo2_id[]" id="tipoEquipo13_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca2_id[]" id="marca13_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input"  style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo13_id" name="modelo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo13_id" name="tipo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="puntos" name="puntos2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad2[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc13_id" name="unidadc2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion2" id="graduacion2" name="graduacion2[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg13_id" name="unidadg2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion13_id" name="condicion2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion2[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion2[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial2[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario2[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa2[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo2_id[]" id="tipoEquipo14_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca2_id[]" id="marca14_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input"  style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo14_id" name="modelo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo14_id" name="tipo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="puntos" name="puntos2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad2[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc14_id" name="unidadc2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion2" id="graduacion2" name="graduacion2[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg14_id" name="unidadg2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion14_id" name="condicion2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion2[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion2[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial2[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario2[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa2[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo2_id[]" id="tipoEquipo15_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca2_id[]" id="marca15_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input"  style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo15_id" name="modelo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo15_id" name="tipo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="puntos" name="puntos2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad2[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc15_id" name="unidadc2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion2" id="graduacion2" name="graduacion2[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg15_id" name="unidadg2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion15_id" name="condicion2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion2[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion2[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial2[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario2[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa2[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo2_id[]" id="tipoEquipo16_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca2_id[]" id="marca16_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input"  style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo16_id" name="modelo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo16_id" name="tipo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="puntos" name="puntos2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad2[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc16_id" name="unidadc2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion2" id="graduacion2" name="graduacion2[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg16_id" name="unidadg2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion16_id" name="condicion2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion2[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion2[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial2[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario2[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa2[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo2_id[]" id="tipoEquipo17_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca2_id[]" id="marca17_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input"  style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo17_id" name="modelo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo17_id" name="tipo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="puntos" name="puntos2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad2[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc17_id" name="unidadc2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion2" id="graduacion2" name="graduacion2[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg17_id" name="unidadg2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion17_id" name="condicion2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion2[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion2[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial2[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario2[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa2[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo2_id[]" id="tipoEquipo18_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca2_id[]" id="marca18_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input"  style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo18_id" name="modelo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo18_id" name="tipo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="puntos" name="puntos2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad2[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc18_id" name="unidadc2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion2" id="graduacion2" name="graduacion2[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg18_id" name="unidadg2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion18_id" name="condicion2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion2[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion2[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial2[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario2[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa2[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad2[]" style="width: 75px; text-align: center;"></th>
-                                <th><select name="tipoEquipo2_id[]" id="tipoEquipo19_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca2_id[]" id="marca19_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input"  style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo19_id" name="modelo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="tipo19_id" name="tipo2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="puntos" name="puntos2[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad2[]" style="width: 80px; text-align: center;"></th>
-                                <th><select id="unidadc19_id" name="unidadc2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion2" id="graduacion2" name="graduacion2[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg19_id" name="unidadg2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion19_id" name="condicion2_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="date" class="form-control input" id="fu_mantencion" name="fu_mantencion2[]"></th>
-                                <th><input type="date" class="form-control input" id="fu_calibracion" name="fu_calibracion2[]"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial2[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario2[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa2[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo2[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion2[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad2[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th><b>TOTAL</b></th>
-                                <th><b class="total"></b></th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                <div class="panel panel-default" id="content2" style="display: none; overflow: auto;">
+                    <div class="panel-body">
+                        <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;"><label>Tipo Equipo</label></th>
+                                        <th style="text-align: center;"><label>Cantidad</label></th>
+                                        <th style="text-align: center;">Marca</th>
+                                        <th style="text-align: center;">Modelo</th>
+                                        <th style="text-align: center;">Tipo</th>
+                                        <th style="text-align: center;">Puntos</th>
+                                        <th style="text-align: center;">Cap.</th>
+                                        <th style="text-align: center;">Unidad Cap.</th>
+                                        <th style="text-align: center;">Grad.</th>
+                                        <th style="text-align: center;">Unidad Grad.</th>
+                                        <th style="text-align: center;">Condición</th>
+                                        <th style="text-align: center;">Fecha Última Mantención</th>
+                                        <th style="text-align: center;">Fecha Última Cal.</th>
+                                        <th style="text-align: center;">Valor Unitario</th>
+                                        <th style="text-align: center;">Fecha Tentativa</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="balanza">
+                                    <tr>
+                                        <td><select name="tipoEquipo2_id[]" id="tipoEquipo2_id" class="tipoEquipo2_id">
+                                            <option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>
+                                            @foreach($tipos_equipos2 as $tipo_equipo2)
+                                                <option value="{{$tipo_equipo2->id}}">{{$tipo_equipo2->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><input type="number" class="form-control input" id="cantidad2" name="cantidad2[]" style="width: 75px; text-align: center;"></td>
+                                        <td><select name="marca2_id[]" id="marca2_id" class="marca2_id">
+                                            <option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>
+                                            @foreach($marcas2 as $marca2)
+                                                <option value="{{$marca2->id}}">{{$marca2->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><select id="modelo2_id" name="modelo2_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($modelos2 as $modelo2)
+                                                <option value="{{$modelo2->id}}">{{$modelo2->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><select id="tipo2_id" name="tipo2_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($tipos2 as $tipo2)
+                                                <option value="{{$tipo2->id}}">{{$tipo2->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><input type="number" class="form-control input" id="puntos2" name="puntos2[]" style="width: 170px; text-align: center;"></td>
+                                        <td><input type="number" class="form-control input" id="capacidad2" name="capacidad2[]" style="width: 80px; text-align: center;"></td>
+                                        <td><select id="unidadc2_id" name="unidadc2_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($unidadesc2 as $unidad3)
+                                                <option value="{{$unidad3->id}}">{{$unidad3->nombre}}</option>
+                                            @endforeach
+                                            </select></td>
+                                        <td><input type="number" class="form-control input graduacion" id="graduacion2" name="graduacion2[]" style="width: 85px; text-align:center;"></td>
+                                        <td><select id="unidadg2_id" name="unidadg2_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($unidadesg2 as $unidad4)
+                                                <option value="{{$unidad4->id}}">{{$unidad4->nombre}}</option>
+                                            @endforeach
+                                            </select></td>
+                                        <td><select id="condicion2_id" name="condicion2_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($condiciones2 as $condicion2)
+                                                <option value="{{$condicion2->id}}">{{$condicion2->nombre}}</option>
+                                            @endforeach
+                                            </select></td>
+                                        <td><input type="date" class="form-control input fu_mantencion2" id="fu_mantencion2" name="fu_mantencion2[]"></td>
+                                        <td><input type="date" class="form-control input fu_calibracion2" id="fu_calibracion2" name="fu_calibracion2[]"></td>
+                                        <td><input type="number" class="form-control input v_unitario2" id="v_unitario2" name="v_unitario2[]" style="width: 80px; text-align:center;" disabled></td>
+                                        <td><input type="date" class="form-control input f_tentativa2" id="f_tentativa2" name="f_tentativa2[]"></td>
+                                        <td><button type="button" class="form-control input .btn btn-success btn-flat" id="agregar2" style="margin-left:20px; width: 75px;">Agregar</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br><br>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-12" id="content3" style="display: none; overflow: auto">
-                    <table>
-                        <thead>
-                            <tr id="miTablaPersonalizada">
-                                <th>Cantidad</th>
-                                <th>Tipo equipo</th>
-                                <th>Marca</th>
-                                <th>Modelo</th>
-                                <th>Material</th>
-                                <th>Clase(OIML)</th>
-                                <th>Ubicacion</th>
-                                <th>Cap.</th>
-                                <th>Unidad Cap.</th>
-                                <th>Grad.</th>
-                                <th>Unidad Grad.</th>
-                                <th>Condición</th>
-                                <th>Requiere Ajuste</th>
-                                <th>Requiere Mant.</th>
-                                <th>Valor Referencial</th>
-                                <th>Valor Unitario</th>
-                                <th>Fecha Tentativa</th>
-                                <th>Horario Tentativo</th>
-                                <th>Observación</th>
-                                <th>Periodicidad</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody3">
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select name="tipoEquipo3_id[]" id="tipoEquipo20_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca3_id[]" id="marca20_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo20_id" name="modelo3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="material_id" name="material_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input clase_oiml" id="clase_oiml" name="clase_oiml[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input ubicacion3" id="ubicacion3" name="ubicacion3[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad3" id="capacidad3" name="capacidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc20_id" name="unidadc3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion3" id="graduacion3" name="graduacion3[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg20_id" name="unidadg3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion20_id" name="condicion3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input r_ajuste" id="r_ajuste" name="r_ajuste[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input r_mantencion" id="r_mantencion" name="r_mantencion[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input v_referencial3" id="v_referencial3" name="v_referencial3[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input v_unitario3" id="v_unitario3" name="v_unitario3[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input f_tentativa3" id="f_tentativa3" name="f_tentativa3[]"></th>
-                                <th><input type="time" class="form-control input h_tentativo3" id="h_tentativo3" name="h_tentativo3[]"></th>
-                                <th><input type="text" class="form-control input observacion3" id="observacion3" name="observacion3[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input periocidad3" id="periocidad3" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select name="tipoEquipo3_id[]" id="tipoEquipo21_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca3_id[]" id="marca21_id" class="marca3_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo21_id" name="modelo3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="material1_id" name="material_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input clase_oiml" id="clase_oiml" name="clase_oiml[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input ubicacion3" id="ubicacion3" name="ubicacion3[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad3" id="capacidad3" name="capacidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc21_id" name="unidadc3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion3" id="graduacion3" name="graduacion3[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg21_id" name="unidadg3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion21_id" name="condicion3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="r_ajuste" name="r_ajuste[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="r_mantencion" name="r_mantencion[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial3" name="v_referencial3[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario3" name="v_unitario3[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa3" name="f_tentativa3[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo3" name="h_tentativo3[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion3" name="observacion3[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad3" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                                <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select name="tipoEquipo3_id[]" id="tipoEquipo22_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca3_id[]" id="marca22_id" class="marca3_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo22_id" name="modelo3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="material2_id" name="material_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input clase_oiml" id="clase_oiml" name="clase_oiml[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input ubicacion3" id="ubicacion3" name="ubicacion3[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad3" id="capacidad3" name="capacidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc22_id" name="unidadc3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion3" id="graduacion3" name="graduacion3[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg22_id" name="unidadg3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion22_id" name="condicion3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input r_ajuste" id="r_ajuste" name="r_ajuste[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input r_mantencion" id="r_mantencion" name="r_mantencion[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input v_referencial3" id="v_referencial3" name="v_referencial3[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input v_unitario3" id="v_unitario3" name="v_unitario3[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input f_tentativa3" id="f_tentativa3" name="f_tentativa3[]"></th>
-                                <th><input type="time" class="form-control input h_tentativo3" id="h_tentativo3" name="h_tentativo3[]"></th>
-                                <th><input type="text" class="form-control input observacion3" id="observacion3" name="observacion3[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input periocidad3" id="periocidad3" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select name="tipoEquipo3_id[]" id="tipoEquipo23_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca3_id[]" id="marca23_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo23_id" name="modelo3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="material3_id" name="material_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="clase_oiml" name="clase_oiml[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion3[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc23_id" name="unidadc3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion3[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg23_id" name="unidadg3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion23_id" name="condicion3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="r_ajuste" name="r_ajuste[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="r_mantencion" name="r_mantencion[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial3[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario3[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa3[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo3[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion3[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select name="tipoEquipo3_id[]" id="tipoEquipo24_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca3_id[]" id="marca24_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo24_id" name="modelo3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="material4_id" name="material_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="clase_oiml" name="clase_oiml[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="ubicacion3" name="ubicacion3[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad3" name="capacidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc24_id" name="unidadc3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion3" id="graduacion3" name="graduacion3[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg24_id" name="unidadg3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion24_id" name="condicion3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="r_ajuste" name="r_ajuste[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input r_mantencion" id="r_mantencion" name="r_mantencion[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input v_referencial3" id="v_referencial3" name="v_referencial3[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input v_unitario3" id="v_unitario3" name="v_unitario3[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input f_tentativa3" id="f_tentativa3" name="f_tentativa3[]"></th>
-                                <th><input type="time" class="form-control input h_tentativo3" id="h_tentativo3" name="h_tentativo3[]"></th>
-                                <th><input type="text" class="form-control input observacion3" id="observacion3" name="observacion3[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input periocidad3" id="periocidad3" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select name="tipoEquipo3_id[]" id="tipoEquipo25_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca3_id[]" id="marca25_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo25_id" name="modelo3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="material5_id" name="material_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="clase_oiml" name="clase_oiml[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion3[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc25_id" name="unidadc3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion3" id="graduacion3" name="graduacion3[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg25_id" name="unidadg3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion25_id" name="condicion3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="r_ajuste" name="r_ajuste[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="r_mantencion" name="r_mantencion[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial3[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario3[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa3[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo3[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion3[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select name="tipoEquipo3_id[]" id="tipoEquipo26_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca3_id[]" id="marca26_id" class="marca3_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo26_id" name="modelo3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="material6_id" name="material_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input clase_oiml" id="clase_oiml" name="clase_oiml[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input ubicacion3" id="ubicacion3" name="ubicacion3[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad3" id="capacidad3" name="capacidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc26_id" name="unidadc3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion3" id="graduacion3" name="graduacion3[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg26_id" name="unidadg3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion26_id" name="condicion3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="r_ajuste" name="r_ajuste[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="r_mantencion" name="r_mantencion[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial3" name="v_referencial3[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario3" name="v_unitario3[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa3" name="f_tentativa3[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo3" name="h_tentativo3[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion3" name="observacion3[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad3" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select name="tipoEquipo3_id[]" id="tipoEquipo27_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca3_id[]" id="marca27_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo27_id" name="modelo3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="material7_id" name="material_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="clase_oiml" name="clase_oiml[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion3[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc27_id" name="unidadc3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion3[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg27_id" name="unidadg3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion27_id" name="condicion3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="r_ajuste" name="r_ajuste[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="r_mantencion" name="r_mantencion[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial3[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario3[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa3[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo3[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion3[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            </tr>
-                                <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select name="tipoEquipo3_id[]" id="tipoEquipo28_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca3_id[]" id="marca28_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo28_id" name="modelo3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="material8_id" name="material_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input clase_oiml" id="clase_oiml" name="clase_oiml[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input ubicacion3" id="ubicacion3" name="ubicacion3[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad3" id="capacidad3" name="capacidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc28_id" name="unidadc3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input graduacion3" id="graduacion3" name="graduacion3[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg28_id" name="unidadg3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion28_id" name="condicion3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="r_ajuste" name="r_ajuste[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="r_mantencion" name="r_mantencion[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial3" name="v_referencial3[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario3" name="v_unitario3[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa3" name="f_tentativa3[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo3" name="h_tentativo3[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion3" name="observacion3[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad3" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select name="tipoEquipo3_id[]" id="tipoEquipo29_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select name="marca3_id[]" id="marca29_id">
-                                    <option value="0" selected="true" disabled="true" class="form-control" style="width: 100px; height: 26px; text-align: center; margin: 0px;">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo29_id" name="modelo3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="material9_id" name="material_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="clase_oiml" name="clase_oiml[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion3[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="capacidad" name="capacidad3[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc29_id" name="unidadc3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion3[]" style="width: 85px; text-align: center;"></th>
-                                <th><select id="unidadg29_id" name="unidadg3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion29_id" name="condicion3_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="r_ajuste" name="r_ajuste[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="r_mantencion" name="r_mantencion[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial3[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario3[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa3[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo3[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion3[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad3[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th><b>TOTAL</b></th>
-                                <th><b class="total"></b></th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                <div class="panel panel-default" id="content3" style="display: none; overflow: auto;">
+                    <div class="panel-body">
+                        <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;"><label>Tipo Equipo</label></th>
+                                        <th style="text-align: center;"><label>Cantidad</label></th>
+                                        <th style="text-align: center;">Marca</th>
+                                        <th style="text-align: center;">Modelo</th>
+                                        <th style="text-align: center;">Material</th>
+                                        <th style="text-align: center;">Clase(OIML)</th>
+                                        <th style="text-align: center;">Condición</th>
+                                        <th style="text-align: center;">Requiere Ajuste</th>
+                                        <th style="text-align: center;">Requiere Mant.</th>
+                                        <th style="text-align: center;">Valor Unitario</th>
+                                        <th style="text-align: center;">Fecha Tentativa</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="masa">
+                                    <tr>
+                                        <td><select name="tipoEquipo3_id[]" id="tipoEquipo3_id" class="tipoEquipo3_id">
+                                            <option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>
+                                            @foreach($tipos_equipos3 as $tipo_equipo3)
+                                                <option value="{{$tipo_equipo3->id}}">{{$tipo_equipo3->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><input type="number" class="form-control input" id="cantidad3" name="cantidad3[]" style="width: 75px; text-align: center;"></td>
+                                        <td><select name="marca3_id[]" id="marca3_id" class="marca3_id">
+                                            <option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>
+                                            @foreach($marcas3 as $marca3)
+                                                <option value="{{$marca3->id}}">{{$marca3->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><select id="modelo3_id" name="modelo3_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($modelos3 as $modelo3)
+                                                <option value="{{$modelo3->id}}">{{$modelo3->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><select id="material_id" name="material_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($materiales as $material)
+                                                <option value="{{$material->id}}">{{$material->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><input type="text" class="form-control input" id="clase_oiml" name="clase_oiml[]" style="width: 170px; text-align: center;"></td>
+                                        <td><select id="condicion3_id" name="condicion3_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($condiciones3 as $condicion3)
+                                                <option value="{{$condicion3->id}}">{{$condicion3->nombre}}</option>
+                                            @endforeach
+                                            </select></td>
+                                        <td><input type="text" class="form-control input" id="r_ajuste" name="r_ajuste[]" style="width: 80px; text-align: center"></td>
+                                        <td><input type="text" class="form-control input" id="r_mantencion" name="r_mantencion[]" style="width:80px; text-align: center;"></td>
+                                        <td><input type="number" class="form-control input" id="v_unitario3" name="v_unitario3[]" style="width: 80px; text-align:center;" disabled></td>
+                                        <td><input type="date" class="form-control input f_tentativa3" id="f_tentativa3" name="f_tentativa3[]"></td>
+                                        <td><button type="button" class="form-control input .btn btn-success btn-flat" id="agregar3" style="margin-left:20px; width: 75px;">Agregar</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br><br>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-12" id="content4" style="display: none; overflow: auto">
-                    <table>
-                        <thead>
-                            <tr id="miTablaPersonalizada">
-                                <th>Cantidad</th>
-                                <th>Tipo equipo</th>
-                                <th>Marca</th>
-                                <th>Modelo</th>
-                                <th>Ubicacion</th>
-                                <th>Rango Uso</th>
-                                <th>Cap.</th>
-                                <th>Unidad Cap.</th>
-                                <th>Grad.</th>
-                                <th>Unidad Grad.</th>
-                                <th>Condición</th>
-                                <th>Fecha última man.</th>
-                                <th>Fecha última cal.</th>
-                                <th>Valor Referencial</th>
-                                <th>Valor Unitario</th>
-                                <th>Fecha Tentativa</th>
-                                <th>Horario Tentativo</th>
-                                <th>Observación</th>
-                                <th>Periodicidad</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody4">
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="tipoEquipo30_id" name="tipoEquipo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select id="marca30_id" name="marca4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo30_id" name="modelo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion4[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input rango_uso" id="rango_uso" name="rango_uso[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad" id="capacidad4" name="capacidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc30_id" name="unidadc4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadg30_id" name="unidadg4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion30_id" name="condicion4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="fu_mantencion" name="fu_mantencion3[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="fu_calibracion" name="fu_calibracion3[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial4[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario4[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa4[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="tipoEquipo31_id" name="tipoEquipo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select id="marca31_id" name="marca4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo31_id" name="modelo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion4[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input rango_uso" id="rango_uso" name="rango_uso[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad" id="capacidad4" name="capacidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc31_id" name="unidadc4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadg31_id" name="unidadg4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion31_id" name="condicion4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="fu_mantencion" name="fu_mantencion3[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="fu_calibracion" name="fu_calibracion3[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial4[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario4[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa4[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="tipoEquipo32_id" name="tipoEquipo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select id="marca32_id" name="marca4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo32_id" name="modelo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion4[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input rango_uso" id="rango_uso" name="rango_uso[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad" id="capacidad4" name="capacidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc32_id" name="unidadc4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadg32_id" name="unidadg4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion32_id" name="condicion4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="fu_mantencion" name="fu_mantencion3[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="fu_calibracion" name="fu_calibracion3[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial4[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario4[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa4[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="tipoEquipo33_id" name="tipoEquipo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select id="marca33_id" name="marca4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo33_id" name="modelo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion4[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input rango_uso" id="rango_uso" name="rango_uso[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad" id="capacidad4" name="capacidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc33_id" name="unidadc4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadg33_id" name="unidadg4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion33_id" name="condicion4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="fu_mantencion" name="fu_mantencion3[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="fu_calibracion" name="fu_calibracion3[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial4[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario4[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa4[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="tipoEquipo34_id" name="tipoEquipo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select id="marca34_id" name="marca4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo34_id" name="modelo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion4[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input rango_uso" id="rango_uso" name="rango_uso[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad" id="capacidad4" name="capacidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc34_id" name="unidadc4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadg34_id" name="unidadg4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion34_id" name="condicion4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="fu_mantencion" name="fu_mantencion3[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="fu_calibracion" name="fu_calibracion3[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial4[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario4[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa4[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="tipoEquipo35_id" name="tipoEquipo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select id="marca35_id" name="marca4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo35_id" name="modelo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion4[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input rango_uso" id="rango_uso" name="rango_uso[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad" id="capacidad4" name="capacidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc35_id" name="unidadc4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadg35_id" name="unidadg4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion35_id" name="condicion4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="fu_mantencion" name="fu_mantencion3[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="fu_calibracion" name="fu_calibracion3[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial4[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario4[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa4[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="tipoEquipo36_id" name="tipoEquipo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select id="marca36_id" name="marca4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo36_id" name="modelo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion4[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input rango_uso" id="rango_uso" name="rango_uso[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad" id="capacidad4" name="capacidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc36_id" name="unidadc4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadg36_id" name="unidadg4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion36_id" name="condicion4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="fu_mantencion" name="fu_mantencion3[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="fu_calibracion" name="fu_calibracion3[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial4[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario4[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa4[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="tipoEquipo37_id" name="tipoEquipo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select id="marca37_id" name="marca4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo37_id" name="modelo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion4[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input rango_uso" id="rango_uso" name="rango_uso[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad" id="capacidad4" name="capacidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc37_id" name="unidadc4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadg37_id" name="unidadg4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion37_id" name="condicion4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="fu_mantencion" name="fu_mantencion3[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="fu_calibracion" name="fu_calibracion3[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial4[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario4[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa4[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="tipoEquipo38_id" name="tipoEquipo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select id="marca38_id" name="marca4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo38_id" name="modelo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion4[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input rango_uso" id="rango_uso" name="rango_uso[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad" id="capacidad4" name="capacidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc38_id" name="unidadc4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadg38_id" name="unidadg4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion38_id" name="condicion4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="fu_mantencion" name="fu_mantencion3[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="fu_calibracion" name="fu_calibracion3[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial4[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario4[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa4[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                            <tr>
-                                <th><input type="number" class="form-control input" id="cantidad" name="cantidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="tipoEquipo39_id" name="tipoEquipo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                    @foreach($tipos_equipos as $key =>$tipo_equipo)
-                                        <option value="{!!$key!!}">{!!$tipo_equipo!!}</option>
-                                    @endforeach
-                                </select></th>
-                                <th><select id="marca39_id" name="marca4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="modelo39_id" name="modelo4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="ubicacion" name="ubicacion4[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="text" class="form-control input rango_uso" id="rango_uso" name="rango_uso[]" style="width: 170px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input capacidad" id="capacidad4" name="capacidad4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadc39_id" name="unidadc4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="number" class="form-control input" id="graduacion" name="graduacion4[]" style="width: 70px; text-align: center;"></th>
-                                <th><select id="unidadg39_id" name="unidadg4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><select id="condicion39_id" name="condicion4_id[]">
-                                    <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
-                                </select></th>
-                                <th><input type="text" class="form-control input" id="fu_mantencion" name="fu_mantencion3[]" style="width: 100px;"></th>
-                                <th><input type="text" class="form-control input" id="fu_calibracion" name="fu_calibracion3[]" style="width: 100px;"></th>
-                                <th><input type="number" class="form-control input" id="v_referencial" name="v_referencial4[]" style="width: 80px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="v_unitario" name="v_unitario4[]" style="width: 80px; text-align: center;" disabled></th>
-                                <th><input type="date" class="form-control input" id="f_tentativa" name="f_tentativa4[]"></th>
-                                <th><input type="time" class="form-control input" id="h_tentativo" name="h_tentativo4[]"></th>
-                                <th><input type="text" class="form-control input" id="observacion" name="observacion4[]" style="width: 300px; text-align: center;"></th>
-                                <th><input type="number" class="form-control input" id="periocidad" name="periocidad4[]" style="width: 90px; text-align: center;"></th>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th><b>TOTAL</b></th>
-                                <th><b class="total"></b></th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                <div class="panel panel-default" id="content4" style="display: none; overflow: auto;">
+                    <div class="panel-body">
+                        <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;"><label>Tipo Equipo</label></th>
+                                        <th style="text-align: center;"><label>Cantidad</label></th>
+                                        <th style="text-align: center;">Marca</th>
+                                        <th style="text-align: center;">Modelo</th>
+                                        <th style="text-align: center;">Cap.</th>
+                                        <th style="text-align: center;">Unidad Cap.</th>
+                                        <th style="text-align: center;">Rango Uso</th>
+                                        <th style="text-align: center;">Condición</th>
+                                        <th style="text-align: center;">Fecha Última Mantención</th>
+                                        <th style="text-align: center;">Fecha Última Cal.</th>
+                                        <th style="text-align: center;">Valor Unitario</th>
+                                        <th style="text-align: center;">Fecha Tentativa</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="pesometro">
+                                    <tr>
+                                        <td><select name="tipoEquipo4_id[]" id="tipoEquipo4_id" class="tipoEquipo4_id">
+                                            <option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>
+                                            @foreach($tipos_equipos4 as $tipo_equipo4)
+                                                <option value="{{$tipo_equipo4->id}}">{{$tipo_equipo4->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><input type="number" class="form-control input" id="cantidad4" name="cantidad4[]" style="width: 75px; text-align: center;"></td>
+                                        <td><select name="marca4_id[]" id="marca4_id" class="marca4_id">
+                                            <option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>
+                                            @foreach($marcas4 as $marca4)
+                                                <option value="{{$marca4->id}}">{{$marca4->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><select id="modelo4_id" name="modelo4_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($modelos4 as $modelo4)
+                                                <option value="{{$modelo4->id}}">{{$modelo4->nombre}}</option>
+                                            @endforeach
+                                        </select></td>
+                                        <td><input type="number" class="form-control input" id="capacidad3" name="capacidad3[]" style="width: 80px; text-align: center;"></td>
+                                        <td><select id="unidadc3_id" name="unidadc3_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($unidadesc3 as $unidad3)
+                                                <option value="{{$unidad3->id}}">{{$unidad3->nombre}}</option>
+                                            @endforeach
+                                            </select></td>
+                                        <td><input type="text" class="form-control input" id="rango_uso" name="rango_uso" style="width: 80px; text-align: center;"></td>
+                                        <td><select id="condicion4_id" name="condicion4_id[]">
+                                            <option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>
+                                            @foreach($condiciones4 as $condicion4)
+                                                <option value="{{$condicion4->id}}">{{$condicion4->nombre}}</option>
+                                            @endforeach
+                                            </select></td>
+                                        <td><input type="date" class="form-control input fu_mantencion3" id="fu_mantencion3" name="fu_mantencion3[]"></td>
+                                        <td><input type="date" class="form-control input fu_calibracion3" id="fu_calibracion3" name="fu_calibracion3[]"></td>
+                                        <td><input type="number" class="form-control input v_unitario4" id="v_unitario4" name="v_unitario4[]" style="width: 80px; text-align:center;" disabled></td>
+                                        <td><input type="date" class="form-control input f_tentativa4" id="f_tentativa4" name="f_tentativa4[]"></td>
+                                        <td><button type="button" class="form-control input .btn btn-success btn-flat" id="agregar4" style="margin-left:20px; width: 75px;">Agregar</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br><br>
+                    </div>
                 </div>
-            </div>
             <div class="row">
                 <div class="form-group col-md-12">
                     <label for="observaciones">Observaciones</label>
@@ -1861,7 +413,6 @@
                     <textarea class="form-control" rows="3" cols="40" disabled></textarea>
                 </div>
             </div>
-            <h4>Uso interno del laboratorio</h4>
             <div class="row">
                 <div class="col-md-12">
                      <div class="form-group">
@@ -1923,15 +474,256 @@
                     </div>
                 </div>
             </div>
-    {!!Form::submit('Registrar',array('class' => '.btn btn-primary col-md-offset-5'))!!}
-        {!!Form::hidden('_token',csrf_token())!!}
+                <div class="col-md-12" id="guardar">
+                    <div class="form-group">
+                        <input name="_token" value="{{ csrf_token() }}" type="hidden">
+                        <button type="button" class=".btn btn-success btn-flat col-md-offset-5"><a href="{!! URL::to('/f37') !!}" style="color: #ffffff">Atrás</a></button>
+                        <button class=".btn btn-primary" type="submit">Registrar</button>
+                    </div>
+                </div>
+            </div>
     {!!Form::close() !!}
 
 @endsection
 @section('scripts')
     <!-- abrir y cerrar checkbox -->
     {!!Html::script('js/open-close.js')!!}
-    <!-- select dinámico -->
-    {!!Html::script('js/dropdown.js')!!}
-@endsection
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var i = 1;
+            $("#agregar").click(function(){
+                i++;
+                $("#bascula").append('<tr id="fila'+i+'">'+
+                    '<td><select name="tipoEquipo_id[]" id="tipoEquipo_id" class="tipoEquipo_id">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>'+
+                        '@foreach($tipos_equipos as $tipo_equipo)'+
+                            '<option value="{{$tipo_equipo->id}}">{{$tipo_equipo->nombre}}</option>'+
+                        '@endforeach'+
+                        '</select></td>'+
+                    '<td><input type="number" class="form-control input" id="cantidad" name="cantidad[]" style="width: 75px; text-align: center;"></td>'+
+                    '<td><select name="marca_id[]" id="marca_id" class="marca_id">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>'+
+                        '@foreach($marcas as $marca)'+
+                            '<option value="{{$marca->id}}">{{$marca->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><select id="modelo_id" name="modelo_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($modelos as $modelo)'+
+                            '<option value="{{$modelo->id}}">{{$modelo->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><select id="tipo_id" name="tipo_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($tipos as $tipo)'+
+                            '<option value="{{$tipo->id}}">{{$tipo->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="number" class="form-control input" id="puntos" name="puntos[]" style="width: 170px; text-align: center;"></td>'+
+                    '<td><input type="text" class="form-control input" id="pesaje_mop" name="pesaje_mop[]" style="width: 75px; text-align: center;"></td>'+
+                    '<td><input type="number" class="form-control input" id="capacidad" name="capacidad[]" style="width: 80px; text-align: center;"></td>'+
+                    '<td><select id="unidadc_id" name="unidadc_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($unidadesc as $unidad)'+
+                            '<option value="{{$unidad->id}}">{{$unidad->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="number" class="form-control input graduacion" id="graduacion" name="graduacion[]" style="width: 85px; text-align:center;"></td>'+
+                    '<td><select id="unidadg_id" name="unidadg_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($unidadesg as $unidad2)'+
+                            '<option value="{{$unidad2->id}}">{{$unidad2->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><select id="condicion_id" name="condicion_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($condiciones as $condicion)'+
+                            '<option value="{{$condicion->id}}">{{$condicion->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="date" class="form-control input fu_mantencion" id="fu_mantencion" name="fu_mantencion[]"></td>'+
+                    '<td><input type="date" class="form-control input fu_calibracion" id="fu_calibracion" name="fu_calibracion[]"></td>'+
+                    '<td><input type="number" class="form-control input v_unitario" id="v_unitario" name="v_unitario[]" style="width: 80px; text-align:center;" disabled></td>'+
+                    '<td><input type="date" class="form-control input f_tentativa" id="f_tentativa" name="f_tentativa[]"></td>'+
+                    '<td><button type="button" name="remove" class=".btn btn-danger btn-flat btn_remove" id="'+i+'">X</button></td></tr>'
+                );
+            });
+
+            $(document).on('click','.btn_remove',function(){
+                var button_id=$(this).attr("id");
+                $('#fila'+button_id+'').remove();
+            });
+        });
+
+        $(document).ready(function(){
+            var i = 1;
+            $("#agregar2").click(function(){
+                i++;
+                $("#balanza").append('<tr id="fila'+i+'">'+
+                    '<td><select name="tipoEquipo2_id[]" id="tipoEquipo2_id" class="tipoEquipo2_id">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>'+
+                        '@foreach($tipos_equipos2 as $tipo_equipo2)'+
+                            '<option value="{{$tipo_equipo2->id}}">{{$tipo_equipo2->nombre}}</option>'+
+                        '@endforeach'+
+                        '</select></td>'+
+                    '<td><input type="number" class="form-control input" id="cantidad2" name="cantidad2[]" style="width: 75px; text-align: center;"></td>'+
+                    '<td><select name="marca2_id[]" id="marca2_id" class="marca2_id">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>'+
+                        '@foreach($marcas2 as $marca2)'+
+                            '<option value="{{$marca2->id}}">{{$marca2->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><select id="modelo2_id" name="modelo2_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($modelos2 as $modelo2)'+
+                            '<option value="{{$modelo2->id}}">{{$modelo2->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><select id="tipo2_id" name="tipo2_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($tipos2 as $tipo2)'+
+                            '<option value="{{$tipo2->id}}">{{$tipo2->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="number" class="form-control input" id="puntos2" name="puntos2[]" style="width: 170px; text-align: center;"></td>'+
+                    '<td><input type="number" class="form-control input" id="capacidad2" name="capacidad2[]" style="width: 80px; text-align: center;"></td>'+
+                    '<td><select id="unidadc2_id" name="unidadc2_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($unidadesc2 as $unidad3)'+
+                            '<option value="{{$unidad3->id}}">{{$unidad3->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="number" class="form-control input graduacion" id="graduacion2" name="graduacion2[]" style="width: 85px; text-align:center;"></td>'+
+                    '<td><select id="unidadg2_id" name="unidadg2_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($unidadesg2 as $unidad4)'+
+                            '<option value="{{$unidad4->id}}">{{$unidad4->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><select id="condicion2_id" name="condicion2_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($condiciones2 as $condicion2)'+
+                            '<option value="{{$condicion2->id}}">{{$condicion2->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="date" class="form-control input fu_mantencion" id="fu_mantencion2" name="fu_mantencion2[]"></td>'+
+                    '<td><input type="date" class="form-control input fu_calibracion" id="fu_calibracion2" name="fu_calibracion2[]"></td>'+
+                    '<td><input type="number" class="form-control input v_unitario" id="v_unitario2" name="v_unitario2[]" style="width: 80px; text-align:center;" disabled></td>'+
+                    '<td><input type="date" class="form-control input f_tentativa" id="f_tentativa2" name="f_tentativa2[]"></td>'+
+                    '<td><button type="button" name="remove" class=".btn btn-danger btn-flat btn_remove2" id="'+i+'">X</button></td></tr>'
+                );
+            });
+
+            $(document).on('click','.btn_remove2',function(){
+                var button_id=$(this).attr("id");
+                $('#fila'+button_id+'').remove();
+            });
+        });
+
+        $(document).ready(function(){
+            var i = 1;
+            $("#agregar3").click(function(){
+                i++;
+                $("#masa").append('<tr id="fila'+i+'">'+
+                    '<td><select name="tipoEquipo3_id[]" id="tipoEquipo3_id" class="tipoEquipo3_id">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>'+
+                        '@foreach($tipos_equipos3 as $tipo_equipo3)'+
+                            '<option value="{{$tipo_equipo3->id}}">{{$tipo_equipo3->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="number" class="form-control input" id="cantidad3" name="cantidad3[]" style="width: 75px; text-align: center;"></td>'+
+                    '<td><select name="marca3_id[]" id="marca3_id" class="marca3_id">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>'+
+                        '@foreach($marcas3 as $marca3)'+
+                            '<option value="{{$marca3->id}}">{{$marca3->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><select id="modelo3_id" name="modelo3_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($modelos3 as $modelo3)'+
+                            '<option value="{{$modelo3->id}}">{{$modelo3->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><select id="material_id" name="material_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($materiales as $material)'+
+                            '<option value="{{$material->id}}">{{$material->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="text" class="form-control input" id="clase_oiml" name="clase_oiml[]" style="width: 170px; text-align: center;"></td>'+
+                    '<td><select id="condicion3_id" name="condicion3_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($condiciones3 as $condicion3)'+
+                            '<option value="{{$condicion3->id}}">{{$condicion3->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="text" class="form-control input" id="r_ajuste" name="r_ajuste[]" style="width: 80px; text-align: center"></td>'+
+                    '<td><input type="text" class="form-control input" id="r_mantencion" name="r_mantencion[]" style="width:80px; text-align: center;"></td>'+
+                    '<td><input type="number" class="form-control input" id="v_unitario3" name="v_unitario3[]" style="width: 80px; text-align:center;" disabled></td>'+
+                    '<td><input type="date" class="form-control input f_tentativa3" id="f_tentativa3" name="f_tentativa3[]"></td>'+
+                    '<td><button type="button" name="remove" class=".btn btn-danger btn-flat btn_remove3" id="'+i+'">X</button></td></tr>'
+                        );
+                    });
+
+                    $(document).on('click','.btn_remove3',function(){
+                        var button_id=$(this).attr("id");
+                        $('#fila'+button_id+'').remove();
+                    });
+                });
+
+        $(document).ready(function(){
+            var i = 1;
+            $("#agregar4").click(function(){
+                i++;
+                $("#pesometro").append('<tr id="fila'+i+'">'+
+                    '<td><select name="tipoEquipo4_id[]" id="tipoEquipo4_id" class="tipoEquipo4_id">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>'+
+                        '@foreach($tipos_equipos4 as $tipo_equipo4)'+
+                            '<option value="{{$tipo_equipo4->id}}">{{$tipo_equipo4->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="number" class="form-control input" id="cantidad4" name="cantidad4[]" style="width: 75px; text-align: center;"></td>'+
+                    '<td><select name="marca4_id[]" id="marca4_id" class="marca4_id">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control">Seleccione</option>'+
+                        '@foreach($marcas4 as $marca4)'+
+                            '<option value="{{$marca4->id}}">{{$marca4->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><select id="modelo4_id" name="modelo4_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($modelos4 as $modelo4)'+
+                            '<option value="{{$modelo4->id}}">{{$modelo4->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="number" class="form-control input" id="capacidad3" name="capacidad3[]" style="width: 80px; text-align: center;"></td>'+
+                    '<td><select id="unidadc3_id" name="unidadc3_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($unidadesc3 as $unidad3)'+
+                            '<option value="{{$unidad3->id}}">{{$unidad3->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="text" class="form-control input" id="rango_uso" name="rango_uso" style="width: 80px; text-align: center;"></td>'+
+                    '<td><select id="condicion4_id" name="condicion4_id[]">'+
+                        '<option value="0" selected="true" disabled="true" class="form-control input">Seleccione</option>'+
+                        '@foreach($condiciones4 as $condicion4)'+
+                            '<option value="{{$condicion4->id}}">{{$condicion4->nombre}}</option>'+
+                        '@endforeach'+
+                    '</select></td>'+
+                    '<td><input type="date" class="form-control input fu_mantencion3" id="fu_mantencion3" name="fu_mantencion3[]"></td>'+
+                    '<td><input type="date" class="form-control input fu_calibracion3" id="fu_calibracion3" name="fu_calibracion3[]"></td>'+
+                    '<td><input type="number" class="form-control input v_unitario4" id="v_unitario4" name="v_unitario4[]" style="width: 80px; text-align:center;" disabled></td>'+
+                    '<td><input type="date" class="form-control input f_tentativa4" id="f_tentativa4" name="f_tentativa4[]"></td>'+
+                    '<td><button type="button" name="remove" class=".btn btn-danger btn-flat btn_remove4" id="'+i+'">X</button></td></tr>'
+                );
+            });
+
+            $(document).on('click','.btn_remove4',function(){
+                var button_id=$(this).attr("id");
+                $('#fila'+button_id+'').remove();
+            });
+        });
+
+    </script>
+
+@endsection

@@ -16,7 +16,7 @@
                     <h3 class="box-title">Ingresar nuevo usuario</h3>
                 </div><!-- /.box-header -->
                 {!!Form::open(['route' => 'usuario.store','method' => 'POST'])!!}
-                    @include('formularios.usuario')
+                    @include('usuarios.formularios.usuario')
                     <button type="button" class=".btn btn-danger btn-flat col-md-offset-4"><a href="{!! URL::to('/usuario') !!}" style="color: #ffffff">Atrás</a></button>
                     {!!Form::submit('Registrar',['class' => '.btn btn-primary col-md-offset-1'])!!}
                 {!!Form::close()!!}

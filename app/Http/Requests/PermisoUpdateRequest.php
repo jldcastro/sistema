@@ -16,6 +16,14 @@ class PermisoUpdateRequest extends Request
         return true;
     }
 
+    public function rules()
+    {
+        return [
+            'name' => 'required|unique:permissions',
+            'slug' => 'required|unique:permissions',
+        ];
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,8 +32,8 @@ class PermisoUpdateRequest extends Request
     public function messages()
     {
         return [
-            'name.required' => 'Debe ingresar algún rol de usuario',
-            'name.unique' => 'El nombre del rol ya fue registrado',
+            'name.required' => 'Debe ingresar algún permiso de usuario',
+            'name.unique' => 'El nombre del permiso ya fue registrado',
             'slug.required' => 'Debe ingresar algún slug',
             'slug.unique' => 'El nombre del slug ya fue registrado',
         ];

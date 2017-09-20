@@ -10,11 +10,11 @@ class Balanza extends Model
 
     protected $primaryKey = 'idBalanza';
 
-    protected $fillable = ['cantidad2'];
+    protected $fillable = ['tipoEquipo2_id'];
 
     public function tipo_equipo()
     {
-        return $this->hasOne('App\TipoEquipo','tipoEquipo2_id');
+        return $this->belongsTo('App\TipoEquipo');
     }
 
     public function f37()

@@ -28,7 +28,7 @@
             @foreach($f37s as $f37)
                 <tr>
                     <td>{{$f37->numero}}</td>
-                    <td>{{$f37->cliente}}</td>
+                    <td>{{$f37->cliente->nombre}}</td>
                     <td>{{date('d-m-Y', strtotime($f37->fecha_solicitud))}}</td>
                     <td>{!!link_to_route('f37.show',$title ='Ver',$parameters = $f37->numero,$attributes = ['class' => 'btn  btn-default btn-xs'])!!}</td>
                 </tr>
@@ -36,7 +36,7 @@
             </tbody>
         </table>
         @else
-            <br/><div class='alert alert-warning'><label>No existe ninguna solicitud F-37 asociada dentro de la lista</label></div>
+            <br><div class='alert alert-warning'><label>No existe ninguna solicitud F-37 asociada dentro de la lista</label></div>
         @endif
         <div class="form-group has-feedback">
             <button class=".btn btn-primary col-md-offset-5"><a href="{!!URL::to('/f37/create') !!}" style="color: #ffffff">Agregar Solicitud F-37</a></button>

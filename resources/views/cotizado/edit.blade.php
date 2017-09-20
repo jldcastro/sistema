@@ -3,34 +3,32 @@
     <div class="box-header with-border">
             <h3 class="box-title">Actualizar solicitud de compra</h3>
         </div><!-- /.box-header -->
-        {!!Form::model($f37,['route' => ['valorizado.update',$f37 -> numero],'method' => 'PUT'])!!}
+        {!!Form::model($f37,['route' => ['cotizado.update',$f37 -> numero],'method' => 'PUT'])!!}
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="id" class="col-xs-4 control-label">N°:</label>
-                    <input type="text" class="form-control input" id="numero" name="numero" value="<?= $f37->numero?>"disabled>
+                    <input type="text" class="form-control input" id="numero" name="numero" value="<?= $f37->numero?>"disabled style="width: 200px;">
                 </div>
                 <div class="form-group">
                     <label for="fecha_solicitud" class="col-xs-4 control-label">Fecha solicitud:</label>
-                    <input type="date" class="form-control input" id="fecha_solicitud" name="fecha_solicitud" value="<?php echo date('Y-m-d', strtotime($f37->fecha_solicitud)); ?>"  disabled>
+                    <input type="date" class="form-control input" id="fecha_solicitud" name="fecha_solicitud" value="<?php echo date('Y-m-d', strtotime($f37->fecha_solicitud)); ?>" disabled style="width: 200px;">
                 </div>
                 <div class="form-group">
                     <label for="id_usuario" class="col-xs-4 control-label">Vendedor:</label>
-                    <input type="text" class="form-control input" id="id_usuario" name="id_usuario" disabled>
+                    <input type="text" class="form-control input" disabled value="<?= Auth::user()->name ?> <?= Auth::user()->apellido_paterno ?>" style="width: 200px;">
                 </div>
                 <div class="form-group">
                     <label for="cliente_id" class="col-xs-4 control-label">Cliente:</label>
-                    <select name="cliente_id" class="select" disabled>
-
-                    </select>
+                    <input type="text" class="form-control input" disabled value="<?= $f37->cliente->nombre; ?>" style="width: 200px;">
                 </div>
                 <div class="form-group">
                     <label for="comuna_servicio" class="col-xs-4 control-label">Comuna servicio</label>
-                    <input type="text" class="form-control input" id="comuna_servicio" name="comuna_servicio" value="<?= $f37->comuna_servicio; ?>"  disabled>
+                    <input type="text" class="form-control input" id="comuna_servicio" name="comuna_servicio" value="<?= $f37->comuna_servicio; ?>" disabled style="width: 200px;">
                 </div>
                 <div class="form-group">
                     <label for="lugar_servicio" class="col-xs-4 control-label">Lugar del servicio</label>
-                    <input type="text" class="form-control input" id="lugar_servicio" name="lugar_servicio" value="<?= $f37->lugar_servicio; ?>"  disabled>
+                    <input type="text" class="form-control input" id="lugar_servicio" name="lugar_servicio" value="<?= $f37->lugar_servicio; ?>" disabled style="width: 200px;">
                 </div>
             </div>
             <div class="col-md-4">
@@ -39,41 +37,41 @@
                 </div>
                 <div class="form-group">
                     <label for="nombre_contacto" class="col-xs-4 control-label">Nombre Cont:</label>
-                    <input type="text" class="form-control input" id="nombre_contacto" name="nombre_contacto" value="<?= $f37->nombre_contacto; ?>">
+                    <input type="text" class="form-control input" id="nombre_contacto" name="nombre_contacto" value="<?= $f37->nombre_contacto; ?>" style="width: 200px;">
                 </div>
                 <div class="form-group">
                     <label for="fono_contacto" class="col-xs-4 control-label">Fono Contacto:</label>
-                    <input type="text" class="form-control input" id="fono_contacto" name="fono_contacto" value="<?= $f37->fono_contacto; ?>">
+                    <input type="text" class="form-control input" id="fono_contacto" name="fono_contacto" value="<?= $f37->fono_contacto; ?>" style="width: 200px;">
                 </div>
                 <div class="form-group">
                     <label for="correo_contacto" class="col-xs-4 control-label">Correo Contacto:</label>
-                    <input type="text" class="form-control input" id="correo_contacto" name="correo_contacto" value="<?= $f37->correo_contacto; ?>">
+                    <input type="text" class="form-control input" id="correo_contacto" name="correo_contacto" value="<?= $f37->correo_contacto; ?>" style="width: 200px;">
                 </div>
                 <div class="form-group">
                     <label for="direccion_cliente" class="col-xs-4 control-label">Dirección Cli:</label>
-                    <input type="text" class="form-control input" id="direccion_cliente" name="direccion_cliente" value="<?= $f37->direccion_cliente; ?>">
+                    <input type="text" class="form-control input" id="direccion_cliente" name="direccion_cliente" value="<?= $f37->direccion_cliente; ?>" style="width: 200px;">
                 </div>
                 <div class="form-group">
                     <label for="direccion_envio" class="col-xs-4 control-label">Dirección Envío:</label>
-                    <input type="text" class="form-control input" id="direccion_envio" name="direccion_envio" value="<?= $f37->direccion_envio; ?>">
+                    <input type="text" class="form-control input" id="direccion_envio" name="direccion_envio" value="<?= $f37->direccion_envio; ?>" style="width: 200px;">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="ciudad_envio" class="col-xs-4 control-label">Ciudad Envío:</label>
-                    <input type="text" class="form-control input" id="ciudad_envio" name="ciudad_envio" value="<?= $f37->ciudad_envio; ?>">
+                    <input type="text" class="form-control input" id="ciudad_envio" name="ciudad_envio" value="<?= $f37->ciudad_envio; ?>" style="width: 200px;">
                 </div>
                 <div class="form-group">
                     <label for="ciudad_envio" class="col-xs-4 control-label">Dirección des:</label>
-                    <input type="text" class="form-control input" id="direccion_despacho" name="direccion_despacho" value="<?= $f37->direccion_despacho; ?>">
+                    <input type="text" class="form-control input" id="direccion_despacho" name="direccion_despacho" value="<?= $f37->direccion_despacho; ?>" style="width: 200px;">
                 </div>
                 <div class="form-group">
                     <label for="nota_venta" class="col-xs-4 control-label">Nota Venta:</label>
-                    <input type="text" class="form-control input" id="nota_venta" name="nota_venta" value="<?= $f37->nota_venta; ?>">
+                    <input type="text" class="form-control input" id="nota_venta" name="nota_venta" value="<?= $f37->nota_venta; ?>" style="width: 200px;">
                 </div>
                 <div class="form-group">
                     <label for="orden_compra" class="col-xs-4 control-label">Orden Compra:</label>
-                    <input type="text" class="form-control input" id="orden_compra" name="orden_compra" value="<?= $f37->orden_compra; ?>">
+                    <input type="text" class="form-control input" id="orden_compra" name="orden_compra" value="<?= $f37->orden_compra; ?>" style="width: 200px;">
                 </div>
             </div>
         </div>
@@ -149,7 +147,7 @@
                                 <th><input type="text" class="form-control input" style="width: 160px; text-align: center;" disabled value="<?php if ($bas->mantencion != "0000-00-00"){echo date('d-m-Y',strtotime($bas->mantencion));} ?>"></th>
                                 <th><input type="text" class="form-control input" style="width: 120px; text-align: center;" disabled value="<?php if ($bas->calibracion != "0000-00-00"){echo date('d-m-Y',strtotime($bas->calibracion));} ?>"></th>
                                 <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($bas->referencial != 0){echo $bas->referencial;} ?>"></th>
-                                <th><input type="number" class="form-control input v_unitario" name="v_unitario[]" id="v_unitario" name="v_unitario[]" style="width: 100px; text-align: center;" value="{{ $bas->unitario }}"></th>
+                                <th><input type="number" class="form-control input v_unitario" name="v_unitario[]" id="v_unitario" name="v_unitario[]" style="width: 100px; text-align: center;" value="{{ $bas->unitario }}" disabled></th>
                                 <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($bas->tentativa != "0000-00-00"){echo date('d-m-Y',strtotime($bas->tentativa));} ?>"></th>
                                 <th><input type="text" class="form-control input" style="width: 110px; text-align: center;" disabled value="<?php if ($bas->tentativo != "00:00:00"){echo $bas->tentativo;} ?>"></th>
                                 <th><input type="text" class="form-control input" style="width: 300px; text-align: center;" disabled value="{{ $bas->observacion }}"></th>
@@ -176,7 +174,7 @@
                                 <th></th>
                                 <th></th>
                                 <th><b>TOTAL</b></th>
-                                <th><b class="total"></b></th>
+                                <th><input type="text" id="totalb" name="total[]" style="width: 100px; text-align: center" disabled value="{{ $bas->total }}"></th>
                             </tr>
                         </tfoot>
                     </table>
@@ -254,7 +252,7 @@
                             <th></th>
                             <th></th>
                             <th><b>TOTAL</b></th>
-                            <th><b class="total2"></b></th>
+                            <th><input type="text" id="totalba" name="total2[]" style="width: 100px; text-align: center" disabled value="{{ $ba->total }}"></th>
                         </tr>
                     </tfoot>
                 </table>
@@ -332,7 +330,7 @@
                             <th></th>
                             <th></th>
                             <th><b>TOTAL</b></th>
-                            <th><b class="total3"></b></th>
+                            <th><input type="text" id="totalb" name="total[]" style="width: 100px; text-align: center" disabled value="{{ $mas->total }}"></th>
                         </tr>
                     </tfoot>
                 </table>
@@ -407,7 +405,7 @@
                             <th></th>
                             <th></th>
                             <th><b>TOTAL</b></th>
-                            <th><b class="total4"></b> </th>
+                            <th><input type="text" id="totalb" name="total[]" style="width: 100px; text-align: center" disabled value="{{ $pes->total }}"></th>
                         </tr>
                     </tfoot>
                 </table>
@@ -427,6 +425,10 @@
                     <textarea class="form-control" rows="3" cols="40" disabled><?= $f37->comunicacion; ?></textarea>
                 </div>
             </div>
+            <label>¿Desea realizar el servicio?</label>
+            <br>
+            <input type="radio" name="compra" value="si">Si
+            <input type="radio" name="compra" value="no">No
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -438,8 +440,6 @@
                                     <th style="background-color: #E0F53F; width:140px;">Monto Neto</th>
                                     <th style="background-color: #E0F53F"><input type="number" class="form-control input monto_neto" id="monto_neto" name="monto_neto" style="width: 100px;" disabled></th>
                                     <th style="width:140px; background-color: transparent;"></th>
-                                    <th style="background-color: #C0C1C4; width: 40px;">N° IT</th>
-                                    <th style="background-color: #C0C1C4;"><input type="number" class="form-control input it" id="it" name="it" style="width: 100px;" disabled></th>
                                 </tr>
                                 <tr id="miTablaPersonalizada">
                                     <th style="background-color: #5D77E1"><input type="number" class="form-control input vt_cotizado" id="vt_cotizado" name="vt_cotizado" style="width: 100px;" disabled></th>
@@ -458,7 +458,8 @@
                     </div>
                 </div>
             </div>
-    {!!Form::submit('Actualizar',array('class' => '.btn btn-primary col-md-offset-5'))!!}
+            <button type="button" class=".btn btn-danger btn-flat col-md-offset-6"><a href="{!! URL::to('/cotizado') !!}" style="color: #ffffff">Atrás</a></button>
+    {!!Form::submit('Actualizar',array('class' => '.btn btn-primary'))!!}
         {!!Form::hidden('_token',csrf_token())!!}
     {!!Form::close() !!}
 @endsection

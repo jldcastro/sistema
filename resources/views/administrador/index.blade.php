@@ -20,16 +20,14 @@
         {!!Html::style('css/skins/_all-skins.min.css')!!}
         <!-- Input -->
         {!!Html::style('css/input.css')!!}
-        <!-- Equipos -->
-        {!!Html::style('css/equipos.css')!!}
         <!-- Select -->
         {!!Html::style('css/select.css')!!}
+        <!-- Equipos -->
+        {!!Html::style('css/equipos.css')!!}
         <!-- Tabla2 -->
         {!!Html::style('css/tabla2.css')!!}
         <!-- Textarea -->
         {!!Html::style('css/parrafo.css')!!}
-        <!-- Select2 -->
-        {!!Html::style('css/select2.min.css')!!}
         <!-- dataTable -->
         {!!Html::style('plugins/DataTables/media/css/jquery.dataTables.min.css')!!}
         <!-- dataTable UI-->
@@ -37,6 +35,7 @@
         <!-- Logo Empresa en la pestaña del navegador -->
         <link rel="shortcut icon" href="{{ asset('imagenes/empresa/molinstec.png') }}">
     </head>
+
         <body class="hold-transition skin-blue layout-top-nav">
                 <div class="wrapper">
                     <header class="main-header">
@@ -46,44 +45,38 @@
                                     <a href="#" class="navbar-brand"><b>MOLINSTEC</b></a>
                                 </div>
                                 <!-- Collect the nav links, forms, and other content for toggling -->
+
                                 <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                                     <ul class="nav navbar-nav">
                                         <li class="dropdown">
+
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">F-37</a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li><a href="{!!URL::to('/f37') !!}"><i class="fa fa-list"></i>Solicitudes F-37</a></li>
                                                 <li><a href="{!!URL::to('/valorizado') !!}"><i class="fa fa-list"></i>Valorizado F-37</a></li>
                                                 <li><a href="{!!URL::to('/cotizado') !!}"><i class="fa fa-list"></i>Cotizado F-37</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="nav navbar-nav">
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ingresar I.T</a>
-                                        </li>
-                                    </ul>
-                                    <ul class="nav navbar-nav">
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ingresar Certificado</a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#"><i class="fa fa-circle"></i>Báscula</a></li>
-                                                <li><a href="#"><i class="fa fa-circle"></i>Balanzas</a></li>
-                                                <li><a href="#"><i class="fa fa-circle"></i>Masas</a></li>
-                                                <li><a href="#"><i class="fa fa-circle"></i>Pesómetros</a></li>
+                                                <li><a href="{!!URL::to('/perdida') !!}"><i class="fa fa-list"></i>Perdida F-37</a></li>
+                                                <li><a href="{!!URL::to('/finalizado') !!}"><i class="fa fa-list"></i>Finalizado F-37</a></li>
+                                                <li><a href="{!!URL::to('/realizado') !!}"><i class="fa fa-list"></i>Realizado F-37</a></li>
                                             </ul>
                                         </li>
                                     </ul>
                                     <ul class="nav navbar-nav">
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informes</a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="{!!URL::to('/pdf') !!}"><i class="fa fa-list"></i>Básculas</a></li>
+                                                <li><a href="{!!URL::to('/pdf2') !!}"><i class="fa fa-list"></i>Balanzas</a></li>
+                                                <li><a href="{!!URL::to('/pdf3') !!}"><i class="fa fa-list"></i>Masas</a></li>
+                                                <li><a href="{!!URL::to('/pdf4') !!}"><i class="fa fa-list"></i>Pesómetros</a></li>
+                                                <li><a href="{!!URL::to('/pdf5') !!}"><i class="fa fa-list"></i>Clientes</a></li>
+                                            </ul>
                                         </li>
                                     </ul>
                                     <ul class="nav navbar-nav">
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Parámetros</a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#"><i class="fa fa-caret-square-o-left"></i>Atrasos</a></li>
-                                                <li><a href="#"><i class="fa fa-circle"></i>Estados</a></li>
                                                 <li><a href="{!!URL::to('/usuario') !!}"><i class="fa fa-users"></i>Usuarios</a>
                                                 <li><a href="{!!URL::to('/rol') !!}"><i class="fa fa-circle"></i>Roles</a></li>
                                                 <li><a href="{!!URL::to('/permiso') !!}"><i class="fa fa-users"></i>Permisos</a>
@@ -122,6 +115,21 @@
                                         </li>
                                     </ul>
                                 </div>
+
+                        <?php if(Auth::check()&& Auth::user()->is('vendedor'))
+                             {?>
+                                <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">F-37</a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="{!!URL::to('/f37') !!}"><i class="fa fa-list"></i>Solicitudes F-37</a></li>
+                                                <li><a href="{!!URL::to('/cotizado') !!}"><i class="fa fa-list"></i>Cotizado F-37</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                        <?php } ?>
                             <!-- /.navbar-collapse -->
                             <!-- Navbar Right Menu -->
                             <div class="navbar-custom-menu">
@@ -130,7 +138,7 @@
                                     <li class="dropdown user user-menu">
                                         <!-- Menu Toggle Button -->
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
+                                            <span class="hidden-xs">{{Auth::user()->name .' '. Auth::user()->apellido_paterno}}</span>
                                         </a>
                                         <ul class="dropdown-menu">
                                             <!-- The user image in the menu -->
@@ -178,6 +186,7 @@
         <!-- ui  -->
         {!!Html::script('plugins/jquery-ui/ui/minified/jquery-ui.min.js')!!}
         @yield('scripts')
+
     </body>
 </html>
 

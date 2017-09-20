@@ -24,8 +24,8 @@ class PermisoCreateRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|unique:roles',
-            'slug' => 'required|unique:roles',
+            'name' => 'required|unique:permissions',
+            'slug' => 'required|unique:permissions',
         ];
     }
 

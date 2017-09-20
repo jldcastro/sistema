@@ -1,5 +1,6 @@
 $("#tipoEquipo_id").change(function(event){
     $.get("marcas/"+event.target.value+"",function(response,tipoEquipo_id){
+
         $("#marca_id").empty();
 
         $("#marca_id").append("<option>Seleccione</option>");

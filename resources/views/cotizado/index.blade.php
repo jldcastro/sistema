@@ -33,7 +33,7 @@
                 @if($f37->estado == 'cotizado')
                 <tr>
                 <td>{{$f37->numero}}</td>
-                <td>{{$f37->cliente}}</td>
+                <td>{{$f37->cliente->nombre}}</td>
                 <td>{{date('d-m-Y', strtotime($f37->fecha_solicitud))}}</td>
                 <td>{{$f37->estado}}</td>
                 <?php

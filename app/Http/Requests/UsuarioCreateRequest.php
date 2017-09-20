@@ -24,7 +24,7 @@ class UsuarioCreateRequest extends Request
     public function rules()
     {
         return [
-            'codigo_usuario' => 'required',
+            'codigo_usuario' => 'required|numeric|max:8|unique:users',
             'name' => 'required',
             'email' => 'required|unique:users',
             'password' => 'required',
