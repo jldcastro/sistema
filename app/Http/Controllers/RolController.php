@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RolCreateRequest;
+use App\Http\Requests\RolUpdateRequest;
 
 class RolController extends Controller
 {
@@ -17,9 +18,14 @@ class RolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $roles = Role::all();
+        $roles = Role::orderBy('name','asc')->paginate(25);
         return view('roles.index',compact('roles'));
     }
 
@@ -39,11 +45,6 @@ class RolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function store(RolCreateRequest $request)
     {
         $rol=new Role;
@@ -85,7 +86,7 @@ class RolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RolUpdateRequest $request, $id)
     {
         $rol = Role::find($id);
         $rol->name=$request->input("name");

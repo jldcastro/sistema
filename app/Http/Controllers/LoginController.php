@@ -41,7 +41,7 @@ class LoginController extends Controller
     public function store(LoginRequest $request)
     {
         if(Auth::attempt(['rut_usuario' => $request['rut_usuario'], 'password' => $request['password']])){
-            return Redirect::to('administrador');
+            return Redirect::to('inicio');
         }
         Session::flash('mensaje-error','Los datos son incorrectos');
         return Redirect::to('/login');

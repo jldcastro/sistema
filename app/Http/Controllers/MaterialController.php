@@ -26,8 +26,8 @@ class MaterialController extends Controller
 
     public function index()
     {
-        $materiales = Material::orderBy('nombre', 'asc')->paginate(20);
-        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->paginate(20);
+        $materiales = Material::orderBy('nombre', 'asc')->paginate(25);
+        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->paginate(25);
         return view('materiales.index',compact('materiales','tipos_equipos'));
     }
 

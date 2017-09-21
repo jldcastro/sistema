@@ -14,7 +14,7 @@ class Pesometro extends Model
 
     public function tipo_equipo()
     {
-        return $this->hasOne('App\TipoEquipo','tipoEquipo4_id');
+        return $this->belongsTo('App\TipoEquipo');
     }
 
     public function f37()

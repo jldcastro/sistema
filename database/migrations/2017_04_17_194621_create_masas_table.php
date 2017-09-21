@@ -26,24 +26,13 @@ class CreateMasasTable extends Migration
             $table->integer('material_id')->unsigned()->nullable();
             $table->foreign('material_id')->references('id')->on('materiales')->onDelete('cascade');
             $table->string('clase_oiml');
-            $table->string('ubicacion3');
-            $table->integer('capacidad3');
-            $table->integer('unidadc3_id')->unsigned()->nullable();
-            $table->foreign('unidadc3_id')->references('id')->on('unidades')->onDelete('cascade');
-            $table->integer('graduacion3');
-            $table->integer('unidadg3_id')->unsigned()->nullable();
-            $table->foreign('unidadg3_id')->references('id')->on('unidades')->onDelete('cascade');
             $table->integer('condicion3_id')->unsigned()->nullable();
             $table->foreign('condicion3_id')->references('id')->on('condiciones')->onDelete('cascade');
             $table->string('r_ajuste');
             $table->string('r_mantencion');
-            $table->integer('v_referencial3');
             $table->integer('v_unitario3')->nullable();
-            $table->integer('total3');
+            $table->integer('totalma');
             $table->date('f_tentativa3');
-            $table->time('h_tentativo3');
-            $table->text('observacion3');
-            $table->integer('periocidad3');
             $table->timestamps();
         });
     }

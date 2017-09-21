@@ -2,6 +2,7 @@
     <div class="form-group">
         {!!Form::label('codigo_usuario','Código',['class' =>'col-md-3 control-label'])!!}
         {!!Form::text('codigo_usuario',null,['class' => 'form-control input', 'style' => 'width:400px;'])!!}
+        <p class="text-red" style="text-align: center">Debe ingresar el rut sin guión ni dígito verificador</p>
     </div>
     <div class="form-group">
         {!!Form::label('name','Nombre',['class' =>'col-md-3 control-label'])!!}

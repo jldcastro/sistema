@@ -25,7 +25,6 @@ class CreateBasculasTable extends Migration
             $table->foreign('modelo_id')->references('id')->on('modelos')->onDelete('cascade');
             $table->integer('tipo_id')->unsigned()->nullable();
             $table->foreign('tipo_id')->references('id')->on('tipos')->onDelete('cascade');
-            $table->string('ubicacion');
             $table->integer('puntos');
             $table->string('pesaje_mop');
             $table->integer('capacidad');
@@ -38,13 +37,9 @@ class CreateBasculasTable extends Migration
             $table->foreign('condicion_id')->references('id')->on('condiciones')->onDelete('cascade');
             $table->date('fu_mantencion');
             $table->date('fu_calibracion');
-            $table->integer('v_referencial');
             $table->integer('v_unitario')->nullable();
-            $table->integer('total');
+            $table->integer('totalbas');
             $table->date('f_tentativa');
-            $table->time('h_tentativo');
-            $table->text('observacion');
-            $table->integer('periocidad');
             $table->timestamps();
         });
     }

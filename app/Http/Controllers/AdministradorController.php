@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
+use Session;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -22,6 +23,7 @@ class AdministradorController extends Controller
     public function index()
     {
         return view('administrador.index');
+
     }
 
     /**
