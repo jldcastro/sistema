@@ -139,29 +139,37 @@ class ValorizadoController extends Controller
     public function update(Request $request, $numero)
     {
         $f37 = F37::find($numero);
+        $f37_id=$f37->numero;
 
-        $v_unitario = $request->get('v_unitario');
+
+   // dd($request->input('v_unitario'));
+
+$bascula=bascula::where('f37_id', '=', $f37_id)->get();
+    $v_unitario = $request->get('v_unitario');
         $subtotal = $request->get('subtotal');
 
-        for($i=0;$i<count($v_unitario);$i++) {
-            Bascula::where('idBascula', $v_unitario[$i])->update(['v_unitario' => $v_unitario[$i],
+                for($i=0;$i<count($v_unitario);$i++) {
+            Bascula::where('idBascula', $bascula[$i]->idBascula)->update(['v_unitario' => $v_unitario[$i],
                 'subtotal' => $subtotal[$i]]);
         }
 
+$balanza=Balanza::where('f37_id', '=', $f37_id)->get();
         $v_unitario2 = $request->get('v_unitario2');
         $subtotal2 = $request->get('subtotal2');
 
         for($j=0;$j<count($v_unitario2);$j++) {
-            Balanza::where('idBalanza', $v_unitario2[$j])->update(['v_unitario2' => $v_unitario2[$j],
+            Balanza::where('idBalanza', $balanza[$j]->idBalanza)->update(['v_unitario2' => $v_unitario2[$j],
                 'subtotal2' => $subtotal2[$j]]);
         }
+
+$pesometro=Pesometro::where('f37_id', '=', $f37_id)->get();
 
         $v_unitario4 = $request->get('v_unitario4');
         $subtotal4 = $request->get('subtotal4');
 
-        for($j=0;$j<count($v_unitario4);$j++) {
-            Pesometro::where('idPesometro', $v_unitario4[$j])->update(['v_unitario4' => $v_unitario4[$j],
-                'subtotal4' => $subtotal4[$j]]);
+        for($k=0;$k<count($v_unitario4);$k++) {
+          Pesometro::where('idPesometro', $pesometro[$k]->idPesometro)->update(['v_unitario4' => $v_unitario4[$k],
+                'subtotal4' => $subtotal4[$k]]);
         }
 
         $f37->comunicacion = $request->input('comunicacion');
