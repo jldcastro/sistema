@@ -31,7 +31,7 @@ class CreateMasasTable extends Migration
             $table->string('r_ajuste');
             $table->string('r_mantencion');
             $table->integer('v_unitario3')->nullable();
-            $table->integer('totalma');
+            $table->integer('subtotal3')->nullable();
             $table->date('f_tentativa3');
             $table->timestamps();
         });

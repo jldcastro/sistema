@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class MaterialCreateRequest extends Request
+class F37CreateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,17 @@ class MaterialCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre' => 'required|unique_with:materiales,tipoEquipo_id',
-            'tipoEquipo_id' => 'required',
+            'cliente_id' => 'required',
+            'comuna_servicio' => 'required',
+            'lugar_servicio' => 'required',
+            'tipo_cliente' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-            'nombre.required' => 'Debe ingresar algún material',
-            'nombre.unique_with' => 'La combinación de material y tipo equipo ya fue registrada',
-            'tipoEquipo_id.required' => 'Debe ingresar algún tipo de equipo',
-
+            'cliente_id.required' => 'Debe ingresar algún cliente',
         ];
     }
 }

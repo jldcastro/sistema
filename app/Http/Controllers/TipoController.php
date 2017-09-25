@@ -38,7 +38,7 @@ class TipoController extends Controller
      */
     public function create()
     {
-        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->lists('nombre','id');
+        $tipos_equipos = TipoEquipo::where('id','=',1)->orWhere('id','=',2)->orderBy('nombre', 'asc')->lists('nombre','id');
         return view('tipos.create',compact('tipos_equipos'));
     }
 

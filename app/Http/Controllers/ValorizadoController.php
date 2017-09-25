@@ -88,7 +88,7 @@ class ValorizadoController extends Controller
             ->join('unidades as uni','bas.unidadc_id','=','uni.id')
             ->join('unidades as unig','bas.unidadg_id','=','unig.id')
             ->join('condiciones as co','bas.condicion_id','=','co.id')
-            ->select('bas.idBascula as idBascula','bas.cantidad as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','t.nombre as t_nombre','bas.puntos as puntos','bas.pesaje_mop as pesaje_mop','bas.capacidad as capacidad','uni.nombre as uni_nombre','bas.graduacion as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','bas.fu_mantencion as mantencion','bas.fu_calibracion as calibracion','bas.v_unitario as unitario','bas.f_tentativa as tentativa')
+            ->select('bas.cantidad as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','t.nombre as t_nombre','bas.puntos as puntos','bas.pesaje_mop as pesaje_mop','bas.capacidad as capacidad','uni.nombre as uni_nombre','bas.graduacion as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','bas.fu_mantencion as mantencion','bas.fu_calibracion as calibracion','bas.v_unitario as unitario','bas.subtotal as subtotal','bas.f_tentativa as tentativa')
             ->where('bas.f37_id','=',$numero)
             ->get();
 
@@ -101,7 +101,7 @@ class ValorizadoController extends Controller
             ->join('unidades as uni','ba.unidadc2_id','=','uni.id')
             ->join('unidades as unig','ba.unidadg2_id','=','unig.id')
             ->join('condiciones as co','ba.condicion2_id','=','co.id')
-            ->select('ba.cantidad2 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','t.nombre as t_nombre','ba.puntos2 as puntos','ba.capacidad2 as capacidad','uni.nombre as uni_nombre','ba.graduacion2 as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','ba.fu_mantencion2 as mantencion','ba.fu_calibracion2 as calibracion','ba.v_unitario2 as unitario','ba.f_tentativa2 as tentativa')
+            ->select('ba.cantidad2 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','t.nombre as t_nombre','ba.puntos2 as puntos','ba.capacidad2 as capacidad','uni.nombre as uni_nombre','ba.graduacion2 as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','ba.fu_mantencion2 as mantencion','ba.fu_calibracion2 as calibracion','ba.v_unitario2 as unitario','ba.subtotal2 as subtotal','ba.f_tentativa2 as tentativa')
             ->where('ba.f37_id','=',$numero)
             ->get();
 
@@ -112,7 +112,7 @@ class ValorizadoController extends Controller
             ->join('modelos as mo','m.modelo3_id','=','mo.id')
             ->join('materiales as mat','m.material_id','=','mat.id')
             ->join('condiciones as co','m.condicion3_id','=','co.id')
-            ->select('m.cantidad3 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','mat.nombre as mat_nombre','m.clase_oiml as clase','co.nombre as co_nombre','m.r_ajuste as ajuste','m.r_mantencion as mantencion','m.v_unitario3 as unitario','m.f_tentativa3 as tentativa')
+            ->select('m.cantidad3 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','mat.nombre as mat_nombre','m.clase_oiml as clase','co.nombre as co_nombre','m.r_ajuste as ajuste','m.r_mantencion as mantencion','m.v_unitario3 as unitario','m.subtotal3 as subtotal','m.f_tentativa3 as tentativa')
             ->where('m.f37_id','=',$numero)
             ->get();
 
@@ -140,10 +140,29 @@ class ValorizadoController extends Controller
     {
         $f37 = F37::find($numero);
 
+        $v_unitario = $request->get('v_unitario');
+        $subtotal = $request->get('subtotal');
 
-       $subtotal4=$request->input('subtotal4');
-        dd($subtotal4);
+        for($i=0;$i<count($v_unitario);$i++) {
+            Bascula::where('idBascula', $v_unitario[$i])->update(['v_unitario' => $v_unitario[$i],
+                'subtotal' => $subtotal[$i]]);
+        }
 
+        $v_unitario2 = $request->get('v_unitario2');
+        $subtotal2 = $request->get('subtotal2');
+
+        for($j=0;$j<count($v_unitario2);$j++) {
+            Balanza::where('idBalanza', $v_unitario2[$j])->update(['v_unitario2' => $v_unitario2[$j],
+                'subtotal2' => $subtotal2[$j]]);
+        }
+
+        $v_unitario4 = $request->get('v_unitario4');
+        $subtotal4 = $request->get('subtotal4');
+
+        for($j=0;$j<count($v_unitario4);$j++) {
+            Pesometro::where('idPesometro', $v_unitario4[$j])->update(['v_unitario4' => $v_unitario4[$j],
+                'subtotal4' => $subtotal4[$j]]);
+        }
 
         $f37->comunicacion = $request->input('comunicacion');
         $f37->pregunta1 = $request->input('pregunta1');

@@ -280,6 +280,7 @@ class F37Controller extends Controller
         $fu_mantencion = $request->get('fu_mantencion');
         $fu_calibracion = $request->get('fu_calibracion');
         $v_unitario = $request->get('v_unitario');
+        $subtotal=$request->get('subtotal');
         $f_tentativa = $request->get('f_tentativa');
 
         $cont = 0;
@@ -303,6 +304,7 @@ class F37Controller extends Controller
                 $bascula->fu_mantencion = $fu_mantencion[$cont];
                 $bascula->fu_calibracion = $fu_calibracion[$cont];
                 $bascula->v_unitario = $v_unitario[$cont];
+                $bascula->subtotal=$subtotal[$cont];
                 $bascula->f_tentativa = $f_tentativa[$cont];
                 $bascula->save();
 
@@ -324,6 +326,7 @@ class F37Controller extends Controller
         $fu_mantencion2 = $request->get('fu_mantencion2');
         $fu_calibracion2 = $request->get('fu_calibracion2');
         $v_unitario2 = $request->get('v_unitario2');
+        $subtotal2=$request->get('subtotal2');
         $f_tentativa2 = $request->get('f_tentativa2');
 
         $cont2 = 0;
@@ -346,6 +349,7 @@ class F37Controller extends Controller
                 $balanza->fu_mantencion2 = $fu_mantencion2[$cont2];
                 $balanza->fu_calibracion2 = $fu_calibracion2[$cont2];
                 $balanza->v_unitario2 = $v_unitario2[$cont2];
+                $balanza->subtotal2=$subtotal2[$cont2];
                 $balanza->f_tentativa2 = $f_tentativa2[$cont2];
                 $balanza->save();
 
@@ -361,8 +365,8 @@ class F37Controller extends Controller
         $condicion3_id = $request->get('condicion3_id');
         $r_ajuste = $request->get('r_ajuste');
         $r_mantencion = $request->get('r_mantencion');
-        $v_referencial3 = $request->get('v_referencial3');
         $v_unitario3 = $request->get('v_unitario3');
+        $subtotal3= $request->get('subtotal3');
         $f_tentativa3 = $request->get('f_tentativa3');
 
         $cont3 = 0;
@@ -381,6 +385,7 @@ class F37Controller extends Controller
                 $masa->r_ajuste = $r_ajuste[$cont3];
                 $masa->r_mantencion = $r_mantencion[$cont3];
                 $masa->v_unitario3 = $v_unitario3[$cont3];
+                $masa->subtotal3 = $subtotal3[$cont3];
                 $masa->f_tentativa3 = $f_tentativa3[$cont3];
                 $masa->save();
 

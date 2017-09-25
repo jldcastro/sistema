@@ -38,6 +38,7 @@ class CreateBasculasTable extends Migration
             $table->date('fu_mantencion');
             $table->date('fu_calibracion');
             $table->integer('v_unitario')->nullable();
+            $table->integer('subtotal')->nullable();
             $table->integer('totalbas');
             $table->date('f_tentativa');
             $table->timestamps();

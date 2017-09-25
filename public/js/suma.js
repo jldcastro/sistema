@@ -1,22 +1,22 @@
 $(document).ready(function () {
-    $(".pesometro").keyup(multInputs);
 
-    function multInputs() {
-        var mult = 0;
+        $(".bascula").keyup(multInputs);
 
-        $("tr.pesometro").each(function () {
-            // get the values from this row:
-            var $val1 = parseInt($('.cantidad4', this).val());
-            var $val2 = parseInt($('.v_unitario4', this).val());
+        function multInputs() {
 
-            var $total = ($val1 * 1) * ($val2 * 1);
-
-            $('#subtotal4',this).val($total);
+            $("tr.bascula").each(function () {
+                // get the values from this row:
+                var $val1 = $('.cantidad', this).val();
+                var $val2 = $('.v_unitario', this).val();
 
 
-        });
+                var $total = ($val1 * 1) * ($val2 * 1);
 
+                $('#subtotal', this).val($total);
 
+                console.log($total);
 
-    }
+            });
+        }
 });
+

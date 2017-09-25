@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class MaterialCreateRequest extends Request
+class F4UpdateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,20 @@ class MaterialCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre' => 'required|unique_with:materiales,tipoEquipo_id',
             'tipoEquipo_id' => 'required',
+            'marca_id' => 'required',
+            'modelo_id' => 'required|unique_with:f4s,marca_id',
+            'foto' => 'required|mimes:jpeg,jpg,png|max:2000',
         ];
     }
 
     public function messages()
     {
         return [
-            'nombre.required' => 'Debe ingresar algún material',
-            'nombre.unique_with' => 'La combinación de material y tipo equipo ya fue registrada',
+            'modelo_id.unique_with' => 'La combinación de tipo equipo,modelo y marca ya fue registrada',
             'tipoEquipo_id.required' => 'Debe ingresar algún tipo de equipo',
-
+            'marca_id.required' => 'Debe ingresar alguna marca',
+            'modelo_id.required' => 'Debe ingresar algún modelo',
         ];
     }
 }

@@ -38,7 +38,7 @@ class UnidadController extends Controller
      */
     public function create()
     {
-        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->lists('nombre','id');
+        $tipos_equipos = TipoEquipo::where('id','<>',3)->orderBy('nombre', 'asc')->lists('nombre','id');
         return view('unidades.create',compact('tipos_equipos'));
     }
 

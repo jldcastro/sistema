@@ -38,7 +38,7 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        $tipos_equipos = TipoEquipo::orderBy('nombre', 'asc')->lists('nombre','id');
+        $tipos_equipos = TipoEquipo::where('id','=',3)->orderBy('nombre', 'asc')->lists('nombre','id');
         return view('materiales.create',compact('tipos_equipos'));
     }
 

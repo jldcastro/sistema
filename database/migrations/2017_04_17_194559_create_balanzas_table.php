@@ -37,6 +37,7 @@ class CreateBalanzasTable extends Migration
             $table->date('fu_mantencion2');
             $table->date('fu_calibracion2');
             $table->integer('v_unitario2')->nullable();
+            $table->integer('subtotal2')->nullable();
             $table->integer('totalba');
             $table->date('f_tentativa2');
             $table->timestamps();

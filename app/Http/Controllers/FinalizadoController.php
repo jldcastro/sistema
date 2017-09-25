@@ -1,0 +1,183 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\F37;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use DB;
+use Carbon\Carbon;
+
+class FinalizadoController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        if($request) {
+            $query = trim($request->get('searchText'));
+            $f37s = F37::select('numero', 'cliente_id', 'fecha_solicitud', 'estado', 'created_at')
+                ->where('cliente_id', 'LIKE', '%' . $query . '%')
+                ->orwhere('created_at', 'LIKE', '%' . $query . '%')
+                ->orderBy('numero', 'asc')
+                ->paginate(25);
+            return view('finalizado.index',["f37s"=>$f37s,"searchText"=>$query]);
+        }
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($numero)
+    {
+        $f37 = F37::find($numero);
+        $sql = mysqli_connect('localhost','root','','sistema');
+        $consulta = mysqli_query($sql,'SELECT (nfactura)as nfactura FROM f37s LIMIT 1');
+        $consulta = mysqli_fetch_array($consulta,MYSQLI_ASSOC);
+        $codigof = (empty($consulta['nfactura']) ? 1 : $consulta['nfactura']+1);
+
+        $total = DB::table('f37s as f37')
+            ->join('basculas as bas','f37.numero','=','bas.f37_id')
+            ->where('bas.f37_id','=',$numero)
+            ->select(DB::raw("SUM(v_unitario) as totalb"))
+            ->get();
+
+        $total2 = DB::table('f37s as f37')
+            ->join('balanzas as ba','f37.numero','=','ba.f37_id')
+            ->where('ba.f37_id','=',$numero)
+            ->select(DB::raw("SUM(v_unitario2) as totalba"))
+            ->get();
+
+        $total3 = DB::table('f37s as f37')
+            ->join('masas as ma','f37.numero','=','ma.f37_id')
+            ->where('ma.f37_id','=',$numero)
+            ->select(DB::raw("SUM(v_unitario3) as totalma"))
+            ->get();
+
+        $total4 = DB::table('f37s as f37')
+            ->join('pesometros as pe','f37.numero','=','pe.f37_id')
+            ->where('pe.f37_id','=',$numero)
+            ->select(DB::raw("SUM(v_unitario4) as totalpe"))
+            ->get();
+
+        $t=$total+$total2+$total3+$total4;
+
+        $bascula = DB::table('basculas as bas')
+            ->join('f37s as f','bas.f37_id','=','f.numero')
+            ->join('tipos_equipos as ti','bas.tipoEquipo_id','=','ti.id')
+            ->join('marcas as ma','bas.marca_id','=','ma.id')
+            ->join('modelos as mo','bas.modelo_id','=','mo.id')
+            ->join('tipos as t','bas.tipo_id','=','t.id')
+            ->join('unidades as uni','bas.unidadc_id','=','uni.id')
+            ->join('unidades as unig','bas.unidadg_id','=','unig.id')
+            ->join('condiciones as co','bas.condicion_id','=','co.id')
+            ->select('bas.cantidad as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','t.nombre as t_nombre','bas.ubicacion as ubicacion','bas.puntos as puntos','bas.pesaje_mop as pesaje_mop','bas.capacidad as capacidad','uni.nombre as uni_nombre','bas.graduacion as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','bas.fu_mantencion as mantencion','bas.fu_calibracion as calibracion','bas.v_referencial as referencial','bas.v_unitario as unitario','bas.total as total','bas.f_tentativa as tentativa','bas.h_tentativo as tentativo','bas.observacion as observacion','bas.periocidad as periocidad')
+            ->where('bas.f37_id','=',$numero)
+            ->get();
+
+        $balanza = DB::table('balanzas as ba')
+            ->join('f37s as f','ba.f37_id','=','f.numero')
+            ->join('tipos_equipos as ti','ba.tipoEquipo2_id','=','ti.id')
+            ->join('marcas as ma','ba.marca2_id','=','ma.id')
+            ->join('modelos as mo','ba.modelo2_id','=','mo.id')
+            ->join('tipos as t','ba.tipo2_id','=','t.id')
+            ->join('unidades as uni','ba.unidadc2_id','=','uni.id')
+            ->join('unidades as unig','ba.unidadg2_id','=','unig.id')
+            ->join('condiciones as co','ba.condicion2_id','=','co.id')
+            ->select('ba.cantidad2 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','t.nombre as t_nombre','ba.ubicacion2 as ubicacion','ba.puntos2 as puntos','ba.capacidad2 as capacidad','uni.nombre as uni_nombre','ba.graduacion2 as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','ba.fu_mantencion2 as mantencion','ba.fu_calibracion2 as calibracion','ba.v_referencial2 as referencial','ba.v_unitario2 as unitario','ba.f_tentativa2 as tentativa','ba.h_tentativo2 as tentativo','ba.observacion2 as observacion','ba.periocidad2 as periocidad')
+            ->where('ba.f37_id','=',$numero)
+            ->get();
+
+        $masa = DB::table('masas as m')
+            ->join('f37s as f','m.f37_id','=','f.numero')
+            ->join('tipos_equipos as ti','m.tipoEquipo3_id','=','ti.id')
+            ->join('marcas as ma','m.marca3_id','=','ma.id')
+            ->join('modelos as mo','m.modelo3_id','=','mo.id')
+            ->join('materiales as mat','m.material_id','=','mat.id')
+            ->join('unidades as uni','m.unidadc3_id','=','uni.id')
+            ->join('unidades as unig','m.unidadg3_id','=','unig.id')
+            ->join('condiciones as co','m.condicion3_id','=','co.id')
+            ->select('m.cantidad3 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','mat.nombre as mat_nombre','m.clase_oiml as clase','m.ubicacion3 as ubicacion','m.capacidad3 as capacidad','uni.nombre as uni_nombre','m.graduacion3 as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','m.r_ajuste as ajuste','m.r_mantencion as mantencion','m.v_referencial3 as referencial','m.v_unitario3 as unitario','m.f_tentativa3 as tentativa','m.h_tentativo3 as tentativo','m.observacion3 as observacion','m.periocidad3 as periocidad')
+            ->where('m.f37_id','=',$numero)
+            ->get();
+
+        $pesometro = DB::table('pesometros as p')
+            ->join('f37s as f','p.f37_id','=','f.numero')
+            ->join('tipos_equipos as ti','p.tipoEquipo4_id','=','ti.id')
+            ->join('marcas as ma','p.marca4_id','=','ma.id')
+            ->join('modelos as mo','p.modelo4_id','=','mo.id')
+            ->join('unidades as uni','p.unidadc4_id','=','uni.id')
+            ->join('unidades as unig','p.unidadg4_id','=','unig.id')
+            ->join('condiciones as co','p.condicion4_id','=','co.id')
+            ->select('p.cantidad4 as cantidad','ti.nombre as ti_nombre','ma.nombre as ma_nombre','mo.nombre as mo_nombre','p.ubicacion4 as ubicacion','p.rango_uso as rango','p.capacidad4 as capacidad','uni.nombre as uni_nombre','p.graduacion4 as graduacion','unig.nombre as unig_nombre','co.nombre as co_nombre','p.fu_mantencion3 as mantencion','p.fu_calibracion3 as calibracion','p.v_referencial4 as referencial','p.v_unitario4 as unitario','p.f_tentativa4 as tentativa','p.h_tentativo4 as tentativo','p.observacion4 as observacion','p.periocidad4 as periocidad')
+            ->where('p.f37_id','=',$numero)
+            ->get();
+        return view('finalizado.edit')->with('f37',$f37)->with('codigof',$codigof)->with('bascula',$bascula)->with('balanza',$balanza)->with('masa',$masa)->with('pesometro',$pesometro)->with('total',$total);
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+
+    public function update(Request $request, $numero){
+        $f37 = F37::find($numero);
+
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}
